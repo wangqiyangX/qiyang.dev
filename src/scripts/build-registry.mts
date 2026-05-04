@@ -65,14 +65,14 @@ export const Index: Record<string, any> = {`
   const registryJSON = JSON.stringify(
     {
       $schema: "https://ui.shadcn.com/schema/registry.json",
-      name: "ncdai",
-      homepage: "https://chanhdai.com/components",
+      name: "qiyang",
+      homepage: "https://qiyang.dev/components",
       items: registry.items
         .filter((item) => item.type !== "registry:example")
         .map((item) => {
           return {
             ...item,
-            author: item.author ?? "ncdai <dai@chanhdai.com>",
+            author: item.author ?? "Qiyang Wang <hello@qiyang.dev>",
             files:
               item.files?.map((file) => {
                 if (file.path.startsWith("src/")) {
@@ -99,7 +99,8 @@ export const Index: Record<string, any> = {`
   )
 
   // Build public registry
-  await rimraf(path.join(PUBLIC_REGISTRY_PATH, "registry.json"))
+  await rimraf(PUBLIC_REGISTRY_PATH)
+  await fs.mkdir(PUBLIC_REGISTRY_PATH, { recursive: true })
   await fs.writeFile(
     path.join(PUBLIC_REGISTRY_PATH, "registry.json"),
     registryJSON,

@@ -1,11 +1,11 @@
 import { SITE_INFO } from "@/config/site"
-import { getAllDocs } from "@/features/doc/data/documents"
+import { getBlogDocs } from "@/features/doc/data/documents"
 
-const allPosts = getAllDocs()
+const allPosts = getBlogDocs()
 
-const content = `# chanhdai.com
+const content = `# qiyang.dev
 
-> A minimal, pixel-perfect dev portfolio, shadcn registry, and blog to showcase my work as a Design Engineer.
+> A personal website, shadcn registry, and blog for projects, notes, and reusable UI experiments.
 
 - [About](${SITE_INFO.url}/about.md): A quick intro to me, my tech stack, and how to connect.
 - [Experience](${SITE_INFO.url}/experience.md): Highlights from my career and key roles I've taken on.

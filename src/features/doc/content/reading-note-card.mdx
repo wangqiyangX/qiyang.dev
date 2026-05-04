@@ -1,0 +1,92 @@
+---
+title: Reading Note Card
+description: A compact card for presenting a reading note with source, summary, and tags.
+category: components
+new: true
+createdAt: 2026-05-04
+updatedAt: 2026-05-04
+---
+
+<ComponentPreview
+  className="**:data-[slot=component-preview]:min-h-56"
+  name="reading-note-card-demo"
+  openInV0Url="https://qiyang.dev/r/reading-note-card.json"
+/>
+
+## Features
+
+- Compact layout for reading notes and article highlights.
+- Accepts title, source, excerpt, metadata, and tags.
+- Uses local design tokens for light and dark mode.
+- Keeps styling self-contained and easy to adapt.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @qiyang/reading-note-card
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="reading-note-card"
+  title="components/reading-note-card.tsx"
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ReadingNoteCard } from "@/components/reading-note-card"
+```
+
+```tsx
+<ReadingNoteCard
+  title="Notes should be small enough to keep moving"
+  source="Component note"
+  excerpt="A compact card for showing a reading note with context, summary, and lightweight tags."
+  meta="May 2026"
+  tags={["component", "notes", "ui"]}
+/>
+```
+
+## API Reference
+
+### ReadingNoteCard
+
+Extends the native `article` element and accepts these additional props.
+
+| Prop      | Type       | Description                       |
+| --------- | ---------- | --------------------------------- |
+| `title`   | `string`   | Main note title.                  |
+| `source`  | `string`   | Small label for the note source.  |
+| `excerpt` | `string`   | Short summary shown in the card.  |
+| `meta`    | `string`   | Compact metadata, such as a date. |
+| `tags`    | `string[]` | Optional tags rendered as badges. |

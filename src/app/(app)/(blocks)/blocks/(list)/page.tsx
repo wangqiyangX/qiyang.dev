@@ -37,15 +37,7 @@ export const metadata: Metadata = {
   },
 }
 
-const FEATURED_BLOCKS = [
-  "team-01",
-  "hero-01",
-  "blog-02",
-  "blog-01",
-  "testimonials-01",
-  "testimonials-02",
-  "experience-01",
-]
+const FEATURED_BLOCKS: string[] = []
 
 export default function BlocksPage() {
   return (

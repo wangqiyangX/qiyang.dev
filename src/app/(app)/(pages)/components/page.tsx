@@ -67,7 +67,11 @@ npx shadcn@latest registry add ${registryConfig.namespace}
 \`\`\``
 
 export default function Page() {
-  const posts = getDocsByCategory("components")
+  const components = getDocsByCategory("components").sort((a, b) =>
+    a.metadata.title.localeCompare(b.metadata.title, "en", {
+      sensitivity: "base",
+    })
+  )
 
   return (
     <div className="min-h-svh">
@@ -137,28 +141,28 @@ export default function Page() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-          {posts
-            .slice()
-            .sort((a, b) =>
-              a.metadata.title.localeCompare(b.metadata.title, "en", {
-                sensitivity: "base",
-              })
-            )
-            .map((c) => (
-              <ComponentItem key={c.slug} href={`/components/${c.slug}`}>
-                <ComponentItemIcon>
-                  <ComponentIcon variant={c.slug} />
-                  {(c.metadata.new || c.metadata.updated) && (
-                    <ComponentItemDot
-                      aria-label={c.metadata.new ? "New" : "Updated"}
-                    />
-                  )}
-                </ComponentItemIcon>
-                <ComponentItemTitle as="h2">
-                  {c.metadata.title}
+          {components.map((component) => (
+            <ComponentItem
+              key={component.slug}
+              href={`/components/${component.slug}`}
+            >
+              <ComponentItemIcon>
+                {(component.metadata.new || component.metadata.updated) && (
+                  <ComponentItemDot />
+                )}
+                <ComponentIcon variant={component.slug} />
+              </ComponentItemIcon>
+
+              <div className="min-w-0">
+                <ComponentItemTitle>
+                  {component.metadata.title}
                 </ComponentItemTitle>
-              </ComponentItem>
-            ))}
+                <p className="line-clamp-1 text-sm text-muted-foreground">
+                  {component.metadata.description}
+                </p>
+              </div>
+            </ComponentItem>
+          ))}
         </div>
       </div>
 

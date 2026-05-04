@@ -5,6 +5,10 @@ import { addQueryParams } from "@/utils/url"
 const GOLD_SPONSORS = SPONSORS.filter((sponsor) => sponsor.tier === "gold")
 
 export function DocSponsors() {
+  if (GOLD_SPONSORS.length === 0) {
+    return null
+  }
+
   return (
     <aside
       className="not-prose my-[1.25em] rounded-xl bg-surface p-1"

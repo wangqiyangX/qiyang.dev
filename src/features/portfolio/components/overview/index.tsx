@@ -1,8 +1,10 @@
 import {
+  GalleryVertical,
   LinkIcon,
   MapPinIcon,
   MarsIcon,
   NonBinaryIcon,
+  NotebookPen,
   VenusIcon,
 } from "lucide-react"
 
@@ -28,10 +30,10 @@ export function Overview() {
       <h2 className="sr-only">Overview</h2>
 
       <PanelContent className="space-y-2.5">
-        {USER.jobs.map((job, index) => {
+        {USER.jobs.map((job) => {
           return (
             <JobItem
-              key={index}
+              key={job.title}
               title={job.title}
               company={job.company}
               website={job.website}
@@ -79,6 +81,34 @@ export function Overview() {
             <IntroItemIcon>{getGenderIcon(USER.gender)}</IntroItemIcon>
             <IntroItemContent aria-label={`Pronouns: ${USER.pronouns}`}>
               {USER.pronouns}
+            </IntroItemContent>
+          </IntroItem>
+
+          <IntroItem>
+            <IntroItemIcon>
+              <GalleryVertical />
+            </IntroItemIcon>
+            <IntroItemContent>
+              <IntroItemLink
+                href={"https://photos.qiyang.dev"}
+                aria-label={"Personal photos"}
+              >
+                {"Photos"}
+              </IntroItemLink>
+            </IntroItemContent>
+          </IntroItem>
+
+          <IntroItem>
+            <IntroItemIcon>
+              <NotebookPen />
+            </IntroItemIcon>
+            <IntroItemContent>
+              <IntroItemLink
+                href={"https://notes.qiyang.dev"}
+                aria-label={"Personal notes"}
+              >
+                {"Notes"}
+              </IntroItemLink>
             </IntroItemContent>
           </IntroItem>
         </div>
