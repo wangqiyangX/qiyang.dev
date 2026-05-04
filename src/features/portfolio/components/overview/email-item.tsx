@@ -5,6 +5,7 @@ import { MailIcon } from "lucide-react"
 import { useHotkeys } from "react-hotkeys-hook"
 import { toast } from "sonner"
 
+import { Icons } from "@/components/icons"
 import { useIsClient } from "@/hooks/use-is-client"
 import { trackEvent } from "@/lib/events"
 import { CopyButton } from "@/registry/components/copy-button"
@@ -46,23 +47,19 @@ export function EmailItem({ email }: EmailItemProps) {
         <MailIcon />
       </IntroItemIcon>
 
-      <IntroItemContent>
-        <IntroItemLink
-          href={isClient ? `mailto:${emailDecoded}` : "#"}
-          aria-label={
-            isClient ? `Send email to ${emailDecoded}` : "Email address"
-          }
-        >
-          {isClient ? emailDecoded : "[Email protected]"}
+      <IntroItemContent className="flex">
+        <IntroItemLink href={isClient ? `mailto:${emailDecoded}` : "#"}>
+          {isClient ? emailDecoded : "name@example.com"}
         </IntroItemLink>
       </IntroItemContent>
 
-      <div className="-translate-x-3 translate-y-px opacity-0 transition-opacity ease-out group-hover:opacity-100">
+      <div className="-translate-x-3 translate-y-0.5 opacity-0 transition-opacity ease-out group-hover:opacity-100">
         <CopyButton
-          className="rounded-md border-none text-muted-foreground [&_svg:not([class*='size-'])]:size-3.5"
+          className="rounded-md border-none text-muted-foreground [&_svg:not([class*='size-'])]:size-4"
           variant="ghost"
           size="icon-xs"
-          text={isClient ? emailDecoded : "[Email protected]"}
+          text={() => emailDecoded}
+          idleIcon={<Icons.copy />}
           onCopySuccess={() => {
             trackEvent({
               name: "copy_email",

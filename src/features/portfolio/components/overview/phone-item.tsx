@@ -5,6 +5,7 @@ import { PhoneIcon } from "lucide-react"
 import { useHotkeys } from "react-hotkeys-hook"
 import { toast } from "sonner"
 
+import { Icons } from "@/components/icons"
 import { useIsClient } from "@/hooks/use-is-client"
 import { trackEvent } from "@/lib/events"
 import { CopyButton } from "@/registry/components/copy-button"
@@ -47,23 +48,19 @@ export function PhoneItem({ phoneNumber }: PhoneItemProps) {
         <PhoneIcon />
       </IntroItemIcon>
 
-      <IntroItemContent>
-        <IntroItemLink
-          href={isClient ? `tel:${phoneNumberDecoded}` : "#"}
-          aria-label={
-            isClient ? `Call ${phoneNumberFormatted}` : "Phone number"
-          }
-        >
-          {isClient ? phoneNumberFormatted : "[Phone protected]"}
+      <IntroItemContent className="flex">
+        <IntroItemLink href={isClient ? `tel:${phoneNumberDecoded}` : "#"}>
+          {isClient ? phoneNumberFormatted : "+84 123 456 789"}
         </IntroItemLink>
       </IntroItemContent>
 
-      <div className="-translate-x-3 opacity-0 transition-opacity ease-out group-hover:opacity-100">
+      <div className="-translate-x-3 translate-y-px opacity-0 transition-opacity ease-out group-hover:opacity-100">
         <CopyButton
-          className="rounded-md border-none text-muted-foreground [&_svg:not([class*='size-'])]:size-3.5"
+          className="rounded-md border-none text-muted-foreground [&_svg:not([class*='size-'])]:size-4"
           variant="ghost"
           size="icon-xs"
-          text={isClient ? phoneNumberDecoded : "[Phone protected]"}
+          text={() => phoneNumberDecoded}
+          idleIcon={<Icons.copy />}
           onCopySuccess={() => {
             trackEvent({
               name: "copy_phone_number",

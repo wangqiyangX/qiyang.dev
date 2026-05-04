@@ -25,7 +25,6 @@ A minimal, pixel-perfect dev portfolio, shadcn registry, and blog to showcase my
 - Spam-protected email
 - Installable as PWA
 - Analytics with [PostHog](https://posthog.com) and [OpenPanel](https://openpanel.dev)
-- Consent management via [c15t](https://c15t.com)
 
 ### Content
 

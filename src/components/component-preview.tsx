@@ -83,7 +83,7 @@ export function ComponentPreview({
               Code
             </TabsTrigger>
 
-            <TabsIndicator className="h-0.5 translate-y-px rounded-none bg-foreground shadow-none dark:bg-foreground" />
+            <TabsIndicator className="h-0.5 translate-y-px rounded-none bg-foreground ring-0 dark:bg-foreground" />
           </TabsList>
         </div>
 

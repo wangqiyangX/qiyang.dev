@@ -15,9 +15,9 @@ import {
   MoonStar,
   Quote,
   RssIcon,
+  SquareDashed,
   SunMedium,
   TextInitial,
-  TriangleDashed,
   Type,
 } from "lucide-react"
 import { useTheme } from "next-themes"
@@ -372,7 +372,7 @@ export function CommandMenu({
             <CommandItem
               onSelect={() => handleOpenLink("/blog/chanhdai-brand")}
             >
-              <TriangleDashed />
+              <SquareDashed />
               Brand Guidelines
             </CommandItem>
 
