@@ -4,6 +4,7 @@ import { useRouter } from "@bprogress/next/app"
 import { useCommandState } from "cmdk"
 import {
   Bookmark,
+  BookOpen,
   Box,
   BriefcaseBusiness,
   CircleCheckBig,
@@ -127,6 +128,11 @@ const PORTFOLIO_LINKS: CommandLinkItem[] = [
     title: "Certifications",
     href: "/#certs",
     icon: <CircleCheckBig />,
+  },
+  {
+    title: "Books",
+    href: "/#books",
+    icon: <BookOpen />,
   },
   {
     title: "Bookmarks",

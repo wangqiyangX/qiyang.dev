@@ -16,7 +16,7 @@ export const USER: User = {
     "The best way to predict the future is to create it.",
   ],
   address: "Beijing, China",
-  phoneNumber: "KzQ0IDc3MzE3NDIzNDM=", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
+  phoneNumber: "KzQ0MDc3MzE3NDIzNDM=", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
   email: "d2FuZ3FpeWFuZ3hAZ21haWwuY29t", // base64 encoded
   website: "https://qiyang.dev",
   jobTitle: "Software Engineer",
