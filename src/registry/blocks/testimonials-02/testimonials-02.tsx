@@ -92,7 +92,7 @@ const TESTIMONIALS_2: TestimonialType[] = [
   {
     authorAvatar: "https://unavatar.io/x/MaxPrilutskiy",
     authorName: "Max Prilutskiy",
-    authorTagline: "Creator of Lingo.dev",
+    authorTagline: "CEO @Lingo.dev",
     url: "https://x.com/MaxPrilutskiy/status/1923952193893466379",
     quote: "i like your style! :)",
   },

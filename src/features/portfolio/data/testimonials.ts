@@ -401,7 +401,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/MaxPrilutskiy",
     authorName: "Max Prilutskiy",
-    authorTagline: "Creator of Lingo.dev",
+    authorTagline: "CEO @Lingo.dev",
     url: "https://x.com/MaxPrilutskiy/status/1923952193893466379",
     quote: "i like your style! :)",
     date: "2025-05-18",
