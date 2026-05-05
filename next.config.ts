@@ -3,13 +3,13 @@ import type { NextConfig } from "next"
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   transpilePackages: ["next-mdx-remote"],
-  allowedDevOrigins: ["ncdai.localhost", "ncdai.local"],
+  allowedDevOrigins: ["qiyang.localhost", "qiyang.local"],
   devIndicators: false,
   images: {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "assets.chanhdai.com",
+        hostname: "blob.vercel-storage.com",
         port: "",
       },
       {
@@ -29,28 +29,7 @@ const nextConfig: NextConfig = {
         }
       : undefined,
   async redirects() {
-    return [
-      {
-        source: "/:section(blog|components)/writing-effect-inspired-by-apple",
-        destination: "/:section/apple-hello-effect",
-        permanent: true,
-      },
-      {
-        source: "/:section(blog|components)/work-experience",
-        destination: "/:section/work-experience-component",
-        permanent: true,
-      },
-      {
-        source: "/:section(blog|components)/theme-switcher-component",
-        destination: "/:section/theme-switcher",
-        permanent: true,
-      },
-      {
-        source: "/wall-of-love",
-        destination: "/testimonials",
-        permanent: true,
-      },
-    ]
+    return []
   },
   async rewrites() {
     return [

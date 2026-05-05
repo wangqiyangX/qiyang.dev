@@ -4,14 +4,14 @@ export const SOCIAL_LINKS: SocialLink[] = [
   {
     icon: "https://yvgoosdtwt8fkmmh.public.blob.vercel-storage.com/x.webp",
     title: "X",
-    subtitle: "@wangqiyangX",
-    href: "https://x.com/wangqiyangX",
+    subtitle: "@qiyangdev",
+    href: "https://x.com/qiyangdev",
   },
   {
     icon: "https://yvgoosdtwt8fkmmh.public.blob.vercel-storage.com/github.webp",
     title: "GitHub",
-    subtitle: "wangqiyangX",
-    href: "https://github.com/wangqiyangX",
+    subtitle: "QiyangDev",
+    href: "https://github.com/qiyangdev",
   },
   {
     icon: "https://yvgoosdtwt8fkmmh.public.blob.vercel-storage.com/linkedin.webp",

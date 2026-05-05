@@ -1,9 +1,11 @@
 import type { Registry } from "shadcn/schema"
 
-import { qiyangRegistryItems } from "./qiyang-registry"
+import { blocks } from "./blocks/_registry"
+import { components } from "./components/_registry"
+import { examples } from "./examples/_registry"
 
 export const registry = {
   name: "qiyang",
   homepage: "https://qiyang.dev/components",
-  items: qiyangRegistryItems,
+  items: [...blocks, ...components, ...examples],
 } satisfies Registry

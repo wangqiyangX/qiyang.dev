@@ -4,11 +4,17 @@ export const USER: User = {
   firstName: "Qiyang",
   lastName: "Wang",
   displayName: "Qiyang Wang",
-  username: "wangqiyangX",
+  username: "qiyangdev",
   gender: "male",
   pronouns: "he/him",
   bio: "Frontend Development Engineer at Xiaomi, building reliable product interfaces with React, Next.js, and TypeScript.",
-  flipSentences: ["Building thoughtful software.", "Software Engineer."],
+  flipSentences: [
+    "Keep Learning. Keep Building.",
+    "Passionate about technology and design.",
+    "I build solutions that solve real problems and create real value.",
+    "LEARN. BUILD. IMPACT.",
+    "The best way to predict the future is to create it.",
+  ],
   address: "Beijing, China",
   phoneNumber: "KzQ0IDc3MzE3NDIzNDM=", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
   email: "d2FuZ3FpeWFuZ3hAZ21haWwuY29t", // base64 encoded
@@ -34,12 +40,12 @@ export const USER: User = {
     "qiyang",
     "qiyang wang",
     "wangqiyang",
-    "wangqiyangX",
+    "qiyangdev",
     "qiyang.dev",
     "frontend",
     "developer",
-    "reading notes",
     "shadcn",
+    "software engineer",
   ],
   dateCreated: "2026-05-04", // YYYY-MM-DD
 }

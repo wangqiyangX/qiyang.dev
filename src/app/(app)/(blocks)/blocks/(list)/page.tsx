@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
 }
 
-const FEATURED_BLOCKS: string[] = []
+const FEATURED_BLOCKS = ["software-engineer-profile"]
 
 export default function BlocksPage() {
   return (

@@ -26,7 +26,7 @@ export function TechStack() {
                     <>
                       <Image
                         className="hidden [html.light_&]:block"
-                        src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}-light.svg`}
+                        src={`https://yvgoosdtwt8fkmmh.public.blob.vercel-storage.com/${tech.key}-light.svg`}
                         alt={`${tech.title} light icon`}
                         width={14}
                         height={14}
@@ -34,7 +34,7 @@ export function TechStack() {
                       />
                       <Image
                         className="hidden [html.dark_&]:block"
-                        src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}-dark.svg`}
+                        src={`https://yvgoosdtwt8fkmmh.public.blob.vercel-storage.com/${tech.key}-dark.svg`}
                         alt={`${tech.title} dark icon`}
                         width={14}
                         height={14}
@@ -43,7 +43,7 @@ export function TechStack() {
                     </>
                   ) : (
                     <Image
-                      src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}.svg`}
+                      src={`https://yvgoosdtwt8fkmmh.public.blob.vercel-storage.com/${tech.key}.svg`}
                       alt={`${tech.title} icon`}
                       width={14}
                       height={14}

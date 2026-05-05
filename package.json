@@ -21,7 +21,7 @@
     "url": "git+https://github.com/ncdai/chanhdai.com.git"
   },
   "scripts": {
-    "dev": "portless ncdai next dev",
+    "dev": "portless qiyang next dev",
     "build": "next build",
     "start": "next start",
     "preview": "next build && portless ncdai next start",

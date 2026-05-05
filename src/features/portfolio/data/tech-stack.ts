@@ -20,18 +20,6 @@ export const TECH_STACK: TechStack[] = [
     categories: ["Languages"],
   },
   {
-    key: "php",
-    title: "PHP",
-    href: "https://www.php.net/",
-    categories: ["Languages"],
-  },
-  {
-    key: "java",
-    title: "Java",
-    href: "https://www.java.com/",
-    categories: ["Languages"],
-  },
-  {
     key: "react",
     title: "React",
     href: "https://react.dev/",
@@ -85,12 +73,6 @@ export const TECH_STACK: TechStack[] = [
     theme: true,
   },
   {
-    key: "mobx-state-tree",
-    title: "MobX-State-Tree",
-    href: "https://mobx-state-tree.js.org/",
-    categories: ["Frontend"],
-  },
-  {
     key: "redux",
     title: "Redux",
     href: "https://redux.js.org/",
@@ -115,27 +97,9 @@ export const TECH_STACK: TechStack[] = [
     categories: ["Backend & Database"],
   },
   {
-    key: "laravel",
-    title: "Laravel",
-    href: "https://laravel.com/",
-    categories: ["Backend & Database"],
-  },
-  {
     key: "postgresql",
     title: "PostgreSQL",
     href: "https://www.postgresql.org",
-    categories: ["Backend & Database"],
-  },
-  {
-    key: "mysql",
-    title: "MySQL",
-    href: "https://www.mysql.com/",
-    categories: ["Backend & Database"],
-  },
-  {
-    key: "mongodb",
-    title: "MongoDB",
-    href: "https://www.mongodb.com/",
     categories: ["Backend & Database"],
   },
   {
@@ -157,19 +121,6 @@ export const TECH_STACK: TechStack[] = [
     categories: ["Dev Tools"],
   },
   {
-    key: "claude",
-    title: "Claude",
-    href: "https://claude.ai/",
-    categories: ["Dev Tools"],
-  },
-  {
-    key: "cursor",
-    title: "Cursor",
-    href: "https://cursor.com/",
-    categories: ["Dev Tools"],
-    theme: true,
-  },
-  {
     key: "chatgpt",
     title: "ChatGPT",
     href: "https://chatgpt.com/",
@@ -180,12 +131,6 @@ export const TECH_STACK: TechStack[] = [
     key: "figma",
     title: "Figma",
     href: "https://www.figma.com/",
-    categories: ["Design"],
-  },
-  {
-    key: "ps",
-    title: "Photoshop",
-    href: "https://www.adobe.com/vn_en/products/photoshop.html",
     categories: ["Design"],
   },
 ]

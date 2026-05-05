@@ -1,8 +1,8 @@
 import { RssIcon } from "lucide-react"
 
 import { Icons } from "@/components/icons"
-import { SiteFooterInteractiveLogotype } from "@/components/site-footer-brand"
 import { SITE_INFO, SOURCE_CODE_GITHUB_URL } from "@/config/site"
+import { USER } from "@/features/portfolio/data/user"
 import { cn } from "@/lib/utils"
 
 export function SiteFooter() {
@@ -15,7 +15,16 @@ export function SiteFooter() {
         </p>
 
         <p className="mb-4 px-4 text-center font-mono text-sm text-balance text-muted-foreground">
-          Built with care by{" "}
+          Built and maintained by{" "}
+          <a
+            className="font-medium text-foreground link-underline"
+            href={USER.website}
+            target="_blank"
+            rel="noopener"
+          >
+            {USER.displayName}
+          </a>
+          . Originally built with care by{" "}
           <a
             className="font-medium text-foreground link-underline"
             href="https://x.com/iamncdai"
@@ -51,7 +60,7 @@ export function SiteFooter() {
 
             <a
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href="https://x.com/iamncdai?utm_source=chanhdai.com"
+              href="https://x.com/qiyangdev?utm_source=qiyang.dev"
               target="_blank"
               rel="noopener"
               aria-label="X"
@@ -63,7 +72,7 @@ export function SiteFooter() {
 
             <a
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href="https://github.com/ncdai?utm_source=chanhdai.com"
+              href="https://github.com/qiyangdev?utm_source=qiyang.dev"
               target="_blank"
               rel="noopener"
               aria-label="GitHub"
@@ -75,7 +84,7 @@ export function SiteFooter() {
 
             <a
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href="https://www.linkedin.com/in/ncdai?utm_source=chanhdai.com"
+              href="https://www.linkedin.com/in/wangqiyang?utm_source=qiyang.dev"
               target="_blank"
               rel="noopener"
               aria-label="LinkedIn"
@@ -118,7 +127,7 @@ export function SiteFooter() {
         </div> */}
       </div>
 
-      <SiteFooterInteractiveLogotype />
+      {/* <SiteFooterInteractiveLogotype /> */}
 
       <div className="pb-[env(safe-area-inset-bottom,0px)]">
         <div className="flex h-16 sm:h-2" />

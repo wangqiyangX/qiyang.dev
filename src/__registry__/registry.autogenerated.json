@@ -4,6 +4,26 @@
   "homepage": "https://qiyang.dev/components",
   "items": [
     {
+      "name": "software-engineer-profile",
+      "title": "Software Engineer Profile",
+      "description": "A portfolio block with engineering focus and project links.",
+      "files": [
+        {
+          "path": "src/registry/blocks/software-engineer-profile/software-engineer-profile.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "previewClassName": "min-h-svh content-center-safe"
+      },
+      "categories": [
+        "content",
+        "portfolio"
+      ],
+      "type": "registry:block",
+      "author": "Qiyang Wang <hello@qiyang.dev>"
+    },
+    {
       "name": "reading-note-card",
       "title": "Reading Note Card",
       "description": "A compact card for presenting a reading note with source, summary, and tags.",

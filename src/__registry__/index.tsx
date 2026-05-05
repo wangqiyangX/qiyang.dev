@@ -7,6 +7,23 @@
 import * as React from "react"
 
 export const Index: Record<string, any> = {
+  "software-engineer-profile": {
+    name: "software-engineer-profile",
+    description: "A portfolio block with engineering focus and project links.",
+    type: "registry:block",
+    files: [{
+      path: "src/registry/blocks/software-engineer-profile/software-engineer-profile.tsx",
+      type: "registry:component",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/blocks/software-engineer-profile/software-engineer-profile.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["content","portfolio"],
+    meta: {"previewClassName":"min-h-svh content-center-safe"},
+  },
   "reading-note-card": {
     name: "reading-note-card",
     description: "A compact card for presenting a reading note with source, summary, and tags.",
