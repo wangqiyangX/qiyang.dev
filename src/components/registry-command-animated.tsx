@@ -3,11 +3,11 @@
 import { motion } from "motion/react"
 import { useRef } from "react"
 
+import { TextFlip } from "@/components/text-flip/text-flip"
 import { registryConfig } from "@/config/registry"
 import type { PackageManager } from "@/hooks/use-package-manager"
 import { usePackageManager } from "@/hooks/use-package-manager"
 import { components } from "@/registry/components/_registry"
-import { TextFlip } from "@/registry/components/text-flip"
 
 import {
   Tabs,

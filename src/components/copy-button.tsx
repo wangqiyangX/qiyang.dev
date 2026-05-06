@@ -1,9 +1,9 @@
 "use client"
 
+import type { CopyButtonProps } from "@/components/copy-button/copy-button"
+import { CopyButton as CopyButtonPrimitive } from "@/components/copy-button/copy-button"
 import type { Event } from "@/lib/events"
 import { trackEvent } from "@/lib/events"
-import type { CopyButtonProps } from "@/registry/components/copy-button"
-import { CopyButton as CopyButtonPrimitive } from "@/registry/components/copy-button"
 
 import { Icons } from "./icons"
 

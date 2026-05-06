@@ -14,6 +14,7 @@ export const blocks: Registry["items"] = [
     ],
     categories: ["content", "portfolio"],
     meta: {
+      createdAt: "2026-05-06",
       previewClassName: "min-h-svh content-center-safe",
     },
   },

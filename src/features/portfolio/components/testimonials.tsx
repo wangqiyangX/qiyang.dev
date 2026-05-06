@@ -6,14 +6,6 @@ import {
   MarqueeFade,
   MarqueeItem,
 } from "@/components/kibo-ui/marquee"
-import { Button } from "@/components/ui/button"
-import { Panel } from "@/features/portfolio/components/panel"
-import { VerifiedIcon } from "@/features/portfolio/components/verified-icon"
-import {
-  TESTIMONIALS_1,
-  TESTIMONIALS_2,
-} from "@/features/portfolio/data/testimonials"
-import type { Testimonial as TestimonialType } from "@/features/portfolio/types/testimonials"
 import {
   Testimonial,
   TestimonialAuthor,
@@ -24,9 +16,17 @@ import {
   TestimonialAvatarRing,
   TestimonialQuote,
   TestimonialVerifiedBadge,
-} from "@/registry/components/testimonial"
-import { TestimonialSpotlight } from "@/registry/components/testimonial-spotlight"
-import { Twemoji } from "@/registry/components/twemoji/twemoji"
+} from "@/components/testimonial/testimonial"
+import { TestimonialSpotlight } from "@/components/testimonial-spotlight/testimonial-spotlight"
+import { Twemoji } from "@/components/twemoji/twemoji"
+import { Button } from "@/components/ui/button"
+import { Panel } from "@/features/portfolio/components/panel"
+import { VerifiedIcon } from "@/features/portfolio/components/verified-icon"
+import {
+  TESTIMONIALS_1,
+  TESTIMONIALS_2,
+} from "@/features/portfolio/data/testimonials"
+import type { Testimonial as TestimonialType } from "@/features/portfolio/types/testimonials"
 
 const FEATURED_TESTIMONIALS = [...TESTIMONIALS_1, ...TESTIMONIALS_2]
   .filter((item) => item.isFeatured)

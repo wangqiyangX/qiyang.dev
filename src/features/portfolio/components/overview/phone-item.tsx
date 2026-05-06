@@ -5,10 +5,10 @@ import { PhoneIcon } from "lucide-react"
 import { useHotkeys } from "react-hotkeys-hook"
 import { toast } from "sonner"
 
+import { CopyButton } from "@/components/copy-button/copy-button"
 import { Icons } from "@/components/icons"
 import { useIsClient } from "@/hooks/use-is-client"
 import { trackEvent } from "@/lib/events"
-import { CopyButton } from "@/registry/components/copy-button"
 import { copyToClipboardWithEvent } from "@/utils/copy"
 import { decodePhoneNumber, formatPhoneNumber } from "@/utils/string"
 

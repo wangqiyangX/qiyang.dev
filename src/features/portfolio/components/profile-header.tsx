@@ -1,5 +1,5 @@
+import { TextFlip } from "@/components/text-flip/text-flip"
 import { USER } from "@/features/portfolio/data/user"
-import { TextFlip } from "@/registry/components/text-flip"
 
 import { AvatarElectricEffect } from "./avatar-electric-effect"
 import { PronounceMyName } from "./pronounce-my-name"

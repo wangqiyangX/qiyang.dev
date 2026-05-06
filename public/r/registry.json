@@ -4,6 +4,40 @@
   "homepage": "https://qiyang.dev/components",
   "items": [
     {
+      "name": "utils",
+      "title": "Utility Functions",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "src/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "type": "registry:lib",
+      "author": "Qiyang Wang <wangqiyangx@gmail.com>"
+    },
+    {
+      "name": "reading-note-card",
+      "title": "Reading Note Card",
+      "description": "A compact card for presenting a reading note with source, summary, and tags.",
+      "registryDependencies": [
+        "https://qiyang.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/reading-note-card/reading-note-card.tsx",
+          "type": "registry:component",
+          "target": "components/reading-note-card.tsx"
+        }
+      ],
+      "docs": "https://qiyang.dev/components/reading-note-card",
+      "type": "registry:component",
+      "author": "Qiyang Wang <wangqiyangx@gmail.com>"
+    },
+    {
       "name": "software-engineer-profile",
       "title": "Software Engineer Profile",
       "description": "A portfolio block with engineering focus and project links.",
@@ -14,6 +48,7 @@
         }
       ],
       "meta": {
+        "createdAt": "2026-05-06",
         "previewClassName": "min-h-svh content-center-safe"
       },
       "categories": [
@@ -21,21 +56,6 @@
         "portfolio"
       ],
       "type": "registry:block",
-      "author": "Qiyang Wang <wangqiyangx@gmail.com>"
-    },
-    {
-      "name": "reading-note-card",
-      "title": "Reading Note Card",
-      "description": "A compact card for presenting a reading note with source, summary, and tags.",
-      "files": [
-        {
-          "path": "src/registry/components/reading-note-card/reading-note-card.tsx",
-          "type": "registry:component",
-          "target": "components/reading-note-card.tsx"
-        }
-      ],
-      "docs": "https://qiyang.dev/components/reading-note-card",
-      "type": "registry:component",
       "author": "Qiyang Wang <wangqiyangx@gmail.com>"
     }
   ]

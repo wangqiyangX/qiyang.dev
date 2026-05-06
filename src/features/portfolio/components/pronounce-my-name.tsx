@@ -1,13 +1,12 @@
 "use client"
 
-import { useRef } from "react"
+import { useCallback, useRef } from "react"
 import { useHotkeys } from "react-hotkeys-hook"
 
 import type { VolumeIconHandle } from "@/components/animated-icons/volume"
 import { VolumeIcon } from "@/components/animated-icons/volume"
 import { trackEvent } from "@/lib/events"
 import { cn } from "@/lib/utils"
-import { useSound } from "@/registry/hooks/sound/use-sound"
 
 export function PronounceMyName({
   className,
@@ -16,17 +15,19 @@ export function PronounceMyName({
   className?: string
   namePronunciationUrl: string
 }) {
-  const [play] = useSound(namePronunciationUrl)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
 
   const volumeIconRef = useRef<VolumeIconHandle>(null)
 
-  const handlePlayClick = () => {
+  const handlePlayClick = useCallback(() => {
     volumeIconRef.current?.startAnimation()
-    play()
+    audioRef.current ??= new Audio(namePronunciationUrl)
+    audioRef.current.currentTime = 0
+    void audioRef.current.play()
     trackEvent({
       name: "play_name_pronunciation",
     })
-  }
+  }, [namePronunciationUrl])
 
   useHotkeys("p", handlePlayClick)
 

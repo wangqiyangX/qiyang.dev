@@ -33,6 +33,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/base/ui/tooltip"
+import { CopyButton, CopyStateIcon } from "@/components/copy-button/copy-button"
 import { getIconForLanguageExtension, Icons } from "@/components/icons"
 import { Button } from "@/components/ui/button"
 import {
@@ -78,7 +79,6 @@ import type {
   FileTree,
 } from "@/lib/registry"
 import { cn } from "@/lib/utils"
-import { CopyButton, CopyStateIcon } from "@/registry/components/copy-button"
 import { getRegistryItemNamespace, getRegistryItemUrl } from "@/utils/registry"
 
 type View = "preview" | "code"

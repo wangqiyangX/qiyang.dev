@@ -1,5 +1,7 @@
 import type { Registry } from "shadcn/schema"
 
+import { getRegistryItemUrl } from "@/utils/registry"
+
 export const components: Registry["items"] = [
   {
     name: "reading-note-card",
@@ -15,5 +17,6 @@ export const components: Registry["items"] = [
       },
     ],
     docs: "https://qiyang.dev/components/reading-note-card",
+    registryDependencies: [getRegistryItemUrl("utils")],
   },
 ]

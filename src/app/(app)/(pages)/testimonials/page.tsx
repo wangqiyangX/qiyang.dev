@@ -5,13 +5,6 @@ import {
   PageHeadingTagline,
   PageHeadingTitle,
 } from "@/components/page-heading"
-import { X_HANDLE } from "@/config/site"
-import { VerifiedIcon } from "@/features/portfolio/components/verified-icon"
-import {
-  TESTIMONIALS_1,
-  TESTIMONIALS_2,
-} from "@/features/portfolio/data/testimonials"
-import { cn } from "@/lib/utils"
 import {
   Testimonial,
   TestimonialAuthor,
@@ -22,8 +15,15 @@ import {
   TestimonialAvatarRing,
   TestimonialQuote,
   TestimonialVerifiedBadge,
-} from "@/registry/components/testimonial"
-import { Twemoji } from "@/registry/components/twemoji/twemoji"
+} from "@/components/testimonial/testimonial"
+import { Twemoji } from "@/components/twemoji/twemoji"
+import { X_HANDLE } from "@/config/site"
+import { VerifiedIcon } from "@/features/portfolio/components/verified-icon"
+import {
+  TESTIMONIALS_1,
+  TESTIMONIALS_2,
+} from "@/features/portfolio/data/testimonials"
+import { cn } from "@/lib/utils"
 
 const title = "Testimonials"
 const description = "Trusted by top builders."

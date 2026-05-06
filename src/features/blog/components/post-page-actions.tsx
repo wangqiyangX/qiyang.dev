@@ -6,6 +6,7 @@ import { useTiks } from "@rexa-developer/tiks/react"
 import { ChevronDownIcon } from "lucide-react"
 import { useMemo, useRef, useState } from "react"
 
+import { CopyStateIcon } from "@/components/copy-button/copy-button"
 import { Icons } from "@/components/icons"
 import { Button } from "@/components/ui/button"
 import { ButtonGroup, ButtonGroupSeparator } from "@/components/ui/button-group"
@@ -17,7 +18,6 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { SOURCE_CODE_GITHUB_URL } from "@/config/site"
 import type { CopyState } from "@/hooks/use-copy-to-clipboard"
-import { CopyStateIcon } from "@/registry/components/copy-button"
 
 const cache = new Map<string, string>()
 

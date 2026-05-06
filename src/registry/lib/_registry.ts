@@ -13,16 +13,4 @@ export const lib: Registry["items"] = [
       },
     ],
   },
-  {
-    name: "haptic",
-    type: "registry:lib",
-    title: "Haptic Feedback",
-    description: "Trigger haptic feedback on mobile devices.",
-    files: [
-      {
-        path: "lib/haptic/haptic.ts",
-        type: "registry:lib",
-      },
-    ],
-  },
 ]
