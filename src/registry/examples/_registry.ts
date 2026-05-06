@@ -4,12 +4,23 @@ import { getRegistryItemUrl } from "@/utils/registry"
 
 export const examples: Registry["items"] = [
   {
-    name: "reading-note-card-demo",
+    name: "context-demo",
     type: "registry:example",
-    registryDependencies: [getRegistryItemUrl("reading-note-card")],
+    registryDependencies: [getRegistryItemUrl("context")],
     files: [
       {
-        path: "examples/reading-note-card-demo.tsx",
+        path: "examples/context-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "shimmer-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("shimmer")],
+    files: [
+      {
+        path: "examples/shimmer-demo.tsx",
         type: "registry:example",
       },
     ],

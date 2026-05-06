@@ -20,20 +20,47 @@
       "author": "Qiyang Wang <wangqiyangx@gmail.com>"
     },
     {
-      "name": "reading-note-card",
-      "title": "Reading Note Card",
-      "description": "A compact card for presenting a reading note with source, summary, and tags.",
+      "name": "context",
+      "title": "Context",
+      "description": "Display AI model context usage, token breakdowns, and cost estimates.",
+      "dependencies": [
+        "lucide-react",
+        "tokenlens"
+      ],
+      "registryDependencies": [
+        "button",
+        "hover-card",
+        "https://qiyang.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/context/context.tsx",
+          "type": "registry:component",
+          "target": "components/context.tsx"
+        }
+      ],
+      "docs": "https://qiyang.dev/components/context",
+      "type": "registry:component",
+      "author": "Qiyang Wang <wangqiyangx@gmail.com>"
+    },
+    {
+      "name": "shimmer",
+      "title": "Shimmer",
+      "description": "An animated text shimmer component for creating eye-catching loading states and progressive reveal effects.",
+      "dependencies": [
+        "motion"
+      ],
       "registryDependencies": [
         "https://qiyang.dev/r/utils.json"
       ],
       "files": [
         {
-          "path": "src/registry/components/reading-note-card/reading-note-card.tsx",
+          "path": "src/registry/components/shimmer/shimmer.tsx",
           "type": "registry:component",
-          "target": "components/reading-note-card.tsx"
+          "target": "components/shimmer.tsx"
         }
       ],
-      "docs": "https://qiyang.dev/components/reading-note-card",
+      "docs": "https://qiyang.dev/components/shimmer",
       "type": "registry:component",
       "author": "Qiyang Wang <wangqiyangx@gmail.com>"
     },

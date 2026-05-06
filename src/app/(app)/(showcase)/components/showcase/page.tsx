@@ -15,7 +15,8 @@ import {
 } from "@/components/page-heading"
 import { X_HANDLE } from "@/config/site"
 import { cn } from "@/lib/utils"
-import ReadingNoteCardDemo from "@/registry/examples/reading-note-card-demo"
+import ContextDemo from "@/registry/examples/context-demo"
+import ShimmerDemo from "@/registry/examples/shimmer-demo"
 
 const title = "Component Showcase"
 const description = "Focused examples from the qiyang.dev component registry."
@@ -99,8 +100,11 @@ export default function ComponentsShowcasePage() {
       <div className="screen-line-bottom h-px" />
 
       <div className="grid grid-cols-1 gap-1 p-1 md:grid-cols-3">
+        <GridItem className="min-h-52">
+          <ContextDemo />
+        </GridItem>
         <GridItem className="min-h-52 md:col-span-2">
-          <ReadingNoteCardDemo />
+          <ShimmerDemo />
         </GridItem>
       </div>
     </>

@@ -1,0 +1,186 @@
+---
+title: Context
+description: Display AI model context usage, token breakdowns, and cost estimates.
+category: components
+new: true
+createdAt: 2026-05-06
+updatedAt: 2026-05-06
+---
+
+<ComponentPreview
+  className="**:data-[slot=component-preview]:min-h-56"
+  name="context-demo"
+  openInV0Url="https://qiyang.dev/r/context.json"
+/>
+
+## Features
+
+- Shows context window usage with a compact progress trigger.
+- Breaks down input, output, reasoning, and cached token usage.
+- Estimates model cost from token usage when a model id is provided.
+- Supports compound composition for custom trigger and content layouts.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @qiyang/context
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add the required shadcn/ui components</Step>
+
+```bash
+npx shadcn@latest add button hover-card
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Install dependencies</Step>
+
+```bash
+pnpm add lucide-react tokenlens
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="context" title="components/context.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  Context,
+  ContextCacheUsage,
+  ContextContent,
+  ContextContentBody,
+  ContextContentFooter,
+  ContextContentHeader,
+  ContextInputUsage,
+  ContextOutputUsage,
+  ContextReasoningUsage,
+  ContextTrigger,
+} from "@/components/context"
+```
+
+```tsx
+<Context
+  maxTokens={128_000}
+  modelId="openai/gpt-4o-mini"
+  usage={{
+    cachedInputTokens: 8_200,
+    inputTokens: 32_400,
+    outputTokens: 4_800,
+    reasoningTokens: 1_600,
+  }}
+  usedTokens={47_000}
+>
+  <ContextTrigger />
+  <ContextContent>
+    <ContextContentHeader />
+    <ContextContentBody>
+      <ContextInputUsage />
+      <ContextOutputUsage />
+      <ContextReasoningUsage />
+      <ContextCacheUsage />
+    </ContextContentBody>
+    <ContextContentFooter />
+  </ContextContent>
+</Context>
+```
+
+## Composition
+
+Use the following composition to build a `Context`.
+
+```text
+Context
+├── ContextTrigger
+└── ContextContent
+    ├── ContextContentHeader
+    ├── ContextContentBody
+    │   ├── ContextInputUsage
+    │   ├── ContextOutputUsage
+    │   ├── ContextReasoningUsage
+    │   └── ContextCacheUsage
+    └── ContextContentFooter
+```
+
+## API Reference
+
+### Context
+
+Wraps the hover card and provides token usage data to the compound components.
+
+| Prop         | Type                 | Description                                     |
+| ------------ | -------------------- | ----------------------------------------------- |
+| `maxTokens`  | `number`             | Total context window size.                      |
+| `usedTokens` | `number`             | Number of tokens currently used.                |
+| `usage`      | `LanguageModelUsage` | Token usage breakdown.                          |
+| `modelId`    | `ModelId`            | Optional model id used for cost estimation.     |
+| `...props`   | `HoverCard props`    | Props passed to the underlying hover card root. |
+
+### ContextTrigger
+
+Renders the compact trigger button. Pass a custom child to replace the default trigger.
+
+| Prop       | Type           | Description                                 |
+| ---------- | -------------- | ------------------------------------------- |
+| `children` | `ReactNode`    | Optional custom trigger element.            |
+| `...props` | `Button props` | Props passed to the default button trigger. |
+
+### ContextContent
+
+Renders the hover card content container.
+
+| Prop        | Type                     | Description                                   |
+| ----------- | ------------------------ | --------------------------------------------- |
+| `className` | `string`                 | Additional classes for the content container. |
+| `...props`  | `HoverCardContent props` | Props passed to the hover card content.       |
+
+### Content Sections
+
+`ContextContentHeader`, `ContextContentBody`, and `ContextContentFooter` extend the native `div` element.
+
+| Prop       | Type        | Description                              |
+| ---------- | ----------- | ---------------------------------------- |
+| `children` | `ReactNode` | Optional custom content for the section. |
+| `...props` | `div props` | Props passed to the section element.     |
+
+### Usage Components
+
+`ContextInputUsage`, `ContextOutputUsage`, `ContextReasoningUsage`, and `ContextCacheUsage` extend the native `div` element.
+
+| Prop        | Type        | Description                            |
+| ----------- | ----------- | -------------------------------------- |
+| `children`  | `ReactNode` | Optional custom content for the row.   |
+| `className` | `string`    | Additional classes for the row.        |
+| `...props`  | `div props` | Props passed to the usage row element. |
+
+## References
+
+- [tokenlens](https://tokenlens.dev/docs)

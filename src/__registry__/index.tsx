@@ -24,17 +24,34 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
-  "reading-note-card": {
-    name: "reading-note-card",
-    description: "A compact card for presenting a reading note with source, summary, and tags.",
+  "context": {
+    name: "context",
+    description: "Display AI model context usage, token breakdowns, and cost estimates.",
     type: "registry:component",
     files: [{
-      path: "src/registry/components/reading-note-card/reading-note-card.tsx",
+      path: "src/registry/components/context/context.tsx",
       type: "registry:component",
-      target: "components/reading-note-card.tsx",
+      target: "components/context.tsx",
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/registry/components/reading-note-card/reading-note-card.tsx")
+      const mod = await import("@/registry/components/context/context.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "shimmer": {
+    name: "shimmer",
+    description: "An animated text shimmer component for creating eye-catching loading states and progressive reveal effects.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/shimmer/shimmer.tsx",
+      type: "registry:component",
+      target: "components/shimmer.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/shimmer/shimmer.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -58,17 +75,34 @@ export const Index: Record<string, any> = {
     categories: ["content","portfolio"],
     meta: {"createdAt":"2026-05-06","previewClassName":"min-h-svh content-center-safe"},
   },
-  "reading-note-card-demo": {
-    name: "reading-note-card-demo",
+  "context-demo": {
+    name: "context-demo",
     description: "",
     type: "registry:example",
     files: [{
-      path: "src/registry/examples/reading-note-card-demo.tsx",
+      path: "src/registry/examples/context-demo.tsx",
       type: "registry:example",
       target: "",
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/registry/examples/reading-note-card-demo.tsx")
+      const mod = await import("@/registry/examples/context-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "shimmer-demo": {
+    name: "shimmer-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/shimmer-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/shimmer-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

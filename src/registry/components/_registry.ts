@@ -4,19 +4,37 @@ import { getRegistryItemUrl } from "@/utils/registry"
 
 export const components: Registry["items"] = [
   {
-    name: "reading-note-card",
+    name: "context",
     type: "registry:component",
-    title: "Reading Note Card",
+    title: "Context",
     description:
-      "A compact card for presenting a reading note with source, summary, and tags.",
+      "Display AI model context usage, token breakdowns, and cost estimates.",
     files: [
       {
-        path: "components/reading-note-card/reading-note-card.tsx",
+        path: "components/context/context.tsx",
         type: "registry:component",
-        target: "components/reading-note-card.tsx",
+        target: "components/context.tsx",
       },
     ],
-    docs: "https://qiyang.dev/components/reading-note-card",
+    docs: "https://qiyang.dev/components/context",
+    registryDependencies: ["button", "hover-card", getRegistryItemUrl("utils")],
+    dependencies: ["lucide-react", "tokenlens"],
+  },
+  {
+    name: "shimmer",
+    type: "registry:component",
+    title: "Shimmer",
+    description:
+      "An animated text shimmer component for creating eye-catching loading states and progressive reveal effects.",
+    files: [
+      {
+        path: "components/shimmer/shimmer.tsx",
+        type: "registry:component",
+        target: "components/shimmer.tsx",
+      },
+    ],
+    docs: "https://qiyang.dev/components/shimmer",
     registryDependencies: [getRegistryItemUrl("utils")],
+    dependencies: ["motion"],
   },
 ]
