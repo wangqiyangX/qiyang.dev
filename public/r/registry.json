@@ -13,7 +13,8 @@
       "files": [
         {
           "path": "src/lib/utils.ts",
-          "type": "registry:lib"
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
         }
       ],
       "type": "registry:lib",
@@ -62,27 +63,6 @@
       ],
       "docs": "https://qiyang.dev/components/shimmer",
       "type": "registry:component",
-      "author": "Qiyang Wang <wangqiyangx@gmail.com>"
-    },
-    {
-      "name": "software-engineer-profile",
-      "title": "Software Engineer Profile",
-      "description": "A portfolio block with engineering focus and project links.",
-      "files": [
-        {
-          "path": "src/registry/blocks/software-engineer-profile/software-engineer-profile.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "meta": {
-        "createdAt": "2026-05-06",
-        "previewClassName": "min-h-svh content-center-safe"
-      },
-      "categories": [
-        "content",
-        "portfolio"
-      ],
-      "type": "registry:block",
       "author": "Qiyang Wang <wangqiyangx@gmail.com>"
     }
   ]

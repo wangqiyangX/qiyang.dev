@@ -14,7 +14,7 @@ export const Index: Record<string, any> = {
     files: [{
       path: "src/lib/utils.ts",
       type: "registry:lib",
-      target: "",
+      target: "@lib/utils.ts",
     }],
     component: React.lazy(async () => {
       const mod = await import("@/lib/utils.ts")
@@ -57,23 +57,6 @@ export const Index: Record<string, any> = {
     }),
     categories: undefined,
     meta: undefined,
-  },
-  "software-engineer-profile": {
-    name: "software-engineer-profile",
-    description: "A portfolio block with engineering focus and project links.",
-    type: "registry:block",
-    files: [{
-      path: "src/registry/blocks/software-engineer-profile/software-engineer-profile.tsx",
-      type: "registry:component",
-      target: "",
-    }],
-    component: React.lazy(async () => {
-      const mod = await import("@/registry/blocks/software-engineer-profile/software-engineer-profile.tsx")
-      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
-      return { default: mod.default || mod[exportName] }
-    }),
-    categories: ["content","portfolio"],
-    meta: {"createdAt":"2026-05-06","previewClassName":"min-h-svh content-center-safe"},
   },
   "context-demo": {
     name: "context-demo",
