@@ -1,11 +1,11 @@
 import type { Metadata } from "next"
+import dynamic from "next/dynamic"
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts"
 
 import { About } from "@/features/portfolio/components/about"
 import { Blog } from "@/features/portfolio/components/blog"
 import { Bookmarks } from "@/features/portfolio/components/bookmarks"
 import { Books } from "@/features/portfolio/components/books"
-import { Components } from "@/features/portfolio/components/components"
 import { Experiences } from "@/features/portfolio/components/experiences"
 import { GitHubContributions } from "@/features/portfolio/components/github-contributions"
 import { Overview } from "@/features/portfolio/components/overview"
@@ -17,6 +17,12 @@ import { Sponsors } from "@/features/portfolio/components/sponsors"
 import { TechStack } from "@/features/portfolio/components/tech-stack"
 import { USER } from "@/features/portfolio/data/user"
 import { cn } from "@/lib/utils"
+
+const ComponentsShowcase = dynamic(() =>
+  import("@/features/portfolio/components/components-showcase").then(
+    (mod) => mod.ComponentsShowcase
+  )
+)
 
 export const metadata: Metadata = {
   alternates: {
@@ -50,9 +56,14 @@ export default function Page() {
         <Separator />
 
         <TechStack />
-        <Separator />
+      </div>
 
-        <Components />
+      <div className="container mx-auto">
+        <Separator />
+        <ComponentsShowcase />
+      </div>
+
+      <div className="mx-auto md:max-w-3xl *:[[id]]:scroll-mt-22">
         <Separator />
 
         <Blog />

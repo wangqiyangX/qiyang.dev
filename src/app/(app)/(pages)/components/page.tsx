@@ -1,5 +1,6 @@
-import { PlusIcon } from "lucide-react"
+import { Grip, LayoutDashboard, PlusIcon } from "lucide-react"
 import type { Metadata } from "next"
+import Link from "next/link"
 
 import { Button } from "@/components/base/ui/button"
 import {
@@ -12,6 +13,11 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/base/ui/dialog"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/base/ui/tooltip"
 import { ComponentIcon } from "@/components/icons"
 import { MDX } from "@/components/mdx"
 import {
@@ -131,6 +137,48 @@ export default function Page() {
       </div>
 
       <Separator />
+
+      <div className="screen-line-bottom h-px" />
+
+      <div className="flex items-center justify-end gap-1.5 p-1.5">
+        <Tooltip>
+          <TooltipTrigger
+            render={
+              <Button
+                className="size-7"
+                variant="outline"
+                size="icon-sm"
+                aria-label="List"
+              >
+                <Grip />
+              </Button>
+            }
+          />
+          <TooltipContent>
+            <p>List</p>
+          </TooltipContent>
+        </Tooltip>
+
+        <Tooltip>
+          <TooltipTrigger
+            render={
+              <Button
+                className="size-7 border-none text-muted-foreground"
+                variant="ghost"
+                size="icon-sm"
+                nativeButton={false}
+                render={<Link href="/components/showcase" />}
+                aria-label="Showcase"
+              >
+                <LayoutDashboard />
+              </Button>
+            }
+          />
+          <TooltipContent>
+            <p>Showcase</p>
+          </TooltipContent>
+        </Tooltip>
+      </div>
 
       <div className="screen-line-bottom h-px" />
 
