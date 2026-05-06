@@ -21,7 +21,7 @@
         "portfolio"
       ],
       "type": "registry:block",
-      "author": "Qiyang Wang <hello@qiyang.dev>"
+      "author": "Qiyang Wang <wangqiyangx@gmail.com>"
     },
     {
       "name": "reading-note-card",
@@ -36,7 +36,7 @@
       ],
       "docs": "https://qiyang.dev/components/reading-note-card",
       "type": "registry:component",
-      "author": "Qiyang Wang <hello@qiyang.dev>"
+      "author": "Qiyang Wang <wangqiyangx@gmail.com>"
     }
   ]
 }

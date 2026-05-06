@@ -72,7 +72,7 @@ export const Index: Record<string, any> = {`
         .map((item) => {
           return {
             ...item,
-            author: item.author ?? "Qiyang Wang <hello@qiyang.dev>",
+            author: item.author ?? "Qiyang Wang <wangqiyangx@gmail.com>",
             files:
               item.files?.map((file) => {
                 if (file.path.startsWith("src/")) {

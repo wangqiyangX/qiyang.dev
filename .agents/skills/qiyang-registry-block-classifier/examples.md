@@ -2,6 +2,10 @@
 
 Real-world examples of block classifications from the registry.
 
+These examples are illustrative and may include upstream reference blocks. The
+published qiyang.dev registry surface is defined by the relevant `_registry.ts`
+files, not by every source file present under `src/registry`.
+
 ## Marketing Category
 
 ### Hero Sections

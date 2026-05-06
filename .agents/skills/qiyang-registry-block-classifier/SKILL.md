@@ -1,11 +1,15 @@
 ---
-name: ncdai-registry-block-classifier
-description: Classify blocks into appropriate categories (Marketing, Content, Application) and write concise, descriptive block descriptions. Use when creating new blocks, updating block metadata, or organizing the blocks registry.
+name: qiyang-registry-block-classifier
+description: Classify qiyang.dev registry blocks into appropriate categories (Marketing, Content, Application) and write concise, descriptive block descriptions. Use when creating new blocks, updating block metadata, or organizing the blocks registry.
 ---
 
 # Registry Block Classifier
 
-Guide for categorizing blocks and writing effective descriptions in the shadcn blocks registry.
+Guide for categorizing blocks and writing effective descriptions in the qiyang.dev shadcn blocks registry.
+
+This fork may keep unregistered upstream block source files for easier future
+merges. Treat `src/registry/blocks/_registry.ts` as the source of truth for the
+published block registry.
 
 ## Block Category System
 

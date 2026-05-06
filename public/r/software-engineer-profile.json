@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "software-engineer-profile",
   "title": "Software Engineer Profile",
-  "author": "Qiyang Wang <hello@qiyang.dev>",
+  "author": "Qiyang Wang <wangqiyangx@gmail.com>",
   "description": "A portfolio block with engineering focus and project links.",
   "files": [
     {

@@ -1,11 +1,17 @@
 ---
-name: ncdai-writing-component-docs
-description: Write and review component documentation (MDX) and registry descriptions. Covers doc structure, description writing, Features, Composition, and References sections. Use when creating new component docs, updating descriptions, adding Features sections, adding Composition sections, adding References sections, or reviewing component documentation quality.
+name: qiyang-writing-component-docs
+description: Write and review qiyang.dev component documentation (MDX) and registry descriptions. Covers doc structure, description writing, Features, Composition, and References sections. Use when creating new component docs, updating descriptions, adding Features sections, adding Composition sections, adding References sections, or reviewing component documentation quality.
 ---
 
 # Writing Component Documentation
 
-Guide for writing concise, consistent component documentation for this project's registry. Covers MDX doc structure, description writing, Features sections, Composition sections, and References sections.
+Guide for writing concise, consistent component documentation for the qiyang.dev
+registry. Covers MDX doc structure, description writing, Features sections,
+Composition sections, and References sections.
+
+This fork may keep unregistered upstream components, examples, and blocks for
+easier future merges. Treat the relevant `_registry.ts` files as the source of
+truth for the published registry.
 
 ## Key Files
 
@@ -21,7 +27,7 @@ Component docs follow this section order. Only include sections that are relevan
 ---
 title: Component Name
 description: One concise sentence about what the component does.
-image: https://assets.chanhdai.com/images/blog/{component-name}.webp
+image: /images/blog/{component-name}.webp
 category: components
 createdAt: YYYY-MM-DD
 updatedAt: YYYY-MM-DD
@@ -43,6 +49,9 @@ updatedAt: YYYY-MM-DD
 
 ## References          (optional)
 ```
+
+Use the `image` field only when a qiyang.dev-owned image exists. Prefer a local
+site path such as `/images/blog/{component-name}.webp`; otherwise omit the field.
 
 ## Writing Descriptions
 
@@ -263,7 +272,7 @@ Each component in `src/registry/components/_registry.ts` must have a `descriptio
   type: "registry:component",
   description: "Same one-sentence description as MDX frontmatter.",
   title: "Component Name",
-  author: "ncdai <dai@chanhdai.com>",
+  author: "Qiyang Wang <wangqiyangx@gmail.com>",
   // ...
 }
 ```
