@@ -141,7 +141,7 @@ function ContextTrigger({
     <HoverCardTrigger asChild>
       <Button
         aria-label={`Context usage ${formatPercent(context.percentage)}`}
-        className={cn("gap-2 px-2.5 font-mono tabular-nums", className)}
+        className={cn("gap-2 px-2.5 font-sans tabular-nums", className)}
         size={size}
         type="button"
         variant={variant}
@@ -184,11 +184,11 @@ function ContextContentHeader({
               <p className="text-xs font-medium text-muted-foreground">
                 Context window
               </p>
-              <p className="font-mono text-lg leading-none font-semibold tabular-nums">
+              <p className="font-sans text-lg leading-none font-semibold tabular-nums">
                 {formatPercent(context.percentage)}
               </p>
             </div>
-            <div className="text-right font-mono text-xs text-muted-foreground tabular-nums">
+            <div className="text-right font-sans text-xs text-muted-foreground tabular-nums">
               {formatTokens(context.usedTokens)} /{" "}
               {formatTokens(context.maxTokens)}
             </div>
@@ -240,7 +240,7 @@ function ContextContentFooter({
       {children ?? (
         <div className="flex items-center justify-between gap-4">
           <span>Total cost</span>
-          <span className="font-mono text-foreground tabular-nums">
+          <span className="font-sans text-foreground tabular-nums">
             {context.costs ? formatCost(context.costs.total) : "Unavailable"}
           </span>
         </div>
@@ -352,7 +352,7 @@ function ContextUsageRow({
       {children ?? (
         <>
           <span className="text-muted-foreground">{label}</span>
-          <span className="flex items-center gap-2 font-mono tabular-nums">
+          <span className="flex items-center gap-2 font-sans tabular-nums">
             <span>{formatTokens(tokens)}</span>
             {cost !== undefined && (
               <span className="text-muted-foreground">{formatCost(cost)}</span>
