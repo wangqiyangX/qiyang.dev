@@ -58,6 +58,23 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "stepper": {
+    name: "stepper",
+    description: "Increment or decrement a numeric value with compact icon controls.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/stepper/stepper.tsx",
+      type: "registry:component",
+      target: "components/stepper.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/stepper/stepper.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "context-demo": {
     name: "context-demo",
     description: "",
@@ -86,6 +103,23 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/shimmer-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "stepper-demo": {
+    name: "stepper-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/stepper-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/stepper-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

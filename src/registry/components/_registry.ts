@@ -37,4 +37,25 @@ export const components: Registry["items"] = [
     registryDependencies: [getRegistryItemUrl("utils")],
     dependencies: ["motion"],
   },
+  {
+    name: "stepper",
+    type: "registry:component",
+    title: "Stepper",
+    description:
+      "Increment or decrement a numeric value with compact icon controls.",
+    files: [
+      {
+        path: "components/stepper/stepper.tsx",
+        type: "registry:component",
+        target: "components/stepper.tsx",
+      },
+    ],
+    docs: "https://qiyang.dev/components/stepper",
+    registryDependencies: [
+      "button",
+      "button-group",
+      getRegistryItemUrl("utils"),
+    ],
+    dependencies: ["lucide-react"],
+  },
 ]

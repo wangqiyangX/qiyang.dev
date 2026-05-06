@@ -1,0 +1,99 @@
+---
+title: Stepper
+description: Increment or decrement a numeric value with compact icon controls.
+category: components
+new: true
+createdAt: 2026-05-06
+updatedAt: 2026-05-06
+---
+
+<ComponentPreview
+  className="**:data-[slot=component-preview]:min-h-56"
+  name="stepper-demo"
+  openInV0Url="https://qiyang.dev/r/stepper.json"
+/>
+
+## Features
+
+- Supports controlled and uncontrolled value management.
+- Clamps changes with optional minimum and maximum values.
+- Handles decimal increments with step-aware rounding.
+- Keeps a compact icon-only surface with accessible labels.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @qiyang/stepper
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add the required shadcn/ui components</Step>
+
+```bash
+npx shadcn@latest add button button-group
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Install dependencies</Step>
+
+```bash
+pnpm add lucide-react
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="stepper" title="components/stepper.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Stepper } from "@/components/stepper"
+```
+
+```tsx
+<Stepper defaultValue={3} max={8} min={0} />
+```
+
+## API Reference
+
+### Stepper
+
+Extends the native `div` element and accepts these additional props.
+
+| Prop             | Type                      | Description                                |
+| ---------------- | ------------------------- | ------------------------------------------ |
+| `value`          | `number`                  | Controlled value.                          |
+| `defaultValue`   | `number`                  | Initial value for uncontrolled usage.      |
+| `min`            | `number`                  | Minimum allowed value.                     |
+| `max`            | `number`                  | Maximum allowed value.                     |
+| `step`           | `number`                  | Amount changed by each button press.       |
+| `disabled`       | `boolean`                 | Disables both controls.                    |
+| `onValueChange`  | `(value: number) => void` | Called when either control changes value.  |
+| `decrementLabel` | `string`                  | Accessible label for the decrement button. |
+| `incrementLabel` | `string`                  | Accessible label for the increment button. |

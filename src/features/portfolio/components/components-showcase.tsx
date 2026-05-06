@@ -6,6 +6,7 @@ import { getDocsByCategory } from "@/features/doc/data/documents"
 import { cn } from "@/lib/utils"
 import ContextDemo from "@/registry/examples/context-demo"
 import ShimmerDemo from "@/registry/examples/shimmer-demo"
+import StepperDemo from "@/registry/examples/stepper-demo"
 
 import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "./panel"
 
@@ -27,6 +28,9 @@ export function ComponentsShowcase() {
         </GridItem>
         <GridItem className="min-h-52 md:col-span-1">
           <ShimmerDemo />
+        </GridItem>
+        <GridItem className="min-h-52 md:col-span-1">
+          <StepperDemo />
         </GridItem>
       </div>
 

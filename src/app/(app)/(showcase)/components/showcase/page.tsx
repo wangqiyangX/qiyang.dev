@@ -17,6 +17,7 @@ import { X_HANDLE } from "@/config/site"
 import { cn } from "@/lib/utils"
 import ContextDemo from "@/registry/examples/context-demo"
 import ShimmerDemo from "@/registry/examples/shimmer-demo"
+import StepperDemo from "@/registry/examples/stepper-demo"
 
 const title = "Component Showcase"
 const description = "Focused examples from the qiyang.dev component registry."
@@ -103,8 +104,11 @@ export default function ComponentsShowcasePage() {
         <GridItem className="min-h-52">
           <ContextDemo />
         </GridItem>
-        <GridItem className="min-h-52 md:col-span-2">
+        <GridItem className="min-h-52">
           <ShimmerDemo />
+        </GridItem>
+        <GridItem className="min-h-52">
+          <StepperDemo />
         </GridItem>
       </div>
     </>

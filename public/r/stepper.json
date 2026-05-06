@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stepper",
+  "title": "Stepper",
+  "author": "Qiyang Wang <wangqiyangx@gmail.com>",
+  "description": "Increment or decrement a numeric value with compact icon controls.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "button-group",
+    "https://qiyang.dev/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/components/stepper/stepper.tsx",
+      "content": "\"use client\"\n\nimport { MinusIcon, PlusIcon } from \"lucide-react\"\nimport * as React from \"react\"\n\nimport { Button } from \"@/components/ui/button\"\nimport { ButtonGroup } from \"@/components/ui/button-group\"\nimport { cn } from \"@/lib/utils\"\n\nexport type StepperProps = Omit<\n  React.ComponentPropsWithoutRef<\"div\">,\n  \"defaultValue\" | \"onChange\"\n> & {\n  value?: number\n  defaultValue?: number\n  min?: number\n  max?: number\n  step?: number\n  disabled?: boolean\n  onValueChange?: (value: number) => void\n  decrementLabel?: string\n  incrementLabel?: string\n}\n\nconst defaultFormatter = new Intl.NumberFormat(\"en\", {\n  maximumFractionDigits: 8,\n})\n\nfunction Stepper({\n  value,\n  defaultValue = 0,\n  min = Number.NEGATIVE_INFINITY,\n  max = Number.POSITIVE_INFINITY,\n  step = 1,\n  disabled = false,\n  onValueChange,\n  decrementLabel = \"Decrease value\",\n  incrementLabel = \"Increase value\",\n  className,\n  \"aria-label\": ariaLabel = \"Stepper\",\n  ...props\n}: StepperProps) {\n  const [uncontrolledValue, setUncontrolledValue] = React.useState(defaultValue)\n  const isControlled = value !== undefined\n  const currentValue = clampValue(\n    isControlled ? value : uncontrolledValue,\n    min,\n    max\n  )\n  const safeStep = Math.abs(step) || 1\n  const canDecrement = !disabled && currentValue > min\n  const canIncrement = !disabled && currentValue < max\n\n  const updateValue = React.useCallback(\n    (direction: -1 | 1) => {\n      const nextValue = getNextValue(\n        currentValue,\n        direction,\n        safeStep,\n        min,\n        max\n      )\n\n      if (!isControlled) {\n        setUncontrolledValue(nextValue)\n      }\n\n      onValueChange?.(nextValue)\n    },\n    [currentValue, isControlled, max, min, onValueChange, safeStep]\n  )\n\n  return (\n    <div className={cn(\"inline-flex items-center\", className)} {...props}>\n      <ButtonGroup aria-label={ariaLabel}>\n        <Button\n          aria-label={decrementLabel}\n          disabled={!canDecrement}\n          onClick={() => updateValue(-1)}\n          size=\"icon\"\n          type=\"button\"\n          variant=\"outline\"\n        >\n          <MinusIcon aria-hidden=\"true\" />\n        </Button>\n        <Button\n          aria-label={incrementLabel}\n          disabled={!canIncrement}\n          onClick={() => updateValue(1)}\n          size=\"icon\"\n          type=\"button\"\n          variant=\"outline\"\n        >\n          <PlusIcon aria-hidden=\"true\" />\n        </Button>\n      </ButtonGroup>\n      <span className=\"sr-only\" role=\"status\">\n        Value: {defaultFormatter.format(currentValue)}\n      </span>\n    </div>\n  )\n}\n\nfunction getNextValue(\n  value: number,\n  direction: -1 | 1,\n  step: number,\n  min: number,\n  max: number\n) {\n  return clampValue(\n    roundToStepPrecision(value + step * direction, step),\n    min,\n    max\n  )\n}\n\nfunction clampValue(value: number, min: number, max: number) {\n  return Math.min(Math.max(value, min), max)\n}\n\nfunction roundToStepPrecision(value: number, step: number) {\n  const precision = getDecimalPrecision(step)\n\n  return Number(value.toFixed(precision))\n}\n\nfunction getDecimalPrecision(value: number) {\n  if (!Number.isFinite(value)) {\n    return 0\n  }\n\n  const valueText = value.toString().toLowerCase()\n  const [base, exponent] = valueText.split(\"e-\")\n  const decimalPart = base?.split(\".\")[1]\n\n  return (decimalPart?.length ?? 0) + (exponent ? Number(exponent) : 0)\n}\n\nexport { Stepper }\n",
+      "type": "registry:component",
+      "target": "components/stepper.tsx"
+    }
+  ],
+  "docs": "https://qiyang.dev/components/stepper",
+  "type": "registry:component"
+}

@@ -64,6 +64,29 @@
       "docs": "https://qiyang.dev/components/shimmer",
       "type": "registry:component",
       "author": "Qiyang Wang <wangqiyangx@gmail.com>"
+    },
+    {
+      "name": "stepper",
+      "title": "Stepper",
+      "description": "Increment or decrement a numeric value with compact icon controls.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "button-group",
+        "https://qiyang.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/stepper/stepper.tsx",
+          "type": "registry:component",
+          "target": "components/stepper.tsx"
+        }
+      ],
+      "docs": "https://qiyang.dev/components/stepper",
+      "type": "registry:component",
+      "author": "Qiyang Wang <wangqiyangx@gmail.com>"
     }
   ]
 }
