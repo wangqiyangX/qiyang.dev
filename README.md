@@ -1,227 +1,114 @@
-# [chanhdai.com](https://chanhdai.com) &middot; [![GitHub License](https://img.shields.io/github/license/ncdai/chanhdai.com?label=License)](https://github.com/ncdai/chanhdai.com/blob/main/LICENSE) ![GitHub Repo Views](https://gitviews.com/repo/ncdai/chanhdai.com.svg?style=flat&label-color=%23555&color=%23f59e0b)
+# qiyang.dev
 
-A minimal, pixel-perfect dev portfolio, shadcn registry, and blog to showcase my work as a Design Engineer.
+Personal portfolio, project home, and shadcn registry for Qiyang Wang.
 
-→ Check out the live site: [chanhdai.com](https://chanhdai.com)
-
-[![screenshot-dark](https://assets.chanhdai.com/images/screenshot-desktop-dark.webp?v=9#gh-dark-mode-only)](https://chanhdai.com#gh-dark-mode-only)
-[![screenshot-light](https://assets.chanhdai.com/images/screenshot-desktop-light.webp?v=9#gh-light-mode-only)](https://chanhdai.com#gh-light-mode-only)
+This repository is a personal fork of
+[ncdai/chanhdai.com](https://github.com/ncdai/chanhdai.com), adapted for
+[qiyang.dev](https://qiyang.dev). The original project provides the foundation;
+this fork changes the identity, content, portfolio data, and registry namespace
+for my own site.
 
 ## Overview
 
 ### Stack
 
-- Next.js 16
+- Next.js 16 App Router
+- React 19
+- TypeScript
 - Tailwind CSS v4
 - shadcn/ui
+- MDX
+- pnpm
 
-### Featured
+### Features
 
-- Clean & modern design
-- Light/Dark themes
-- vCard integration
-- SEO optimized ([JSON-LD schema](https://json-ld.org), sitemap, robots)
-- AI-ready with [/llms.txt](https://llmstxt.org)
-- Spam-protected email
-- Installable as PWA
-- Analytics with [PostHog](https://posthog.com) and [OpenPanel](https://openpanel.dev)
-
-### Content
-
-Centralized document system powered by MDX:
-
-- Unified content layer for blog posts and component docs
-- Category-based content organization
-- Raw `.mdx` endpoints for AI readability
-- Syntax highlighting with code blocks
-- Dynamic OG images for rich link previews
-- RSS feed for content distribution
+- Portfolio homepage with profile, projects, tech stack, bookmarks, and reading
+  notes
+- MDX-powered content and component documentation
+- Custom shadcn registry under the `@qiyang` namespace
+- SEO support with metadata, sitemap, robots, and dynamic OG images
+- Light and dark themes
+- PWA support
+- Analytics hooks for PostHog and OpenPanel
 
 ### Registry
 
-Easily build and distribute reusable components, hooks, and pages using a custom registry powered by the [shadcn CLI](https://ui.shadcn.com/docs/cli).
+Registry source files live in `src/registry/`. Generated registry output lives
+in `src/__registry__/` and `public/r/`; those generated files should be rebuilt
+instead of edited by hand.
 
-Each entry is well-documented and includes:
+Some unregistered components, examples, and block source files are kept as
+upstream references for easier future merges. The published registry surface is
+defined by the corresponding `_registry.ts` files.
 
-- Live preview & code snippets
-- Beautiful, readable code blocks
-- One-click command blocks (pnpm, npm, yarn, bun)
+```bash
+pnpm registry:build
+```
+
+The default registry URL pattern is:
+
+```txt
+https://qiyang.dev/r/{name}.json
+```
 
 ## Development
 
-Please refer to the [Development Guide](./DEVELOPMENT.md) for more details.
+Install dependencies:
+
+```bash
+pnpm install
+```
+
+Copy environment variables:
+
+```bash
+cp .env.example .env.local
+```
+
+Start the development server:
+
+```bash
+pnpm dev
+```
+
+The default `dev` script uses Portless with the `qiyang` local domain. If you do
+not use Portless, run Next.js directly instead:
+
+```bash
+pnpm exec next dev
+```
+
+## Scripts
+
+```bash
+pnpm dev             # Start the local dev server
+pnpm build           # Build for production
+pnpm start           # Start the production server
+pnpm lint            # Run ESLint
+pnpm check-types     # Run TypeScript type checking
+pnpm format:write    # Format source files
+pnpm registry:build  # Build the shadcn registry
+```
+
+## Project Structure
+
+```txt
+src/app/              App Router pages, layouts, and API routes
+src/components/       Shared application UI
+src/features/         Feature modules for portfolio, blog, docs, and sponsors
+src/registry/         Registry source components, hooks, blocks, examples, lib
+src/__registry__/     Generated registry files
+src/config/           Site and registry configuration
+public/r/             Generated public registry JSON
+```
+
+## Attribution
+
+This site is based on
+[ncdai/chanhdai.com](https://github.com/ncdai/chanhdai.com) by Nguyen Chanh Dai.
+Please keep the original project attribution when reusing this fork or the
+upstream code.
 
 ## License
 
 Licensed under the [MIT license](./LICENSE).
-
-You're free to use my code! Just make sure to <ins>remove all my personal information</ins> before publishing your website. It's awesome to see my code being useful to someone!
-
-## Contributors
-
-[![Contributors](https://contrib.rocks/image?repo=ncdai/chanhdai.com)](https://github.com/ncdai/chanhdai.com/graphs/contributors)
-
-> Made with [contrib.rocks](https://contrib.rocks)
-
-## Sponsors
-
-This project is proudly supported by:
-
-<table>
-  <tbody>
-    <tr>
-      <td colspan="3"><strong>Open Source Program</strong></td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://openpanel.dev/open-source?utm_source=chanhdai.com#gh-light-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/openpanel.svg?v=1#gh-light-mode-only"
-            alt="OpenPanel"
-          />
-        </a>
-        <a href="https://openpanel.dev/open-source?utm_source=chanhdai.com#gh-dark-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/openpanel-dark.svg?v=1#gh-dark-mode-only"
-            alt="OpenPanel"
-          />
-        </a>
-      </td>
-      <td>
-        <a href="https://posthog.com/startups?utm_source=chanhdai.com#gh-light-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/posthog.svg?v=1#gh-light-mode-only"
-            alt="PostHog"
-          />
-        </a>
-        <a href="https://posthog.com/startups?utm_source=chanhdai.com#gh-dark-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/posthog-dark.svg?v=1#gh-dark-mode-only"
-            alt="PostHog"
-          />
-        </a>
-      </td>
-      <td></td>
-    </tr>
-    <tr>
-      <td colspan="3"><strong>Gold Sponsors</strong></td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://shadcnstudio.com?utm_source=chanhdai.com&utm_medium=banner&utm_campaign=github#gh-light-mode-only">
-          <img src="https://assets.chanhdai.com/images/sponsors/shadcnstudio.svg?v=2#gh-light-mode-only" alt="shadcnstudio.com" />
-        </a>
-        <a href="https://shadcnstudio.com?utm_source=chanhdai.com&utm_medium=banner&utm_campaign=github#gh-dark-mode-only">
-          <img src="https://assets.chanhdai.com/images/sponsors/shadcnstudio-dark.svg?v=2#gh-dark-mode-only" alt="shadcnstudio.com" />
-        </a>
-      </td>
-      <td>
-        <a href="https://shadcnspace.com#gh-light-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/shadcnspace.svg?v=3#gh-light-mode-only"
-            alt="Shadcn Space"
-          />
-        </a>
-        <a href="https://shadcnspace.com#gh-dark-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/shadcnspace-dark.svg?v=3#gh-dark-mode-only"
-            alt="Shadcn Space"
-          />
-        </a>
-      </td>
-      <td></td>
-    </tr>
-    <tr>
-      <td colspan="3"><strong>Silver Sponsors</strong></td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://shadcncraft.com?utm_source=chanhdai.com#gh-light-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/shadcncraft.svg?v=1#gh-light-mode-only"
-            alt="shadcncraft"
-          />
-        </a>
-        <a href="https://shadcncraft.com?utm_source=chanhdai.com#gh-dark-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/shadcncraft-dark.svg?v=1#gh-dark-mode-only"
-            alt="shadcncraft"
-          />
-        </a>
-      </td>
-      <td>
-        <a href="https://www.shadcnblocks.com?utm_source=chanhdai.com#gh-light-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/shadcnblocks.svg?v=1#gh-light-mode-only"
-            alt="Shadcnblocks"
-          />
-        </a>
-        <a href="https://www.shadcnblocks.com?utm_source=chanhdai.com#gh-dark-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/shadcnblocks-dark.svg?v=1#gh-dark-mode-only"
-            alt="Shadcnblocks"
-          />
-        </a>
-      </td>
-      <td>
-        <a href="https://reactbits.dev?utm_source=chanhdai.com#gh-light-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/reactbits.svg?v=1#gh-light-mode-only"
-            alt="React Bits"
-          />
-        </a>
-        <a href="https://reactbits.dev?utm_source=chanhdai.com#gh-dark-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/reactbits-dark.svg?v=1#gh-dark-mode-only"
-            alt="React Bits"
-          />
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3"><strong>Spark Supporters</strong></td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://uirules.com?utm_source=chanhdai.com#gh-light-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/uirules.svg?v=1#gh-light-mode-only"
-            alt="UI Rules"
-          />
-        </a>
-        <a href="https://uirules.com?utm_source=chanhdai.com#gh-dark-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/uirules-dark.svg?v=1#gh-dark-mode-only"
-            alt="UI Rules"
-          />
-        </a>
-      </td>
-      <td>
-        <a href="https://shoogle.dev?utm_source=chanhdai.com#gh-light-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/shoogle.svg?v=1#gh-light-mode-only"
-            alt="Shoogle"
-          />
-        </a>
-        <a href="https://shoogle.dev?utm_source=chanhdai.com#gh-dark-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/shoogle-dark.svg?v=1#gh-dark-mode-only"
-            alt="Shoogle"
-          />
-        </a>
-      </td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-> Found this project useful? [Sponsor me](https://github.com/sponsors/ncdai) to help with support and maintenance.
-
-## Stats
-
-![Stats](https://repobeats.axiom.co/api/embed/583bf08fbdef57c3921d3cfda902d546df3e6ed1.svg "Repobeats analytics image")
-
-## Star History
-
-[![RepoStars-dark](https://www.repostars.dev/api/embed?repo=ncdai%2Fchanhdai.com&theme=dark#gh-dark-mode-only)](https://www.repostars.dev/?repos=ncdai%2Fchanhdai.com&theme=dark#gh-dark-mode-only)
-[![RepoStars-light](https://www.repostars.dev/api/embed?repo=ncdai%2Fchanhdai.com&theme=light#gh-light-mode-only)](https://www.repostars.dev/?repos=ncdai%2Fchanhdai.com&theme=light#gh-light-mode-only)

@@ -15,6 +15,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { SOURCE_CODE_GITHUB_URL } from "@/config/site"
 import type { CopyState } from "@/hooks/use-copy-to-clipboard"
 import { CopyStateIcon } from "@/registry/components/copy-button"
 
@@ -115,7 +116,7 @@ export function ViewOptions({
       },
       {
         title: "Open in GitHub",
-        href: `https://github.com/ncdai/chanhdai.com/blob/main/src/features/doc/content/${markdownUrl.split("/").slice(-1).join("/")}`,
+        href: `${SOURCE_CODE_GITHUB_URL}/blob/main/src/features/doc/content/${markdownUrl.split("/").slice(-1).join("/")}`,
         icon: Icons.github,
       },
       {

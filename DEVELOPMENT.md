@@ -15,8 +15,8 @@ Ensure you have the following installed:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/ncdai/chanhdai.com.git minimal-dev-portfolio
-cd minimal-dev-portfolio
+git clone https://github.com/qiyangdev/qiyang.dev.git qiyang.dev
+cd qiyang.dev
 ```
 
 ### 2. Install Portless
@@ -49,7 +49,7 @@ Then, update the necessary environment variables inside `.env.local`.
 pnpm dev
 ```
 
-The application should now be available at https://ncdai.localhost
+The application should now be available at https://qiyang.localhost
 
 ## Building for Production
 
@@ -69,7 +69,10 @@ This project utilizes **shadcn Registry**, which allows you to manage and distri
 
 ### Using Registry in other React projects
 
-If you're working on a different React project and want to reuse the custom components from this repository, visit [chanhdai.com/components](https://chanhdai.com/components) for installation instructions and component documentation.
+If you're working on a different React project and want to reuse the custom
+components from this repository, visit
+[qiyang.dev/components](https://qiyang.dev/components) for installation
+instructions and component documentation.
 
 > Note: These components are compatible with [Tailwind CSS v4](https://tailwindcss.com/blog/tailwindcss-v4) and [React 19](https://react.dev/blog/2024/12/05/react-19).
 

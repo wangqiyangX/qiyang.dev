@@ -7,19 +7,14 @@ import {
   BookOpen,
   Box,
   BriefcaseBusiness,
-  CircleCheckBig,
   CornerDownLeft,
-  Crown,
   Download,
   FileText,
   Layers,
   MoonStar,
-  Quote,
   RssIcon,
-  SquareDashed,
   SunMedium,
   TextInitial,
-  Type,
 } from "lucide-react"
 import { useTheme } from "next-themes"
 import React, { useCallback, useEffect, useMemo, useState } from "react"
@@ -41,7 +36,6 @@ import { useClickSound } from "@/hooks/soundcn/use-click-sound"
 import { trackEvent } from "@/lib/events"
 import { copyToClipboardWithEvent } from "@/utils/copy"
 
-import { getWordmarkSVG } from "./chanhdai-wordmark"
 import { ComponentIcon, Icons } from "./icons"
 import { getMarkSVG, QiyangWangMark } from "./qiyangwang-mark"
 import { Button } from "./ui/button"
@@ -90,12 +84,12 @@ const MENU_LINKS: CommandLinkItem[] = [
     icon: <Icons.favourite />,
     shortcut: "GS",
   },
-  {
-    title: "Testimonials",
-    href: "/testimonials",
-    icon: <Quote strokeWidth={1.5} />,
-    shortcut: "GT",
-  },
+  // {
+  //   title: "Testimonials",
+  //   href: "/testimonials",
+  //   icon: <Quote strokeWidth={1.5} />,
+  //   shortcut: "GT",
+  // },
 ]
 
 const PORTFOLIO_LINKS: CommandLinkItem[] = [
@@ -119,16 +113,16 @@ const PORTFOLIO_LINKS: CommandLinkItem[] = [
     href: "/#projects",
     icon: <Box />,
   },
-  {
-    title: "Awards",
-    href: "/#awards",
-    icon: <Crown />,
-  },
-  {
-    title: "Certifications",
-    href: "/#certs",
-    icon: <CircleCheckBig />,
-  },
+  // {
+  //   title: "Awards",
+  //   href: "/#awards",
+  //   icon: <Crown />,
+  // },
+  // {
+  //   title: "Certifications",
+  //   href: "/#certs",
+  //   icon: <CircleCheckBig />,
+  // },
   {
     title: "Books",
     href: "/#books",
@@ -362,32 +356,6 @@ export function CommandMenu({
               <QiyangWangMark />
               Copy Mark as SVG
             </CommandItem>
-
-            <CommandItem
-              onSelect={() => {
-                handleCopyText(
-                  getWordmarkSVG(resolvedTheme === "light" ? "#000" : "#fff"),
-                  "Logotype as SVG copied"
-                )
-              }}
-            >
-              <Type />
-              Copy Logotype as SVG
-            </CommandItem>
-
-            <CommandItem
-              onSelect={() => handleOpenLink("/blog/chanhdai-brand")}
-            >
-              <SquareDashed />
-              Brand Guidelines
-            </CommandItem>
-
-            <CommandItem asChild>
-              <a href="https://assets.chanhdai.com/chanhdai-brand.zip" download>
-                <Download />
-                Download Brand Assets
-              </a>
-            </CommandItem>
           </CommandGroup>
 
           <CommandGroup heading="Theme">
@@ -546,12 +514,6 @@ function buildCommandMetaMap() {
   commandMetaMap.set("Auto", { commandKind: "command" })
 
   commandMetaMap.set("Copy Mark as SVG", {
-    commandKind: "command",
-  })
-  commandMetaMap.set("Copy Logotype as SVG", {
-    commandKind: "command",
-  })
-  commandMetaMap.set("Download Brand Assets", {
     commandKind: "command",
   })
 

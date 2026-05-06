@@ -11,7 +11,7 @@ const links = [
   },
   {
     label: "GitHub",
-    href: "https://github.com/wangqiyangX",
+    href: "https://github.com/qiyangdev",
   },
   {
     label: "Notes",

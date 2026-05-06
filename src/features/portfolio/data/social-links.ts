@@ -10,7 +10,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   {
     icon: "https://yvgoosdtwt8fkmmh.public.blob.vercel-storage.com/github.webp",
     title: "GitHub",
-    subtitle: "QiyangDev",
+    subtitle: "qiyangdev",
     href: "https://github.com/qiyangdev",
   },
   {

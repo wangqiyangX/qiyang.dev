@@ -1,13 +1,10 @@
 "use client"
 
-import { Download, SquareDashed, Type } from "lucide-react"
-import Link from "next/link"
 import { useTheme } from "next-themes"
 import { toast } from "sonner"
 
 import { copyText } from "@/utils/copy"
 
-import { getWordmarkSVG } from "./chanhdai-wordmark"
 import { getMarkSVG, QiyangWangMark } from "./qiyangwang-mark"
 import {
   ContextMenu,
@@ -33,33 +30,6 @@ export function BrandContextMenu({ children }: { children: React.ReactNode }) {
         >
           <QiyangWangMark />
           Copy Mark as SVG
-        </ContextMenuItem>
-
-        <ContextMenuItem
-          onClick={() => {
-            const svg = getWordmarkSVG(
-              resolvedTheme === "light" ? "#000" : "#fff"
-            )
-            copyText(svg)
-            toast.success("Logotype as SVG copied")
-          }}
-        >
-          <Type />
-          Copy Logotype as SVG
-        </ContextMenuItem>
-
-        <ContextMenuItem asChild>
-          <Link href="/blog/chanhdai-brand">
-            <SquareDashed />
-            Brand Guidelines
-          </Link>
-        </ContextMenuItem>
-
-        <ContextMenuItem asChild>
-          <a href="https://assets.chanhdai.com/chanhdai-brand.zip" download>
-            <Download />
-            Download Brand Assets
-          </a>
         </ContextMenuItem>
       </ContextMenuContent>
     </ContextMenu>

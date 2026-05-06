@@ -1,7 +1,6 @@
 import dynamic from "next/dynamic"
 
-import { ChanhDaiMark } from "@/components/chanhdai-mark"
-import { ChanhDaiWordmark } from "@/components/chanhdai-wordmark"
+import { QiyangWangMark } from "@/components/qiyangwang-mark"
 
 import { Panel, PanelHeader, PanelTitle } from "./panel"
 
@@ -25,7 +24,7 @@ export function Brand() {
           </div>
 
           <div className="screen-line-bottom flex items-center justify-center pr-8 after:z-1">
-            <ChanhDaiMark className="h-8 w-auto sm:h-12" />
+            <QiyangWangMark className="h-8 w-auto sm:h-12" />
           </div>
 
           <div className="flex h-28 items-center justify-center border-r border-dashed border-line bg-background">
@@ -35,7 +34,9 @@ export function Brand() {
           </div>
 
           <div className="screen-line-bottom flex items-center justify-center pr-8 after:z-1">
-            <ChanhDaiWordmark className="h-6 w-auto sm:h-10" />
+            <span className="font-mono text-2xl font-semibold tracking-normal text-foreground sm:text-4xl">
+              Qiyang Wang
+            </span>
           </div>
         </div>
       </BrandContextMenu>

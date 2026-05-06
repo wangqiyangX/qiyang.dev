@@ -32,8 +32,7 @@ export const USER: User = {
 - Maintainer of [qiyang.dev](https://qiyang.dev), where I share software projects and reusable UI experiments.
 `,
   avatar: "https://yvgoosdtwt8fkmmh.public.blob.vercel-storage.com/avatar.png",
-  ogImage:
-    "https://assets.chanhdai.com/images/screenshot-og-image-dark.png?v=8",
+  ogImage: "https://yvgoosdtwt8fkmmh.public.blob.vercel-storage.com/avatar.png",
   namePronunciationUrl: "",
   timeZone: "Asia/Shanghai",
   keywords: [

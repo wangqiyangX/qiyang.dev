@@ -24,15 +24,6 @@ export function SiteFooter() {
           >
             {USER.displayName}
           </a>
-          . Originally built with care by{" "}
-          <a
-            className="font-medium text-foreground link-underline"
-            href="https://x.com/iamncdai"
-            target="_blank"
-            rel="noopener"
-          >
-            ncdai
-          </a>
           . The source code is available on{" "}
           <a
             className="font-medium text-foreground link-underline"
