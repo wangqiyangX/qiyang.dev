@@ -19,4 +19,10 @@ export const BOOKMARKS: Bookmark[] = [
     author: "Stanford University",
     bookmarkedAt: "2026-05-05",
   },
+  {
+    title: "Easing Graphs",
+    url: "https://www.easing.dev",
+    author: "Alex and Lochie",
+    bookmarkedAt: "2026-05-07",
+  },
 ]

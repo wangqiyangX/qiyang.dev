@@ -15,4 +15,11 @@ export const BOOKS: Book[] = [
     status: "reading",
     recordedAt: "2026-05-05",
   },
+  {
+    title: "Build a Large Language Model (From Scratch)",
+    author: "Sebastian Raschka",
+    url: "https://www.manning.com/books/build-a-large-language-model-from-scratch",
+    status: "want-to-read",
+    recordedAt: "2026-05-07",
+  },
 ]
