@@ -6,7 +6,7 @@ import { getDocsByCategory } from "@/features/doc/data/documents"
 import { cn } from "@/lib/utils"
 import ContextDemo from "@/registry/examples/context-demo"
 import FileTreeDemo from "@/registry/examples/file-tree-demo"
-import LiveChartDemo from "@/registry/examples/live-chart-demo"
+import LiveLineChartDemo from "@/registry/examples/live-line-chart-demo"
 import ShimmerDemo from "@/registry/examples/shimmer-demo"
 import StepperDemo from "@/registry/examples/stepper-demo"
 
@@ -26,7 +26,7 @@ export function ComponentsShowcase() {
 
       <div className="grid grid-cols-1 gap-1 p-1 md:grid-cols-6">
         <GridItem className="min-h-96 md:col-span-4">
-          <LiveChartDemo />
+          <LiveLineChartDemo />
         </GridItem>
         <GridItem className="min-h-96 md:col-span-2">
           <FileTreeDemo />

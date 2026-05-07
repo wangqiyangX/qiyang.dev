@@ -16,12 +16,12 @@ import type {
   FileTreeItem,
 } from "@/registry/components/file-tree"
 import type {
-  LiveChart,
-  LiveChartChart,
-  LiveChartHeader,
-  LiveChartLegend,
-  LiveChartValue,
-} from "@/registry/components/live-chart/live-chart"
+  LiveLineChart,
+  LiveLineChartChart,
+  LiveLineChartHeader,
+  LiveLineChartLegend,
+  LiveLineChartValue,
+} from "@/registry/components/live-line-chart/live-line-chart"
 import type { Shimmer } from "@/registry/components/shimmer/shimmer"
 import type { Stepper } from "@/registry/components/stepper/stepper"
 
@@ -70,25 +70,25 @@ export type FileTreeItemProps = Omit<
   keyof Omit<ComponentPropsWithoutRef<"div">, "children" | "className">
 >
 
-export type LiveChartProps = Omit<
-  ComponentProps<typeof LiveChart>,
+export type LiveLineChartProps = Omit<
+  ComponentProps<typeof LiveLineChart>,
   keyof Omit<ComponentPropsWithoutRef<"div">, "children" | "className">
 >
 
-export type LiveChartChartProps = ComponentProps<typeof LiveChartChart>
+export type LiveLineChartChartProps = ComponentProps<typeof LiveLineChartChart>
 
-export type LiveChartLayoutProps = Omit<
-  ComponentProps<typeof LiveChartHeader>,
+export type LiveLineChartLayoutProps = Omit<
+  ComponentProps<typeof LiveLineChartHeader>,
   keyof Omit<ComponentPropsWithoutRef<"div">, "children" | "className">
 >
 
-export type LiveChartTextProps = Omit<
-  ComponentProps<typeof LiveChartValue>,
+export type LiveLineChartTextProps = Omit<
+  ComponentProps<typeof LiveLineChartValue>,
   keyof Omit<ComponentPropsWithoutRef<"span">, "children" | "className">
 >
 
-export type LiveChartLegendProps = Omit<
-  ComponentProps<typeof LiveChartLegend>,
+export type LiveLineChartLegendProps = Omit<
+  ComponentProps<typeof LiveLineChartLegend>,
   keyof Omit<ComponentPropsWithoutRef<"div">, "children" | "className">
 >
 

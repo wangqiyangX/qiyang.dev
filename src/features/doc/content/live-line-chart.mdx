@@ -1,0 +1,159 @@
+---
+title: Live Line Chart
+description: Compose real-time animated charts with metrics, legends, and sections.
+category: components
+new: true
+createdAt: 2026-05-07
+updatedAt: 2026-05-07
+---
+
+<ComponentPreview
+  className="**:data-[slot=component-preview]:min-h-96"
+  name="live-line-chart-demo"
+  openInV0Url="https://qiyang.dev/r/live-line-chart.json"
+/>
+
+## Features
+
+- Wraps Liveline with a compound layout for headers, metrics, chart body, and footer content.
+- Shares chart data through context so values, deltas, and legends stay in sync.
+- Supports Liveline options including windows, reference lines, momentum, and value overlays.
+- Follows light and dark mode by default while allowing explicit theme overrides.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @qiyang/live-line-chart
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Install dependencies</Step>
+
+```bash
+pnpm add liveline
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="live-line-chart"
+  title="components/live-line-chart.tsx"
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { LiveLineChart } from "@/components/live-line-chart"
+```
+
+```tsx
+<LiveLineChart data={data} value={value}>
+  <LiveLineChart.Header>
+    <div>
+      <LiveLineChart.Title>Conversion pulse</LiveLineChart.Title>
+      <LiveLineChart.Description>
+        Rolling checkout activity from the last few minutes.
+      </LiveLineChart.Description>
+    </div>
+    <LiveLineChart.Metric>
+      <LiveLineChart.Value formatter={(currentValue) => `${currentValue}%`} />
+      <LiveLineChart.Delta />
+    </LiveLineChart.Metric>
+  </LiveLineChart.Header>
+  <LiveLineChart.Body>
+    <LiveLineChart.Chart color="#22c55e" showValue />
+  </LiveLineChart.Body>
+  <LiveLineChart.Footer>
+    <span>Live feed</span>
+    <span>Target 62%</span>
+  </LiveLineChart.Footer>
+</LiveLineChart>
+```
+
+## Composition
+
+Use the following composition to build a `LiveLineChart`.
+
+```text
+LiveLineChart
+├── LiveLineChart.Header
+│   ├── LiveLineChart.Title
+│   ├── LiveLineChart.Description
+│   └── LiveLineChart.Metric
+│       ├── LiveLineChart.Value
+│       └── LiveLineChart.Delta
+├── LiveLineChart.Body
+│   └── LiveLineChart.Chart
+└── LiveLineChart.Footer
+    └── LiveLineChart.Legend
+```
+
+## API Reference
+
+### LiveLineChart
+
+Provides chart data, value state, and theme context to the compound components.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="LiveLineChartProps"
+/>
+
+### LiveLineChart.Chart
+
+Renders the Liveline canvas using the nearest `LiveLineChart` data and local chart options.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="LiveLineChartChartProps"
+/>
+
+### Layout Components
+
+`LiveLineChart.Header`, `LiveLineChart.Metric`, `LiveLineChart.Body`, `LiveLineChart.Footer`, and `LiveLineChart.Legend` extend the native `div` element.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="LiveLineChartLayoutProps"
+/>
+
+### Text Components
+
+`LiveLineChart.Title` extends `h3`, `LiveLineChart.Description` extends `p`, and `LiveLineChart.Value` / `LiveLineChart.Delta` extend `span`.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="LiveLineChartTextProps"
+/>
+
+## References
+
+- [Liveline documentation](https://benji.org/liveline)
+- [Liveline GitHub repository](https://github.com/benjitaylor/liveline) by [Benji Taylor](https://github.com/benjitaylor)

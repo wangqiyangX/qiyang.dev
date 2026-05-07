@@ -45,8 +45,8 @@
       "author": "Qiyang Wang <wangqiyangx@gmail.com>"
     },
     {
-      "name": "live-chart",
-      "title": "Live Chart",
+      "name": "live-line-chart",
+      "title": "Live Line Chart",
       "description": "Compose real-time animated charts with metrics, legends, and sections.",
       "dependencies": [
         "liveline"
@@ -56,12 +56,12 @@
       ],
       "files": [
         {
-          "path": "src/registry/components/live-chart/live-chart.tsx",
+          "path": "src/registry/components/live-line-chart/live-line-chart.tsx",
           "type": "registry:component",
-          "target": "components/live-chart.tsx"
+          "target": "components/live-line-chart.tsx"
         }
       ],
-      "docs": "https://qiyang.dev/components/live-chart",
+      "docs": "https://qiyang.dev/components/live-line-chart",
       "type": "registry:component",
       "author": "Qiyang Wang <wangqiyangx@gmail.com>"
     },

@@ -21,19 +21,19 @@ export const components: Registry["items"] = [
     dependencies: ["lucide-react", "tokenlens"],
   },
   {
-    name: "live-chart",
+    name: "live-line-chart",
     type: "registry:component",
-    title: "Live Chart",
+    title: "Live Line Chart",
     description:
       "Compose real-time animated charts with metrics, legends, and sections.",
     files: [
       {
-        path: "components/live-chart/live-chart.tsx",
+        path: "components/live-line-chart/live-line-chart.tsx",
         type: "registry:component",
-        target: "components/live-chart.tsx",
+        target: "components/live-line-chart.tsx",
       },
     ],
-    docs: "https://qiyang.dev/components/live-chart",
+    docs: "https://qiyang.dev/components/live-line-chart",
     registryDependencies: [getRegistryItemUrl("utils")],
     dependencies: ["liveline"],
   },

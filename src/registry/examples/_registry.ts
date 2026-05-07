@@ -15,12 +15,12 @@ export const examples: Registry["items"] = [
     ],
   },
   {
-    name: "live-chart-demo",
+    name: "live-line-chart-demo",
     type: "registry:example",
-    registryDependencies: [getRegistryItemUrl("live-chart")],
+    registryDependencies: [getRegistryItemUrl("live-line-chart")],
     files: [
       {
-        path: "examples/live-chart-demo.tsx",
+        path: "examples/live-line-chart-demo.tsx",
         type: "registry:example",
       },
     ],

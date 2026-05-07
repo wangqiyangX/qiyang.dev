@@ -41,17 +41,17 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
-  "live-chart": {
-    name: "live-chart",
+  "live-line-chart": {
+    name: "live-line-chart",
     description: "Compose real-time animated charts with metrics, legends, and sections.",
     type: "registry:component",
     files: [{
-      path: "src/registry/components/live-chart/live-chart.tsx",
+      path: "src/registry/components/live-line-chart/live-line-chart.tsx",
       type: "registry:component",
-      target: "components/live-chart.tsx",
+      target: "components/live-line-chart.tsx",
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/registry/components/live-chart/live-chart.tsx")
+      const mod = await import("@/registry/components/live-line-chart/live-line-chart.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -126,17 +126,17 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
-  "live-chart-demo": {
-    name: "live-chart-demo",
+  "live-line-chart-demo": {
+    name: "live-line-chart-demo",
     description: "",
     type: "registry:example",
     files: [{
-      path: "src/registry/examples/live-chart-demo.tsx",
+      path: "src/registry/examples/live-line-chart-demo.tsx",
       type: "registry:example",
       target: "",
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/registry/examples/live-chart-demo.tsx")
+      const mod = await import("@/registry/examples/live-line-chart-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
