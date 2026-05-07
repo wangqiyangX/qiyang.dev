@@ -18,10 +18,16 @@ type FileTreeContextValue = {
   indent: number
 }
 
+const FILE_TREE_ICON_SIZE = 14
+
 const FileTreeContext = React.createContext<FileTreeContextValue>({
   indent: 20,
   level: 0,
 })
+
+const fileTreeIconClassName = "size-3.5 shrink-0"
+const fileTreeIconContainerClassName =
+  "flex size-4 shrink-0 items-center justify-center [&>img]:size-3.5 [&>svg]:size-3.5 [&>svg]:shrink-0"
 
 const extensionIconMap = {
   astro: "astro",
@@ -148,6 +154,7 @@ function FileTreeFolder({
   ...props
 }: FileTreeFolderProps) {
   const context = React.useContext(FileTreeContext)
+  const indentOffset = context.level * context.indent
   const [uncontrolledOpen, setUncontrolledOpen] = React.useState(defaultOpen)
   const isControlled = openProp !== undefined
   const open = isControlled ? openProp : uncontrolledOpen
@@ -173,21 +180,28 @@ function FileTreeFolder({
     >
       <button
         aria-expanded={open}
-        className="flex min-h-8 w-full items-center gap-2 rounded-sm px-2 text-left transition-colors outline-none hover:bg-muted focus-visible:bg-muted focus-visible:ring-2 focus-visible:ring-ring/50"
+        className="flex min-h-8 w-full items-center rounded-sm px-2 text-left transition-colors outline-none hover:bg-muted focus-visible:bg-muted focus-visible:ring-2 focus-visible:ring-ring/50"
         data-slot="file-tree-folder-trigger"
         onClick={toggleOpen}
-        style={{ paddingLeft: context.level * context.indent + 8 }}
+        style={{
+          marginLeft: indentOffset,
+          width: `calc(100% - ${indentOffset}px)`,
+        }}
         type="button"
       >
         <ChevronRightIcon
           className={cn(
-            "shrink-0 text-muted-foreground transition-transform",
+            fileTreeIconClassName,
+            "mr-1 text-muted-foreground transition-transform",
             open && "rotate-90"
           )}
           aria-hidden="true"
         />
         <span
-          className="flex shrink-0 text-muted-foreground"
+          className={cn(
+            fileTreeIconContainerClassName,
+            "mr-2 text-muted-foreground"
+          )}
           data-slot="file-tree-folder-icon"
         >
           {open ? (openIcon ?? <FolderOpenIcon />) : (icon ?? <FolderIcon />)}
@@ -198,7 +212,19 @@ function FileTreeFolder({
         <FileTreeContext.Provider
           value={{ indent: context.indent, level: context.level + 1 }}
         >
-          <div data-slot="file-tree-folder-content" role="group">
+          <div
+            className="relative"
+            data-slot="file-tree-folder-content"
+            role="group"
+          >
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute top-1 bottom-1 w-px bg-border"
+              style={{
+                left:
+                  context.level * context.indent + 8 + FILE_TREE_ICON_SIZE / 2,
+              }}
+            />
             {children}
           </div>
         </FileTreeContext.Provider>
@@ -246,6 +272,7 @@ function FileTreeItem({
   ...props
 }: FileTreeItemProps) {
   const context = React.useContext(FileTreeContext)
+  const indentOffset = context.level * context.indent
 
   return (
     <div
@@ -256,10 +283,17 @@ function FileTreeItem({
       )}
       data-slot="file-tree-item"
       role="treeitem"
-      style={{ paddingLeft: context.level * context.indent + 8, ...style }}
+      style={{
+        marginLeft: indentOffset,
+        width: `calc(100% - ${indentOffset}px)`,
+        ...style,
+      }}
       {...props}
     >
-      <span className="flex shrink-0" data-slot="file-tree-item-icon">
+      <span
+        className={fileTreeIconContainerClassName}
+        data-slot="file-tree-item-icon"
+      >
         {icon}
       </span>
       <span className="min-w-0 truncate text-foreground">{children}</span>
@@ -280,7 +314,13 @@ function FileTreeIcon({
     return fallback
   }
 
-  return <StackIcon className="size-4" name={name} variant={variant} />
+  return (
+    <StackIcon
+      className={fileTreeIconClassName}
+      name={name}
+      variant={variant}
+    />
+  )
 }
 
 export function getFileTreeIconName(
