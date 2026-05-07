@@ -75,4 +75,21 @@ export const components: Registry["items"] = [
     ],
     dependencies: ["lucide-react"],
   },
+  {
+    name: "file-tree",
+    type: "registry:component",
+    title: "File Tree",
+    description:
+      "Nested file tree with compound components and extension-aware tech stack icons.",
+    files: [
+      {
+        path: "components/file-tree/file-tree.tsx",
+        type: "registry:component",
+        target: "components/file-tree.tsx",
+      },
+    ],
+    docs: "https://qiyang.dev/components/file-tree",
+    registryDependencies: [getRegistryItemUrl("utils")],
+    dependencies: ["lucide-react", "tech-stack-icons"],
+  },
 ]

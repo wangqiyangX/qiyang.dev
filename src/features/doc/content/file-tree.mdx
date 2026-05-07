@@ -1,0 +1,143 @@
+---
+title: File Tree
+description: Display nested folders and files with compound components and extension-aware tech stack icons.
+category: components
+new: true
+createdAt: 2026-05-07
+updatedAt: 2026-05-07
+---
+
+<ComponentPreview
+  className="**:data-[slot=preview]:min-h-96"
+  name="file-tree-demo"
+  openInV0Url="https://qiyang.dev/r/file-tree.json"
+/>
+
+## Features
+
+- Uses a compound component API for explicit folder and file composition.
+- Distinguishes folders from files with expandable folder rows.
+- Resolves file icons from extensions and known filenames with `tech-stack-icons`.
+- Supports icon overrides for custom file or folder visuals.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @qiyang/file-tree
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+pnpm add lucide-react tech-stack-icons
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="file-tree" title="components/file-tree.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FileTree } from "@/components/file-tree"
+```
+
+```tsx
+<FileTree>
+  <FileTree.Folder name="src">
+    <FileTree.Folder name="components">
+      <FileTree.File name="file-tree.tsx" />
+      <FileTree.File name="button.tsx" />
+    </FileTree.Folder>
+    <FileTree.File name="page.tsx" />
+  </FileTree.Folder>
+  <FileTree.File name="package.json" />
+</FileTree>
+```
+
+## API Reference
+
+### FileTree
+
+<AutoTypeTable
+  path="src/registry/components/file-tree/file-tree.tsx"
+  name="FileTreeProps"
+/>
+
+### FileTree.Folder
+
+<AutoTypeTable
+  path="src/registry/components/file-tree/file-tree.tsx"
+  name="FileTreeFolderProps"
+/>
+
+### FileTree.File
+
+<AutoTypeTable
+  path="src/registry/components/file-tree/file-tree.tsx"
+  name="FileTreeFileProps"
+/>
+
+### FileTree.Item
+
+<AutoTypeTable
+  path="src/registry/components/file-tree/file-tree.tsx"
+  name="FileTreeItemProps"
+/>
+
+## Examples
+
+### Controlled Folder
+
+```tsx
+const [open, setOpen] = React.useState(true)
+
+<FileTree>
+  <FileTree.Folder name="registry" open={open} onOpenChange={setOpen}>
+    <FileTree.File name="file-tree.tsx" />
+    <FileTree.File name="file-tree-demo.tsx" />
+  </FileTree.Folder>
+</FileTree>
+```
+
+### Custom Icon
+
+```tsx
+import { FileTextIcon } from "lucide-react"
+
+function ReadmeTree() {
+  return (
+    <FileTree>
+      <FileTree.File icon={<FileTextIcon />} name="README" />
+    </FileTree>
+  )
+}
+```

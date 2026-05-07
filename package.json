@@ -79,6 +79,7 @@
     "sharp": "^0.34.3",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.3.1",
+    "tech-stack-icons": "^3.7.1",
     "tokenlens": "^1.3.1",
     "vcard-creator": "^0.7.2",
     "web-haptics": "^0.0.6",

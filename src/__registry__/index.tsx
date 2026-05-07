@@ -92,6 +92,23 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "file-tree": {
+    name: "file-tree",
+    description: "Nested file tree with compound components and extension-aware tech stack icons.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/file-tree/file-tree.tsx",
+      type: "registry:component",
+      target: "components/file-tree.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/file-tree/file-tree.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "context-demo": {
     name: "context-demo",
     description: "",
@@ -154,6 +171,23 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/stepper-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "file-tree-demo": {
+    name: "file-tree-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/file-tree-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/file-tree-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

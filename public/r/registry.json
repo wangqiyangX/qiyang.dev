@@ -108,6 +108,28 @@
       "docs": "https://qiyang.dev/components/stepper",
       "type": "registry:component",
       "author": "Qiyang Wang <wangqiyangx@gmail.com>"
+    },
+    {
+      "name": "file-tree",
+      "title": "File Tree",
+      "description": "Nested file tree with compound components and extension-aware tech stack icons.",
+      "dependencies": [
+        "lucide-react",
+        "tech-stack-icons"
+      ],
+      "registryDependencies": [
+        "https://qiyang.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/file-tree/file-tree.tsx",
+          "type": "registry:component",
+          "target": "components/file-tree.tsx"
+        }
+      ],
+      "docs": "https://qiyang.dev/components/file-tree",
+      "type": "registry:component",
+      "author": "Qiyang Wang <wangqiyangx@gmail.com>"
     }
   ]
 }
