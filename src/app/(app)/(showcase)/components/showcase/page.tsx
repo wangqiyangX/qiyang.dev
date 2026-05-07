@@ -16,6 +16,7 @@ import {
 import { X_HANDLE } from "@/config/site"
 import { cn } from "@/lib/utils"
 import ContextDemo from "@/registry/examples/context-demo"
+import CrosshairCursorDemo from "@/registry/examples/crosshair-cursor-demo"
 import FileTreeDemo from "@/registry/examples/file-tree-demo"
 import LiveLineChartDemo from "@/registry/examples/live-line-chart-demo"
 import ShimmerDemo from "@/registry/examples/shimmer-demo"
@@ -109,13 +110,16 @@ export default function ComponentsShowcasePage() {
         <GridItem className="min-h-96 md:col-span-2">
           <FileTreeDemo />
         </GridItem>
+        <GridItem className="min-h-96 md:col-span-4">
+          <CrosshairCursorDemo />
+        </GridItem>
         <GridItem className="min-h-52 md:col-span-2">
           <ContextDemo />
         </GridItem>
-        <GridItem className="min-h-52 md:col-span-2">
+        <GridItem className="min-h-52 md:col-span-3">
           <ShimmerDemo />
         </GridItem>
-        <GridItem className="min-h-52 md:col-span-2">
+        <GridItem className="min-h-52 md:col-span-3">
           <StepperDemo />
         </GridItem>
       </div>
