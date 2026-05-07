@@ -118,43 +118,34 @@ LiveChart
 
 Wraps the chart and provides Liveline data to the compound components.
 
-| Prop       | Type                            | Description                                  |
-| ---------- | ------------------------------- | -------------------------------------------- |
-| `data`     | `LivelinePoint[]`               | Array of time/value points.                  |
-| `value`    | `number`                        | Latest value for the animated line.          |
-| `theme`    | `"system" \| "light" \| "dark"` | Chart theme. Defaults to `"system"`.         |
-| `children` | `ReactNode`                     | Compound chart sections.                     |
-| `...props` | `Liveline props`                | Props passed to the underlying Liveline API. |
+<AutoTypeTable path="src/features/doc/content/props.ts" name="LiveChartProps" />
 
 ### LiveChart.Chart
 
 Renders the Liveline canvas using the nearest `LiveChart` data and options.
 
-| Prop        | Type              | Description                                      |
-| ----------- | ----------------- | ------------------------------------------------ |
-| `data`      | `LivelinePoint[]` | Optional chart data override.                    |
-| `value`     | `number`          | Optional current value override.                 |
-| `className` | `string`          | Additional classes for the Liveline container.   |
-| `...props`  | `Liveline props`  | Optional Liveline overrides for this chart slot. |
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="LiveChartChartProps"
+/>
 
 ### Layout Components
 
 `LiveChart.Header`, `LiveChart.Metric`, `LiveChart.Body`, `LiveChart.Footer`, and `LiveChart.Legend` extend the native `div` element.
 
-| Prop       | Type        | Description                                   |
-| ---------- | ----------- | --------------------------------------------- |
-| `children` | `ReactNode` | Optional custom content for the section.      |
-| `...props` | `div props` | Props passed to the rendered section element. |
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="LiveChartLayoutProps"
+/>
 
 ### Text Components
 
 `LiveChart.Title` extends `h3`, `LiveChart.Description` extends `p`, and `LiveChart.Value` / `LiveChart.Delta` extend `span`.
 
-| Prop        | Type                               | Description                                |
-| ----------- | ---------------------------------- | ------------------------------------------ |
-| `formatter` | `(value: number) => ReactNode`     | Optional value formatter.                  |
-| `value`     | `number`                           | Optional value override.                   |
-| `...props`  | `h3`, `p`, or `span` element props | Props passed to the rendered text element. |
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="LiveChartTextProps"
+/>
 
 ## References
 

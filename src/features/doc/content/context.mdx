@@ -136,50 +136,43 @@ Context
 
 Wraps the hover card and provides token usage data to the compound components.
 
-| Prop         | Type                 | Description                                     |
-| ------------ | -------------------- | ----------------------------------------------- |
-| `maxTokens`  | `number`             | Total context window size.                      |
-| `usedTokens` | `number`             | Number of tokens currently used.                |
-| `usage`      | `LanguageModelUsage` | Token usage breakdown.                          |
-| `modelId`    | `ModelId`            | Optional model id used for cost estimation.     |
-| `...props`   | `HoverCard props`    | Props passed to the underlying hover card root. |
+<AutoTypeTable path="src/features/doc/content/props.ts" name="ContextProps" />
 
 ### ContextTrigger
 
 Renders the compact trigger button. Pass a custom child to replace the default trigger.
 
-| Prop       | Type           | Description                                 |
-| ---------- | -------------- | ------------------------------------------- |
-| `children` | `ReactNode`    | Optional custom trigger element.            |
-| `...props` | `Button props` | Props passed to the default button trigger. |
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="ContextTriggerProps"
+/>
 
 ### ContextContent
 
 Renders the hover card content container.
 
-| Prop        | Type                     | Description                                   |
-| ----------- | ------------------------ | --------------------------------------------- |
-| `className` | `string`                 | Additional classes for the content container. |
-| `...props`  | `HoverCardContent props` | Props passed to the hover card content.       |
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="ContextContentProps"
+/>
 
 ### Content Sections
 
 `ContextContentHeader`, `ContextContentBody`, and `ContextContentFooter` extend the native `div` element.
 
-| Prop       | Type        | Description                              |
-| ---------- | ----------- | ---------------------------------------- |
-| `children` | `ReactNode` | Optional custom content for the section. |
-| `...props` | `div props` | Props passed to the section element.     |
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="ContextContentSectionProps"
+/>
 
 ### Usage Components
 
 `ContextInputUsage`, `ContextOutputUsage`, `ContextReasoningUsage`, and `ContextCacheUsage` extend the native `div` element.
 
-| Prop        | Type        | Description                            |
-| ----------- | ----------- | -------------------------------------- |
-| `children`  | `ReactNode` | Optional custom content for the row.   |
-| `className` | `string`    | Additional classes for the row.        |
-| `...props`  | `div props` | Props passed to the usage row element. |
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="ContextUsageProps"
+/>
 
 ## References
 

@@ -16,6 +16,8 @@ import {
 import { X_HANDLE } from "@/config/site"
 import { cn } from "@/lib/utils"
 import ContextDemo from "@/registry/examples/context-demo"
+import FileTreeDemo from "@/registry/examples/file-tree-demo"
+import LiveChartDemo from "@/registry/examples/live-chart-demo"
 import ShimmerDemo from "@/registry/examples/shimmer-demo"
 import StepperDemo from "@/registry/examples/stepper-demo"
 
@@ -100,14 +102,20 @@ export default function ComponentsShowcasePage() {
 
       <div className="screen-line-bottom h-px" />
 
-      <div className="grid grid-cols-1 gap-1 p-1 md:grid-cols-3">
-        <GridItem className="min-h-52">
+      <div className="grid grid-cols-1 gap-1 p-1 md:grid-cols-6">
+        <GridItem className="min-h-96 md:col-span-4">
+          <LiveChartDemo />
+        </GridItem>
+        <GridItem className="min-h-96 md:col-span-2">
+          <FileTreeDemo />
+        </GridItem>
+        <GridItem className="min-h-52 md:col-span-2">
           <ContextDemo />
         </GridItem>
-        <GridItem className="min-h-52">
+        <GridItem className="min-h-52 md:col-span-2">
           <ShimmerDemo />
         </GridItem>
-        <GridItem className="min-h-52">
+        <GridItem className="min-h-52 md:col-span-2">
           <StepperDemo />
         </GridItem>
       </div>
