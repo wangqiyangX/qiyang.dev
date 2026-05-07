@@ -1,0 +1,162 @@
+---
+title: Live Chart
+description: Compose real-time animated charts with metrics, legends, and sections.
+category: components
+new: true
+createdAt: 2026-05-07
+updatedAt: 2026-05-07
+---
+
+<ComponentPreview
+  className="**:data-[slot=component-preview]:min-h-96"
+  name="live-chart-demo"
+  openInV0Url="https://qiyang.dev/r/live-chart.json"
+/>
+
+## Features
+
+- Wraps Liveline with a compound layout for headers, metrics, chart body, and footer content.
+- Shares chart data through context so values, deltas, and legends stay in sync.
+- Supports Liveline options including windows, reference lines, momentum, and value overlays.
+- Follows light and dark mode by default while allowing explicit theme overrides.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @qiyang/live-chart
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Install dependencies</Step>
+
+```bash
+pnpm add liveline
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="live-chart" title="components/live-chart.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { LiveChart } from "@/components/live-chart"
+```
+
+```tsx
+<LiveChart data={data} value={value} color="#22c55e" showValue>
+  <LiveChart.Header>
+    <div>
+      <LiveChart.Title>Conversion pulse</LiveChart.Title>
+      <LiveChart.Description>
+        Rolling checkout activity from the last few minutes.
+      </LiveChart.Description>
+    </div>
+    <LiveChart.Metric>
+      <LiveChart.Value formatter={(currentValue) => `${currentValue}%`} />
+      <LiveChart.Delta />
+    </LiveChart.Metric>
+  </LiveChart.Header>
+  <LiveChart.Body>
+    <LiveChart.Chart />
+  </LiveChart.Body>
+  <LiveChart.Footer>
+    <span>Live feed</span>
+    <span>Target 62%</span>
+  </LiveChart.Footer>
+</LiveChart>
+```
+
+## Composition
+
+Use the following composition to build a `LiveChart`.
+
+```text
+LiveChart
+├── LiveChart.Header
+│   ├── LiveChart.Title
+│   ├── LiveChart.Description
+│   └── LiveChart.Metric
+│       ├── LiveChart.Value
+│       └── LiveChart.Delta
+├── LiveChart.Body
+│   └── LiveChart.Chart
+└── LiveChart.Footer
+    └── LiveChart.Legend
+```
+
+## API Reference
+
+### LiveChart
+
+Wraps the chart and provides Liveline data to the compound components.
+
+| Prop       | Type                            | Description                                  |
+| ---------- | ------------------------------- | -------------------------------------------- |
+| `data`     | `LivelinePoint[]`               | Array of time/value points.                  |
+| `value`    | `number`                        | Latest value for the animated line.          |
+| `theme`    | `"system" \| "light" \| "dark"` | Chart theme. Defaults to `"system"`.         |
+| `children` | `ReactNode`                     | Compound chart sections.                     |
+| `...props` | `Liveline props`                | Props passed to the underlying Liveline API. |
+
+### LiveChart.Chart
+
+Renders the Liveline canvas using the nearest `LiveChart` data and options.
+
+| Prop        | Type              | Description                                      |
+| ----------- | ----------------- | ------------------------------------------------ |
+| `data`      | `LivelinePoint[]` | Optional chart data override.                    |
+| `value`     | `number`          | Optional current value override.                 |
+| `className` | `string`          | Additional classes for the Liveline container.   |
+| `...props`  | `Liveline props`  | Optional Liveline overrides for this chart slot. |
+
+### Layout Components
+
+`LiveChart.Header`, `LiveChart.Metric`, `LiveChart.Body`, `LiveChart.Footer`, and `LiveChart.Legend` extend the native `div` element.
+
+| Prop       | Type        | Description                                   |
+| ---------- | ----------- | --------------------------------------------- |
+| `children` | `ReactNode` | Optional custom content for the section.      |
+| `...props` | `div props` | Props passed to the rendered section element. |
+
+### Text Components
+
+`LiveChart.Title` extends `h3`, `LiveChart.Description` extends `p`, and `LiveChart.Value` / `LiveChart.Delta` extend `span`.
+
+| Prop        | Type                               | Description                                |
+| ----------- | ---------------------------------- | ------------------------------------------ |
+| `formatter` | `(value: number) => ReactNode`     | Optional value formatter.                  |
+| `value`     | `number`                           | Optional value override.                   |
+| `...props`  | `h3`, `p`, or `span` element props | Props passed to the rendered text element. |
+
+## References
+
+- [Liveline documentation](https://benji.org/liveline)
+- [Liveline GitHub repository](https://github.com/benjitaylor/liveline) by [Benji Taylor](https://github.com/benjitaylor)

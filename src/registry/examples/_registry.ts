@@ -15,6 +15,17 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "live-chart-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("live-chart")],
+    files: [
+      {
+        path: "examples/live-chart-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "shimmer-demo",
     type: "registry:example",
     registryDependencies: [getRegistryItemUrl("shimmer")],

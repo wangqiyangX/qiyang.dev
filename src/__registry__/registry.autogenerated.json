@@ -45,6 +45,27 @@
       "author": "Qiyang Wang <wangqiyangx@gmail.com>"
     },
     {
+      "name": "live-chart",
+      "title": "Live Chart",
+      "description": "Compose real-time animated charts with metrics, legends, and sections.",
+      "dependencies": [
+        "liveline"
+      ],
+      "registryDependencies": [
+        "https://qiyang.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/live-chart/live-chart.tsx",
+          "type": "registry:component",
+          "target": "components/live-chart.tsx"
+        }
+      ],
+      "docs": "https://qiyang.dev/components/live-chart",
+      "type": "registry:component",
+      "author": "Qiyang Wang <wangqiyangx@gmail.com>"
+    },
+    {
       "name": "shimmer",
       "title": "Shimmer",
       "description": "An animated text shimmer component for creating eye-catching loading states and progressive reveal effects.",

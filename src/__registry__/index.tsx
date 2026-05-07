@@ -41,6 +41,23 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "live-chart": {
+    name: "live-chart",
+    description: "Compose real-time animated charts with metrics, legends, and sections.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/live-chart/live-chart.tsx",
+      type: "registry:component",
+      target: "components/live-chart.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/live-chart/live-chart.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "shimmer": {
     name: "shimmer",
     description: "An animated text shimmer component for creating eye-catching loading states and progressive reveal effects.",
@@ -86,6 +103,23 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/context-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "live-chart-demo": {
+    name: "live-chart-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/live-chart-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/live-chart-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

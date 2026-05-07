@@ -21,6 +21,23 @@ export const components: Registry["items"] = [
     dependencies: ["lucide-react", "tokenlens"],
   },
   {
+    name: "live-chart",
+    type: "registry:component",
+    title: "Live Chart",
+    description:
+      "Compose real-time animated charts with metrics, legends, and sections.",
+    files: [
+      {
+        path: "components/live-chart/live-chart.tsx",
+        type: "registry:component",
+        target: "components/live-chart.tsx",
+      },
+    ],
+    docs: "https://qiyang.dev/components/live-chart",
+    registryDependencies: [getRegistryItemUrl("utils")],
+    dependencies: ["liveline"],
+  },
+  {
     name: "shimmer",
     type: "registry:component",
     title: "Shimmer",
