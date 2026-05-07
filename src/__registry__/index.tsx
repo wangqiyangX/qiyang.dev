@@ -41,6 +41,23 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "crosshair-cursor": {
+    name: "crosshair-cursor",
+    description: "Replace the native pointer with a rectangular cursor and crosshair guide lines.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/crosshair-cursor/crosshair-cursor.tsx",
+      type: "registry:component",
+      target: "components/crosshair-cursor.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/crosshair-cursor/crosshair-cursor.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "live-line-chart": {
     name: "live-line-chart",
     description: "Compose real-time animated charts with metrics, legends, and sections.",
@@ -120,6 +137,23 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/context-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "crosshair-cursor-demo": {
+    name: "crosshair-cursor-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/crosshair-cursor-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/crosshair-cursor-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

@@ -21,6 +21,22 @@ export const components: Registry["items"] = [
     dependencies: ["lucide-react", "tokenlens"],
   },
   {
+    name: "crosshair-cursor",
+    type: "registry:component",
+    title: "Crosshair Cursor",
+    description:
+      "Replace the native pointer with a rectangular cursor and crosshair guide lines.",
+    files: [
+      {
+        path: "components/crosshair-cursor/crosshair-cursor.tsx",
+        type: "registry:component",
+        target: "components/crosshair-cursor.tsx",
+      },
+    ],
+    docs: "https://qiyang.dev/components/crosshair-cursor",
+    registryDependencies: [getRegistryItemUrl("utils")],
+  },
+  {
     name: "live-line-chart",
     type: "registry:component",
     title: "Live Line Chart",

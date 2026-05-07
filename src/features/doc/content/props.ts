@@ -10,6 +10,13 @@ import type {
   ContextTrigger,
 } from "@/registry/components/context/context"
 import type {
+  CrosshairCursor,
+  CrosshairCursorContent,
+  CrosshairCursorCursor,
+  CrosshairCursorGuides,
+  CrosshairCursorHorizontalLine,
+} from "@/registry/components/crosshair-cursor"
+import type {
   FileTree,
   FileTreeFile,
   FileTreeFolder,
@@ -48,6 +55,31 @@ export type ContextContentSectionProps = Omit<
 export type ContextUsageProps = Omit<
   ComponentProps<typeof ContextInputUsage>,
   keyof Omit<ComponentPropsWithoutRef<"div">, "children" | "className">
+>
+
+export type CrosshairCursorProps = Omit<
+  ComponentProps<typeof CrosshairCursor>,
+  keyof Omit<ComponentPropsWithoutRef<"div">, "children" | "className">
+>
+
+export type CrosshairCursorContentProps = Omit<
+  ComponentProps<typeof CrosshairCursorContent>,
+  keyof Omit<ComponentPropsWithoutRef<"div">, "children" | "className">
+>
+
+export type CrosshairCursorGuidesProps = Omit<
+  ComponentProps<typeof CrosshairCursorGuides>,
+  keyof Omit<ComponentPropsWithoutRef<"div">, "children" | "className">
+>
+
+export type CrosshairCursorCursorProps = Omit<
+  ComponentProps<typeof CrosshairCursorCursor>,
+  keyof Omit<ComponentPropsWithoutRef<"div">, "className">
+>
+
+export type CrosshairCursorLineProps = Omit<
+  ComponentProps<typeof CrosshairCursorHorizontalLine>,
+  keyof Omit<ComponentPropsWithoutRef<"div">, "className">
 >
 
 export type FileTreeProps = Omit<

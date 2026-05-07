@@ -15,6 +15,17 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "crosshair-cursor-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("crosshair-cursor")],
+    files: [
+      {
+        path: "examples/crosshair-cursor-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "live-line-chart-demo",
     type: "registry:example",
     registryDependencies: [getRegistryItemUrl("live-line-chart")],

@@ -1,0 +1,147 @@
+---
+title: Crosshair Cursor
+description: Replace the native pointer with a rectangular cursor and draw crosshair guides from the current mouse position.
+category: components
+new: true
+createdAt: 2026-05-07
+updatedAt: 2026-05-07
+---
+
+<ComponentPreview
+  className="**:data-[slot=component-preview]:min-h-96"
+  name="crosshair-cursor-demo"
+  openInV0Url="https://qiyang.dev/r/crosshair-cursor.json"
+/>
+
+## Features
+
+- Tracks pointer coordinates relative to the component root.
+- Replaces the native pointer with a rectangular cursor.
+- Draws horizontal and vertical guide lines through the pointer origin.
+- Uses a compound component API so the content, guides, and cursor can be composed independently.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @qiyang/crosshair-cursor
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="crosshair-cursor"
+  title="components/crosshair-cursor.tsx"
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CrosshairCursor } from "@/components/crosshair-cursor"
+```
+
+```tsx
+<CrosshairCursor>
+  <CrosshairCursor.Content>
+    <div>Your surface content</div>
+  </CrosshairCursor.Content>
+  <CrosshairCursor.Guides />
+  <CrosshairCursor.Cursor />
+</CrosshairCursor>
+```
+
+## API Reference
+
+### CrosshairCursor
+
+Extends the native `div` element and accepts these additional props.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="CrosshairCursorProps"
+/>
+
+### CrosshairCursor.Content
+
+Extends the native `div` element.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="CrosshairCursorContentProps"
+/>
+
+### CrosshairCursor.Guides
+
+Extends the native `div` element.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="CrosshairCursorGuidesProps"
+/>
+
+### CrosshairCursor.Cursor
+
+Extends the native `div` element and accepts these additional props.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="CrosshairCursorCursorProps"
+/>
+
+### CrosshairCursor.HorizontalLine
+
+Extends the native `div` element.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="CrosshairCursorLineProps"
+/>
+
+## Examples
+
+### Position Change
+
+```tsx
+const [position, setPosition] = React.useState({ x: 0, y: 0 })
+
+<CrosshairCursor onPositionChange={setPosition}>
+  <CrosshairCursor.Guides />
+  <CrosshairCursor.Cursor />
+</CrosshairCursor>
+```
+
+### Custom Rectangle
+
+```tsx
+<CrosshairCursor>
+  <CrosshairCursor.Guides />
+  <CrosshairCursor.Cursor className="border-primary" width={32} height={20} />
+</CrosshairCursor>
+```
