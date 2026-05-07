@@ -4,6 +4,17 @@ import { getRegistryItemUrl } from "@/utils/registry"
 
 export const examples: Registry["items"] = [
   {
+    name: "audio-player-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("audio-player")],
+    files: [
+      {
+        path: "examples/audio-player-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "context-demo",
     type: "registry:example",
     registryDependencies: [getRegistryItemUrl("context")],
@@ -43,6 +54,17 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "examples/shimmer-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "slider-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("slider")],
+    files: [
+      {
+        path: "examples/slider-demo.tsx",
         type: "registry:example",
       },
     ],

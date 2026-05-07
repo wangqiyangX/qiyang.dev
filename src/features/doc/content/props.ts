@@ -30,6 +30,16 @@ import type {
   LiveLineChartValue,
 } from "@/registry/components/live-line-chart/live-line-chart"
 import type { Shimmer } from "@/registry/components/shimmer/shimmer"
+import type {
+  Slider,
+  SliderHiddenInput,
+  SliderLabel,
+  SliderMark,
+  SliderRange,
+  SliderThumb,
+  SliderTick,
+  SliderTrack,
+} from "@/registry/components/slider/slider"
 import type { Stepper } from "@/registry/components/stepper/stepper"
 
 export type ContextProps = Omit<
@@ -125,6 +135,56 @@ export type LiveLineChartLegendProps = Omit<
 >
 
 export type ShimmerProps = ComponentProps<typeof Shimmer>
+
+export type SliderProps = Pick<
+  ComponentProps<typeof Slider>,
+  | "defaultValue"
+  | "dir"
+  | "disabled"
+  | "formatValue"
+  | "inverted"
+  | "max"
+  | "min"
+  | "onValueChange"
+  | "orientation"
+  | "step"
+  | "value"
+>
+
+export type SliderTrackProps = Omit<
+  ComponentProps<typeof SliderTrack>,
+  keyof Omit<ComponentPropsWithoutRef<"span">, "children" | "className">
+>
+
+export type SliderRangeProps = Omit<
+  ComponentProps<typeof SliderRange>,
+  keyof Omit<ComponentPropsWithoutRef<"span">, "children" | "className">
+>
+
+export type SliderThumbProps = Omit<
+  ComponentProps<typeof SliderThumb>,
+  keyof Omit<ComponentPropsWithoutRef<"span">, "children" | "className">
+>
+
+export type SliderMarkProps = Omit<
+  ComponentProps<typeof SliderMark>,
+  keyof Omit<ComponentPropsWithoutRef<"div">, "children" | "className">
+>
+
+export type SliderTickProps = Omit<
+  ComponentProps<typeof SliderTick>,
+  keyof Omit<ComponentPropsWithoutRef<"span">, "className">
+>
+
+export type SliderLabelProps = Omit<
+  ComponentProps<typeof SliderLabel>,
+  keyof Omit<ComponentPropsWithoutRef<"span">, "children" | "className">
+>
+
+export type SliderHiddenInputProps = Omit<
+  ComponentProps<typeof SliderHiddenInput>,
+  keyof Omit<ComponentPropsWithoutRef<"input">, "className" | "name">
+>
 
 export type StepperProps = Omit<
   ComponentProps<typeof Stepper>,

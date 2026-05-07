@@ -21,6 +21,30 @@
       "author": "Qiyang Wang <wangqiyangx@gmail.com>"
     },
     {
+      "name": "audio-player",
+      "title": "Audio Player",
+      "description": "Composable audio playback controls with flexible layouts.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "button-group",
+        "slider",
+        "https://qiyang.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/audio-player/audio-player.tsx",
+          "type": "registry:component",
+          "target": "components/audio-player.tsx"
+        }
+      ],
+      "docs": "https://qiyang.dev/components/audio-player",
+      "type": "registry:component",
+      "author": "Qiyang Wang <wangqiyangx@gmail.com>"
+    },
+    {
       "name": "context",
       "title": "Context",
       "description": "Display AI model context usage, token breakdowns, and cost estimates.",
@@ -101,6 +125,27 @@
         }
       ],
       "docs": "https://qiyang.dev/components/shimmer",
+      "type": "registry:component",
+      "author": "Qiyang Wang <wangqiyangx@gmail.com>"
+    },
+    {
+      "name": "slider",
+      "title": "Slider",
+      "description": "Compose accessible range controls with marks, labels, and form values.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://qiyang.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/slider/slider.tsx",
+          "type": "registry:component",
+          "target": "components/slider.tsx"
+        }
+      ],
+      "docs": "https://qiyang.dev/components/slider",
       "type": "registry:component",
       "author": "Qiyang Wang <wangqiyangx@gmail.com>"
     },

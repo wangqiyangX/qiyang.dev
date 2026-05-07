@@ -4,6 +4,27 @@ import { getRegistryItemUrl } from "@/utils/registry"
 
 export const components: Registry["items"] = [
   {
+    name: "audio-player",
+    type: "registry:component",
+    title: "Audio Player",
+    description: "Composable audio playback controls with flexible layouts.",
+    files: [
+      {
+        path: "components/audio-player/audio-player.tsx",
+        type: "registry:component",
+        target: "components/audio-player.tsx",
+      },
+    ],
+    docs: "https://qiyang.dev/components/audio-player",
+    registryDependencies: [
+      "button",
+      "button-group",
+      "slider",
+      getRegistryItemUrl("utils"),
+    ],
+    dependencies: ["lucide-react"],
+  },
+  {
     name: "context",
     type: "registry:component",
     title: "Context",
@@ -69,6 +90,23 @@ export const components: Registry["items"] = [
     docs: "https://qiyang.dev/components/shimmer",
     registryDependencies: [getRegistryItemUrl("utils")],
     dependencies: ["motion"],
+  },
+  {
+    name: "slider",
+    type: "registry:component",
+    title: "Slider",
+    description:
+      "Compose accessible range controls with marks, labels, and form values.",
+    files: [
+      {
+        path: "components/slider/slider.tsx",
+        type: "registry:component",
+        target: "components/slider.tsx",
+      },
+    ],
+    docs: "https://qiyang.dev/components/slider",
+    registryDependencies: [getRegistryItemUrl("utils")],
+    dependencies: ["radix-ui"],
   },
   {
     name: "stepper",

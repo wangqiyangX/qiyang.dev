@@ -1,0 +1,184 @@
+---
+title: Slider
+description: Compose accessible range controls with marks, labels, and form values.
+category: components
+new: true
+createdAt: 2026-05-07
+updatedAt: 2026-05-07
+---
+
+<ComponentPreview
+  className="**:data-[slot=component-preview]:min-h-60"
+  name="slider-demo"
+  openInV0Url="https://qiyang.dev/r/slider.json"
+/>
+
+## Features
+
+- Supports controlled and uncontrolled value management.
+- Supports left-to-right and right-to-left horizontal layouts.
+- Provides compound parts for tracks, ranges, thumbs, marks, and labels.
+- Keeps form integration available with a hidden input.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @qiyang/slider
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install dependencies</Step>
+
+```bash
+pnpm add radix-ui
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="slider" title="components/slider.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Slider } from "@/components/slider"
+```
+
+```tsx
+<Slider defaultValue={[48]} max={100} min={0}>
+  <Slider.Track>
+    <Slider.Range />
+    <Slider.Mark value={0} />
+    <Slider.Mark value={50} />
+    <Slider.Mark value={100} />
+  </Slider.Track>
+  <Slider.Thumb aria-label="Intensity" />
+  <Slider.HiddenInput name="intensity" />
+</Slider>
+```
+
+### RTL
+
+```tsx
+<Slider defaultValue={[48]} dir="rtl" max={100} min={0}>
+  <Slider.Track>
+    <Slider.Range />
+    <Slider.Mark value={0} />
+    <Slider.Mark value={50} />
+    <Slider.Mark value={100} />
+  </Slider.Track>
+  <Slider.Thumb aria-label="Intensity" />
+</Slider>
+```
+
+## Composition
+
+Use the following composition to build a `Slider`.
+
+```text
+Slider
+├── Slider.Track
+│   ├── Slider.Range
+│   └── Slider.Mark
+│       ├── Slider.Tick
+│       └── Slider.Label
+├── Slider.Thumb
+└── Slider.HiddenInput
+```
+
+## API Reference
+
+### Slider
+
+Extends Radix Slider Root and accepts these additional props.
+
+<AutoTypeTable path="src/features/doc/content/props.ts" name="SliderProps" />
+
+### Slider.Track
+
+Extends Radix Slider Track.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="SliderTrackProps"
+/>
+
+### Slider.Range
+
+Extends Radix Slider Range.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="SliderRangeProps"
+/>
+
+### Slider.Thumb
+
+Extends Radix Slider Thumb and accepts these additional props.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="SliderThumbProps"
+/>
+
+### Slider.Mark
+
+Extends the native `div` element and accepts these additional props.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="SliderMarkProps"
+/>
+
+### Slider.Tick
+
+Extends the native `span` element.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="SliderTickProps"
+/>
+
+### Slider.Label
+
+Extends the native `span` element and accepts these additional props.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="SliderLabelProps"
+/>
+
+### Slider.HiddenInput
+
+Extends the native `input` element and accepts these additional props.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="SliderHiddenInputProps"
+/>

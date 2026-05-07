@@ -1,0 +1,251 @@
+---
+title: Audio Player
+description: Composable audio playback controls with flexible layouts.
+category: components
+new: true
+createdAt: 2026-05-07
+updatedAt: 2026-05-07
+---
+
+<ComponentPreview
+  className="**:data-[slot=component-preview]:min-h-64"
+  name="audio-player-demo"
+  openInV0Url="https://qiyang.dev/r/audio-player.json"
+/>
+
+## Features
+
+- Uses a native audio element for playback state without Shadow DOM styling.
+- Supports remote audio URLs and base64 generated audio data.
+- Composes playback, seek, elapsed time, remaining time, and volume controls.
+- Shares shadcn/ui Button, ButtonGroup, Slider, and separator styling across controls.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @qiyang/audio-player
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add the required shadcn/ui components</Step>
+
+```bash
+npx shadcn@latest add button button-group slider
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Install dependencies</Step>
+
+```bash
+pnpm add lucide-react
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="audio-player" title="components/audio-player.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  AudioPlayer,
+  AudioPlayerControlBar,
+  AudioPlayerControlRow,
+  AudioPlayerElement,
+  AudioPlayerPlayButton,
+  AudioPlayerRemainingTimeDisplay,
+  AudioPlayerSeekBackwardButton,
+  AudioPlayerSeekForwardButton,
+  AudioPlayerTimeDisplay,
+  AudioPlayerTimeRange,
+  AudioPlayerVolumeRange,
+} from "@/components/audio-player"
+```
+
+```tsx
+<AudioPlayer>
+  <AudioPlayerElement src="https://stream.mux.com/O4h5z00885HEucNNa1rV02wZapcGp01FXXoJd35AHmGX7g/audio.m4a" />
+  <AudioPlayerControlBar>
+    <AudioPlayerControlRow>
+      <AudioPlayerVolumeRange className="w-24 px-1.5" />
+      <div className="flex flex-1 items-center justify-center gap-1">
+        <AudioPlayerSeekBackwardButton seekOffset={10} />
+        <AudioPlayerPlayButton />
+        <AudioPlayerSeekForwardButton seekOffset={10} />
+      </div>
+      <div className="w-24" />
+    </AudioPlayerControlRow>
+    <AudioPlayerControlRow className="gap-2">
+      <AudioPlayerTimeDisplay />
+      <AudioPlayerTimeRange className="px-1.5" />
+      <AudioPlayerRemainingTimeDisplay />
+    </AudioPlayerControlRow>
+  </AudioPlayerControlBar>
+</AudioPlayer>
+```
+
+## Composition
+
+Use the following composition to build a `AudioPlayer`.
+
+```text
+AudioPlayer
+├── AudioPlayerElement
+└── AudioPlayerControlBar
+    ├── AudioPlayerControlRow
+    │   ├── AudioPlayerVolumeRange
+    │   ├── div
+    │   │   ├── AudioPlayerSeekBackwardButton
+    │   │   ├── AudioPlayerPlayButton
+    │   │   └── AudioPlayerSeekForwardButton
+    │   └── div
+    └── AudioPlayerControlRow
+        ├── AudioPlayerTimeDisplay
+        ├── AudioPlayerTimeRange
+        └── AudioPlayerRemainingTimeDisplay
+```
+
+## API Reference
+
+### AudioPlayer
+
+Root provider that shares native audio state with the composable controls.
+
+| Prop       | Type                          | Description                                     |
+| ---------- | ----------------------------- | ----------------------------------------------- |
+| `...props` | `React.ComponentProps<"div">` | Any other props are spread to the root element. |
+
+### AudioPlayerElement
+
+Renders the native audio element. Pass either `src` or `data`.
+
+| Prop       | Type                                         | Description                                                                |
+| ---------- | -------------------------------------------- | -------------------------------------------------------------------------- |
+| `src`      | `string`                                     | The URL of the audio file to play.                                         |
+| `data`     | `AudioPlayerAudioData`                       | Base64 generated audio data, compatible with AI SDK generated audio files. |
+| `...props` | `Omit<React.ComponentProps<"audio">, "src">` | Any other props are spread to the audio element.                           |
+
+### AudioPlayerAudioData
+
+Shape accepted by `AudioPlayerElement` when rendering generated audio.
+
+| Prop        | Type     | Description                                                  |
+| ----------- | -------- | ------------------------------------------------------------ |
+| `base64`    | `string` | Audio data as a base64 encoded string.                       |
+| `mediaType` | `string` | Media type of the audio, such as `"audio/mpeg"`.             |
+| `mimeType`  | `string` | Legacy MIME type field supported as a fallback to mediaType. |
+
+### AudioPlayerControlBar
+
+Renders a shadcn/ui ButtonGroup for arranging controls.
+
+| Prop       | Type                                       | Description                                            |
+| ---------- | ------------------------------------------ | ------------------------------------------------------ |
+| `...props` | `React.ComponentProps<typeof ButtonGroup>` | Any other props are spread to the ButtonGroup wrapper. |
+
+### AudioPlayerControlRow
+
+Groups controls into a horizontal row inside `AudioPlayerControlBar`.
+
+| Prop       | Type                          | Description                                    |
+| ---------- | ----------------------------- | ---------------------------------------------- |
+| `...props` | `React.ComponentProps<"div">` | Any other props are spread to the row element. |
+
+### AudioPlayerControlSeparator
+
+Renders a shadcn/ui ButtonGroupSeparator between groups of controls.
+
+| Prop       | Type                                                | Description                                                       |
+| ---------- | --------------------------------------------------- | ----------------------------------------------------------------- |
+| `...props` | `React.ComponentProps<typeof ButtonGroupSeparator>` | Any other props are spread to the ButtonGroupSeparator component. |
+
+### AudioPlayerPlayButton
+
+Renders the play and pause control.
+
+| Prop       | Type                                  | Description                               |
+| ---------- | ------------------------------------- | ----------------------------------------- |
+| `...props` | `React.ComponentProps<typeof Button>` | Any other props are spread to the Button. |
+
+### Seek Buttons
+
+`AudioPlayerSeekBackwardButton` and `AudioPlayerSeekForwardButton` move the current playback position by a fixed offset.
+
+| Prop         | Type                                  | Default | Description                               |
+| ------------ | ------------------------------------- | ------- | ----------------------------------------- |
+| `seekOffset` | `number`                              | `10`    | The number of seconds to seek.            |
+| `...props`   | `React.ComponentProps<typeof Button>` |         | Any other props are spread to the Button. |
+
+### Time Displays
+
+`AudioPlayerTimeDisplay`, `AudioPlayerRemainingTimeDisplay`, and `AudioPlayerDurationDisplay` render tabular playback time.
+
+| Prop         | Type                                     | Description                                                |
+| ------------ | ---------------------------------------- | ---------------------------------------------------------- |
+| `formatTime` | `(seconds: number) => string`            | Custom formatter for the displayed seconds.                |
+| `...props`   | `ComponentProps<typeof ButtonGroupText>` | Any other props are spread to the ButtonGroupText wrapper. |
+
+### AudioPlayerRemainingTimeDisplay
+
+Renders the remaining playback time as a positive value.
+
+| Prop         | Type                                     | Description                                                |
+| ------------ | ---------------------------------------- | ---------------------------------------------------------- |
+| `formatTime` | `(seconds: number) => string`            | Custom formatter for remaining seconds.                    |
+| `...props`   | `ComponentProps<typeof ButtonGroupText>` | Any other props are spread to the ButtonGroupText wrapper. |
+
+### AudioPlayerTimeRange
+
+Renders the seek slider with a hover time preview.
+
+| Prop         | Type                                  | Description                                         |
+| ------------ | ------------------------------------- | --------------------------------------------------- |
+| `formatTime` | `(seconds: number) => string`         | Custom formatter for the hover preview.             |
+| `...props`   | `React.ComponentProps<typeof Slider>` | Any other props are spread to the Slider component. |
+
+### AudioPlayerMuteButton
+
+Renders the mute and unmute control.
+
+| Prop       | Type                                  | Description                               |
+| ---------- | ------------------------------------- | ----------------------------------------- |
+| `...props` | `React.ComponentProps<typeof Button>` | Any other props are spread to the Button. |
+
+### AudioPlayerVolumeRange
+
+Renders the volume range control.
+
+| Prop       | Type                                  | Description                                         |
+| ---------- | ------------------------------------- | --------------------------------------------------- |
+| `...props` | `React.ComponentProps<typeof Slider>` | Any other props are spread to the Slider component. |
+
+## References
+
+- [HTMLAudioElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement)
+- [AI SDK generateSpeech](https://ai-sdk.dev/docs/reference/ai-sdk-core/generate-speech)
