@@ -11,7 +11,7 @@ import {
   type ParameterNode,
   type TypeNode,
   TypeTable,
-} from "@/components/primitives/type-table"
+} from "@/components/type-table"
 
 import type { ShikiOptions } from "./markdown"
 import { markdownRenderer } from "./markdown"

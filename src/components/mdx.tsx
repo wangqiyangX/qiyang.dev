@@ -5,6 +5,7 @@ import rehypeExternalLinks from "rehype-external-links"
 import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
 
+import { AutoTypeTable } from "@/components/auto-type-table"
 import {
   Tabs,
   TabsContent,
@@ -14,7 +15,6 @@ import {
 } from "@/components/base/ui/tabs"
 import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper"
 import { ComponentSource } from "@/components/component-source"
-import { AutoTypeTable } from "@/components/primitives/auto-type-table"
 import {
   Table,
   TableBody,
