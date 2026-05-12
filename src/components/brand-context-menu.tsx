@@ -6,8 +6,8 @@ import { toast } from "sonner"
 
 import { copyText } from "@/utils/copy"
 
-import { getWordmarkSVG } from "./chanhdai-wordmark"
 import { getMarkSVG, QiyangMark } from "./qiyang-mark"
+import { getWordmarkSVG } from "./qiyang-wordmark"
 import {
   ContextMenu,
   ContextMenuContent,

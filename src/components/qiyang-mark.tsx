@@ -2,13 +2,13 @@ export function QiyangMark(props: React.ComponentProps<"svg">) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="276 36 588 288"
+      viewBox="104 -24 688 368"
       fill="none"
       aria-hidden
       {...props}
     >
       <path
-        d="M 300 120 L 360 120 L 360 240 L 300 240 L 300 120 Z M 360 60 L 480 60 L 480 120 L 360 120 L 360 60 Z M 360 240 L 420 240 L 420 180 L 480 180 L 480 120 L 540 120 L 540 300 L 360 300 L 360 240 Z M 600 60 L 660 60 L 660 180 L 780 180 L 780 60 L 840 60 L 840 240 L 780 240 L 780 300 L 660 300 L 660 240 L 600 240 L 600 60 Z"
+        d="M128 64h64v192h-64zm64-64h128v64H192zm0 256h64v-64h64V64h64v256H192zM448 0h64v256h-64zm64 256h64v64h-64zm64-64h64v64h-64zm64 64h64v64h-64zM704 0h64v256h-64z"
         fill="currentColor"
         fillRule="evenodd"
         stroke="none"
@@ -18,5 +18,5 @@ export function QiyangMark(props: React.ComponentProps<"svg">) {
 }
 
 export function getMarkSVG() {
-  return `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="276 36 588 288"><path d="M 300 120 L 360 120 L 360 240 L 300 240 L 300 120 Z M 360 60 L 480 60 L 480 120 L 360 120 L 360 60 Z M 360 240 L 420 240 L 420 180 L 480 180 L 480 120 L 540 120 L 540 300 L 360 300 L 360 240 Z M 600 60 L 660 60 L 660 180 L 780 180 L 780 60 L 840 60 L 840 240 L 780 240 L 780 300 L 660 300 L 660 240 L 600 240 L 600 60 Z" fill="currentColor" fill-rule="evenodd"/></svg>`
+  return `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="104 -24 688 368"><path d="M128 64h64v192h-64zm64-64h128v64H192zm0 256h64v-64h64V64h64v256H192zM448 0h64v256h-64zm64 256h64v64h-64zm64-64h64v64h-64zm64 64h64v64h-64zM704 0h64v256h-64z" fill="currentColor" fill-rule="evenodd"/></svg>`
 }
