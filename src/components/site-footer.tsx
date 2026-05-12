@@ -18,11 +18,11 @@ export function SiteFooter() {
           Built with care by{" "}
           <a
             className="font-medium text-foreground link-underline"
-            href="https://x.com/iamncdai"
+            href="https://x.com/qiyangdev"
             target="_blank"
             rel="noopener"
           >
-            ncdai
+            qiyangdev
           </a>
           . The source code is available on{" "}
           <a
@@ -51,7 +51,7 @@ export function SiteFooter() {
 
             <a
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href="https://x.com/iamncdai?utm_source=chanhdai.com"
+              href="https://x.com/qiyangdev?utm_source=qiyang.dev"
               target="_blank"
               rel="noopener"
               aria-label="X"
@@ -63,7 +63,7 @@ export function SiteFooter() {
 
             <a
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href="https://github.com/ncdai?utm_source=chanhdai.com"
+              href="https://github.com/qiyangdev?utm_source=qiyang.dev"
               target="_blank"
               rel="noopener"
               aria-label="GitHub"
@@ -75,7 +75,7 @@ export function SiteFooter() {
 
             <a
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href="https://www.linkedin.com/in/ncdai?utm_source=chanhdai.com"
+              href="https://www.linkedin.com/in/wangqiyang?utm_source=qiyang.dev"
               target="_blank"
               rel="noopener"
               aria-label="LinkedIn"

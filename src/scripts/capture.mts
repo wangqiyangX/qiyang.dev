@@ -4,8 +4,8 @@ import path from "node:path"
 import type { Browser } from "puppeteer"
 import puppeteer from "puppeteer"
 
-const url = process.env.URL || "https://ncdai.localhost"
-const outputDir = path.join(process.cwd(), ".ncdai/screenshots")
+const url = process.env.URL || "https://qiyang.localhost"
+const outputDir = path.join(process.cwd(), ".qiyang/screenshots")
 
 const SIZE = {
   // MacBook Pro 14-inch

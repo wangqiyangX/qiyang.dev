@@ -46,11 +46,11 @@ export const metadata: Metadata = {
   keywords: SITE_INFO.keywords,
   authors: [
     {
-      name: "ncdai",
+      name: "qiyang",
       url: SITE_INFO.url,
     },
   ],
-  creator: "ncdai",
+  creator: "qiyang",
   openGraph: {
     siteName: SITE_INFO.name,
     url: "/",

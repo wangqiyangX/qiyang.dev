@@ -1,64 +1,61 @@
 import type { User } from "@/features/portfolio/types/user"
 
 export const USER: User = {
-  firstName: "Chánh Đại",
-  lastName: "Nguyễn",
-  displayName: "Chánh Đại",
-  username: "ncdai",
+  firstName: "Qiyang",
+  lastName: "Wang",
+  displayName: "Qiyang Wang",
+  username: "qiyangdev",
   gender: "male",
   pronouns: "he/him",
-  bio: "Creating with code. Small details matter.",
+  bio: "Frontend Development Engineer at Xiaomi, building reliable product interfaces with React, Next.js, and TypeScript.",
   flipSentences: [
-    "Creating with code. Small details matter.",
-    "Design Engineer",
-    "Open Source Contributor",
+    "Keep Learning. Keep Building.",
+    "Passionate about technology and design.",
+    "I build solutions that solve real problems and create real value.",
+    "LEARN. BUILD. IMPACT.",
+    "The best way to predict the future is to create it.",
   ],
-  address: "Ho Chi Minh City, Viet Nam",
-  phoneNumber: "Kzg0Nzc3ODg4MTQ4", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
-  email: "ZGFpQGNoYW5oZGFpLmNvbQ==", // base64 encoded
-  website: "https://chanhdai.com",
-  jobTitle: "Design Engineer",
+  address: "Beijing, China",
+  phoneNumber: "KzQ0NzczMTc0MjM0Mw==", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
+  email: "d2FuZ3FpeWFuZ3hAZ21haWwuY29t", // base64 encoded
+  website: "https://qiyang.dev",
+  jobTitle: "Software Engineer",
   jobs: [
     {
-      title: "Design Engineer",
-      company: "shadcncraft",
-      website: "https://shadcncraft.com?atp=ncdai",
-      experienceId: "shadcncraft",
-    },
-    {
-      title: "Founder",
-      company: "Quaric",
-      website: "https://quaric.com",
-      experienceId: "quaric",
+      title: "Frontend Developer",
+      company: "Xiaomi",
+      website: "https://www.mi.com",
+      experienceId: "xiaomi",
     },
   ],
   about: `
-- Design Engineer with 5+ years of experience, known for pixel-perfect execution and strong attention to small details.
-- Passionate about exploring new technologies and turning ideas into reality through polished, thoughtfully crafted personal projects.
-- Creator of [chanhdai.com](https://github.com/ncdai/chanhdai.com) (1.8k stars), [React Wheel Picker](https://react-wheel-picker.chanhdai.com) (16k+ weekly downloads, ▲Vercel OSS Program), and [ZaDark](https://zadark.com) (80k+ downloads, 30k+ users) — peak metrics.
+- Software Engineer focused on React, Next.js, TypeScript, and reliable product interfaces.
+- Maintainer of [qiyang.dev](https://qiyang.dev), where I share software projects and reusable UI experiments.
 `,
-  avatar: "https://assets.chanhdai.com/images/chanhdai-avatar-ghibli.webp",
+  avatar: "https://yvgoosdtwt8fkmmh.public.blob.vercel-storage.com/avatar.webp",
   avatarVariants: {
-    lightOff: "https://assets.chanhdai.com/images/avatar-light-off.webp",
-    lightOn: "https://assets.chanhdai.com/images/avatar-light-on.webp",
-    darkOff: "https://assets.chanhdai.com/images/avatar-dark-off.webp",
-    darkOn: "https://assets.chanhdai.com/images/avatar-dark-on.webp",
+    lightOff:
+      "https://yvgoosdtwt8fkmmh.public.blob.vercel-storage.com/avatar.webp",
+    lightOn:
+      "https://yvgoosdtwt8fkmmh.public.blob.vercel-storage.com/avatar.webp",
+    darkOff:
+      "https://yvgoosdtwt8fkmmh.public.blob.vercel-storage.com/avatar.webp",
+    darkOn:
+      "https://yvgoosdtwt8fkmmh.public.blob.vercel-storage.com/avatar.webp",
   },
-  ogImage:
-    "https://assets.chanhdai.com/images/screenshot-og-image-dark.png?t=1778130487",
-  namePronunciationUrl: "https://assets.chanhdai.com/audio/chanhdai.mp3",
-  timeZone: "Asia/Ho_Chi_Minh",
+  ogImage: "https://qiyang.dev/og/simple?title=Qiyang%20Wang",
+  namePronunciationUrl: "",
+  timeZone: "Asia/Shanghai",
   keywords: [
-    "ncdai",
-    "nguyenchanhdai",
-    "nguyen chanh dai",
-    "chanhdai",
-    "chanh dai",
-    "iamncdai",
-    "quaric",
-    "zadark",
-    "nguyễn chánh đại",
-    "chánh đại",
+    "qiyang",
+    "qiyang wang",
+    "wangqiyang",
+    "wangqiyangX",
+    "qiyang.dev",
+    "reading notes",
+    "software engineer",
+    "web development",
+    "ios development",
   ],
-  dateCreated: "2023-10-20", // YYYY-MM-DD
+  dateCreated: "2026-05-12", // YYYY-MM-DD
 }

@@ -1,24 +1,24 @@
 {
-  "name": "chanhdai.com",
+  "name": "qiyang.dev",
   "version": "0.1.0",
-  "description": "A pixel-perfect dev portfolio and shadcn registry.",
-  "homepage": "https://chanhdai.com",
+  "description": "Qiyang Wang's personal website and shadcn registry.",
+  "homepage": "https://qiyang.dev",
   "license": "MIT",
   "author": {
-    "name": "Nguyen Chanh Dai",
-    "email": "dai@chanhdai.com",
-    "url": "https://github.com/ncdai"
+    "name": "Qiyang Wang",
+    "email": "wangqiyangx@gmail.com",
+    "url": "https://github.com/qiyangdev"
   },
   "contributors": [
     {
-      "name": "Nguyen Chanh Dai",
-      "email": "dai@chanhdai.com",
-      "url": "https://github.com/ncdai"
+      "name": "Qiyang Wang",
+      "email": "",
+      "url": "https://github.com/qiyangdev"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ncdai/chanhdai.com.git"
+    "url": "git+https://github.com/qiyangdev/qiyang.dev.git"
   },
   "scripts": {
     "dev": "next dev",

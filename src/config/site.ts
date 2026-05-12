@@ -3,7 +3,7 @@ import type { NavItem } from "@/types/nav"
 
 export const SITE_INFO = {
   name: USER.displayName,
-  url: process.env.APP_URL || "https://chanhdai.com",
+  url: process.env.APP_URL || "https://qiyang.dev",
   ogImage: USER.ogImage,
   description: USER.bio,
   keywords: USER.keywords,
@@ -41,13 +41,13 @@ export const MOBILE_NAV: NavItem[] = [
   ...MAIN_NAV,
 ]
 
-export const X_HANDLE = "@iamncdai"
-export const GITHUB_USERNAME = "ncdai"
-export const SOURCE_CODE_GITHUB_REPO = "ncdai/chanhdai.com"
-export const SOURCE_CODE_GITHUB_URL = "https://github.com/ncdai/chanhdai.com"
+export const X_HANDLE = "@qiyangdev"
+export const GITHUB_USERNAME = "qiyangdev"
+export const SOURCE_CODE_GITHUB_REPO = "qiyangdev/qiyang.dev"
+export const SOURCE_CODE_GITHUB_URL = "https://github.com/qiyangdev/qiyang.dev"
 
-export const SPONSORSHIP_URL = "https://github.com/sponsors/ncdai"
+export const SPONSORSHIP_URL = "https://github.com/sponsors/qiyangdev"
 
 export const UTM_PARAMS = {
-  utm_source: "chanhdai.com",
+  utm_source: "qiyang.dev",
 }

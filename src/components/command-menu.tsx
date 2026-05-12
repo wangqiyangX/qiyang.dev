@@ -7,16 +7,14 @@ import {
   Bookmark,
   Box,
   BriefcaseBusiness,
-  CircleCheckBig,
   CornerDownLeft,
-  Crown,
   Download,
   FileText,
   Layers,
+  Library,
   MoonStar,
   Quote,
   RssIcon,
-  SquareDashed,
   SunMedium,
   TextInitial,
   Type,
@@ -41,9 +39,9 @@ import { useClickSound } from "@/hooks/soundcn/use-click-sound"
 import { trackEvent } from "@/lib/events"
 import { copyToClipboardWithEvent } from "@/utils/copy"
 
-import { ChanhDaiMark, getMarkSVG } from "./chanhdai-mark"
 import { getWordmarkSVG } from "./chanhdai-wordmark"
 import { ComponentIcon, Icons } from "./icons"
+import { getMarkSVG, QiyangMark } from "./qiyang-mark"
 import { Button } from "./ui/button"
 import { Kbd, KbdGroup } from "./ui/kbd"
 import { Separator } from "./ui/separator"
@@ -63,7 +61,7 @@ const MENU_LINKS: CommandLinkItem[] = [
   {
     title: "Home",
     href: "/",
-    icon: <ChanhDaiMark />,
+    icon: <QiyangMark />,
     shortcut: "GH",
   },
   {
@@ -120,14 +118,9 @@ const PORTFOLIO_LINKS: CommandLinkItem[] = [
     icon: <Box />,
   },
   {
-    title: "Awards",
-    href: "/#awards",
-    icon: <Crown />,
-  },
-  {
-    title: "Certifications",
-    href: "/#certs",
-    icon: <CircleCheckBig />,
+    title: "Books",
+    href: "/#books",
+    icon: <Library />,
   },
   {
     title: "Bookmarks",
@@ -357,7 +350,7 @@ export function CommandMenu({
                 handleCopyText(getMarkSVG(), "Mark as SVG copied")
               }}
             >
-              <ChanhDaiMark />
+              <QiyangMark />
               Copy Mark as SVG
             </CommandItem>
 
@@ -368,20 +361,6 @@ export function CommandMenu({
             >
               <Type />
               Copy Logotype as SVG
-            </CommandItem>
-
-            <CommandItem
-              onSelect={() => handleOpenLink("/blog/chanhdai-brand")}
-            >
-              <SquareDashed />
-              Brand Guidelines
-            </CommandItem>
-
-            <CommandItem asChild>
-              <a href="https://assets.chanhdai.com/chanhdai-brand.zip" download>
-                <Download />
-                Download Brand Assets
-              </a>
             </CommandItem>
           </CommandGroup>
 
@@ -577,7 +556,7 @@ function CommandMenuFooter() {
       <div className="flex h-10" />
 
       <div className="absolute inset-x-0 bottom-0 flex h-10 items-center justify-between gap-2 rounded-b-2xl border-t px-4 text-xs font-medium">
-        <ChanhDaiMark className="size-6 text-muted-foreground" />
+        <QiyangMark className="size-6 text-muted-foreground" />
 
         <div className="flex shrink-0 items-center gap-2 max-sm:hidden">
           <span>{ENTER_ACTION_LABELS[selectedCommandKind]}</span>
