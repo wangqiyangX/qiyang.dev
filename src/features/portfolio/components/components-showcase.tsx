@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 import ContextDemo from "@/registry/examples/context-demo"
 import MermaidDiagramDemo from "@/registry/examples/mermaid-diagram-demo"
 import ShimmerDemo from "@/registry/examples/shimmer-demo"
+import SuggestionDemo from "@/registry/examples/suggestion-demo"
 
 import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "./panel"
 
@@ -29,6 +30,10 @@ export function ComponentsShowcase() {
 
         <GridItem>
           <ContextDemo />
+        </GridItem>
+
+        <GridItem className="md:col-span-3">
+          <SuggestionDemo />
         </GridItem>
 
         <GridItem className="md:col-span-3">

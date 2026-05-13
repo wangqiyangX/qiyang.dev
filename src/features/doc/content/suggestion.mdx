@@ -1,0 +1,111 @@
+---
+title: Suggestion
+description: Display clickable prompt suggestions in a responsive horizontal row.
+category: components
+new: true
+createdAt: 2026-05-13
+updatedAt: 2026-05-13
+---
+
+<ComponentPreview
+  className="**:data-[slot=component-preview]:min-h-56"
+  name="suggestion-demo"
+  openInV0Url="https://qiyang.dev/r/suggestion.json"
+/>
+
+## Features
+
+- Renders suggestions as shadcn/ui buttons with variant and size props.
+- Emits the selected suggestion string through each button's click callback.
+- Wraps on narrow viewports while preserving horizontal scrolling when needed.
+- Accepts any `ScrollArea` props on the suggestions container.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @qiyangdev/suggestion
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Add shadcn/ui dependencies</Step>
+
+```bash
+npx shadcn@latest add button scroll-area
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="suggestion" title="components/suggestion.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Suggestion, Suggestions } from "@/components/suggestion"
+```
+
+```tsx
+const suggestions = [
+  "Draft a concise project update",
+  "Compare server actions and API routes",
+  "List edge cases for this flow",
+]
+```
+
+```tsx
+<Suggestions>
+  {suggestions.map((suggestion) => (
+    <Suggestion
+      key={suggestion}
+      suggestion={suggestion}
+      onClick={(value) => console.log(value)}
+    />
+  ))}
+</Suggestions>
+```
+
+## API Reference
+
+### Suggestions
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="SuggestionSuggestionsProps"
+/>
+
+### Suggestion
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="SuggestionProps"
+/>
+
+## References
+
+- [AI Elements Suggestion](https://elements.ai-sdk.dev/components/suggestion)

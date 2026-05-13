@@ -3,6 +3,7 @@ import type { motion } from "motion/react"
 import type { ComponentProps, ReactNode } from "react"
 
 import type { Button } from "@/components/ui/button"
+import type { ScrollArea } from "@/components/ui/scroll-area"
 import type { AppleHelloEffectEnglish } from "@/registry/components/apple-hello-effect/apple-hello-effect-english"
 import type { ModelId } from "@/registry/components/context"
 import type { CopyButton } from "@/registry/components/copy-button"
@@ -32,6 +33,28 @@ export type ShimmeringTextProps = Omit<
 export type ShimmerProps = ShimmerOwnProps
 
 export type MermaidDiagramProps = MermaidDiagramOwnProps
+
+export type SuggestionSuggestionsProps = {
+  /**
+   * Any other props are spread to the underlying `ScrollArea` component.
+   */
+  "...props": ComponentProps<typeof ScrollArea>
+}
+
+export type SuggestionProps = {
+  /**
+   * The suggestion string to display and emit on click.
+   */
+  suggestion: string
+  /**
+   * Callback fired when the suggestion is clicked.
+   */
+  onClick?: (suggestion: string) => void
+  /**
+   * Any other props are spread to the underlying shadcn/ui `Button` component.
+   */
+  "...props": Omit<ComponentProps<typeof Button>, "onClick">
+}
 
 export type ContextProps = {
   /**

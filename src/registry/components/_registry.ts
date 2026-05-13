@@ -42,6 +42,26 @@ export const components: Registry["items"] = [
     dependencies: ["ai", "tokenlens"],
   },
   {
+    name: "suggestion",
+    type: "registry:component",
+    title: "Suggestion",
+    description:
+      "Display clickable prompt suggestions in a responsive horizontal row.",
+    files: [
+      {
+        path: "components/suggestion/suggestion.tsx",
+        type: "registry:component",
+        target: "components/suggestion.tsx",
+      },
+    ],
+    docs: "https://qiyang.dev/components/suggestion",
+    registryDependencies: [
+      "button",
+      "scroll-area",
+      getRegistryItemUrl("utils"),
+    ],
+  },
+  {
     name: "shimmer",
     type: "registry:component",
     title: "Shimmer",
