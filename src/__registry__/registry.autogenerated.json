@@ -92,6 +92,33 @@
       "author": "qiyangdev <wangqiyangx@gmail.com>"
     },
     {
+      "name": "test-results",
+      "title": "Test Results",
+      "description": "Display test suite summaries, progress, collapsible suites, and error details.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "alert",
+        "badge",
+        "card",
+        "collapsible",
+        "progress",
+        "scroll-area",
+        "https://qiyang.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/test-results/test-results.tsx",
+          "type": "registry:component",
+          "target": "components/test-results.tsx"
+        }
+      ],
+      "docs": "https://qiyang.dev/components/test-results",
+      "type": "registry:component",
+      "author": "qiyangdev <wangqiyangx@gmail.com>"
+    },
+    {
       "name": "suggestion",
       "title": "Suggestion",
       "description": "Display clickable prompt suggestions in a responsive horizontal row.",

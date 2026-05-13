@@ -37,6 +37,17 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "test-results-demo",
+    type: "registry:example",
+    registryDependencies: [getRegistryItemUrl("test-results")],
+    files: [
+      {
+        path: "examples/test-results-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "suggestion-demo",
     type: "registry:example",
     registryDependencies: [getRegistryItemUrl("suggestion")],

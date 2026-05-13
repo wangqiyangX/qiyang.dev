@@ -59,6 +59,31 @@ export const components: Registry["items"] = [
     dependencies: ["ai", "tokenlens"],
   },
   {
+    name: "test-results",
+    type: "registry:component",
+    title: "Test Results",
+    description:
+      "Display test suite summaries, progress, collapsible suites, and error details.",
+    files: [
+      {
+        path: "components/test-results/test-results.tsx",
+        type: "registry:component",
+        target: "components/test-results.tsx",
+      },
+    ],
+    docs: "https://qiyang.dev/components/test-results",
+    registryDependencies: [
+      "alert",
+      "badge",
+      "card",
+      "collapsible",
+      "progress",
+      "scroll-area",
+      getRegistryItemUrl("utils"),
+    ],
+    dependencies: ["lucide-react"],
+  },
+  {
     name: "suggestion",
     type: "registry:component",
     title: "Suggestion",

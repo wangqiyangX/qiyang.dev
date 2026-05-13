@@ -1,0 +1,258 @@
+---
+title: Test Results
+description: Display test suite summaries, progress, collapsible suites, and error details.
+category: components
+new: true
+createdAt: 2026-05-13
+updatedAt: 2026-05-13
+---
+
+<ComponentPreview
+  className="**:data-[slot=component-preview]:min-h-96"
+  name="test-results-demo"
+  openInV0Url="https://qiyang.dev/r/test-results.json"
+/>
+
+## Features
+
+- Compound component API for composing test reports from smaller primitives.
+- Summary statistics for passed, failed, skipped, and running tests.
+- Progress bar visualization for completed tests.
+- Collapsible test suites with suite-level status context.
+- Individual test status, description, and duration rows.
+- Error messages with scrollable stack traces.
+- Color-coded status indicators for every status.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @qiyangdev/test-results
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Add shadcn/ui dependencies</Step>
+
+```bash
+npx shadcn@latest add alert badge card collapsible progress scroll-area
+```
+
+<Step>Install dependencies</Step>
+
+```bash
+pnpm add lucide-react
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="test-results" title="components/test-results.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  Test,
+  TestDuration,
+  TestError,
+  TestErrorMessage,
+  TestErrorStack,
+  TestName,
+  TestResults,
+  TestResultsContent,
+  TestResultsDuration,
+  TestResultsHeader,
+  TestResultsProgress,
+  TestResultsSummary,
+  TestStatus,
+  TestSuite,
+  TestSuiteContent,
+  TestSuiteName,
+  TestSuiteStats,
+} from "@/components/test-results"
+```
+
+```tsx
+<TestResults>
+  <TestResultsHeader
+    title="Test Results"
+    description="Vitest summary from the latest CI attempt."
+  >
+    <TestResultsDuration duration={2200} />
+  </TestResultsHeader>
+  <TestResultsContent>
+    <TestResultsSummary passed={6} failed={1} skipped={2} running={1} />
+    <TestResultsProgress completed={9} total={10} />
+
+    <TestSuite status="failed" defaultOpen>
+      <TestStatus showLabel={false} />
+      <TestSuiteName file="tests/auth/login.test.ts">
+        Authentication flow
+      </TestSuiteName>
+      <TestSuiteStats duration={1320} />
+      <TestSuiteContent>
+        <Test status="failed">
+          <TestStatus showLabel={false} />
+          <TestName>redirects authenticated users</TestName>
+          <TestDuration duration={320} />
+          <TestError>
+            <TestErrorMessage>
+              Expected redirect to /dashboard.
+            </TestErrorMessage>
+            <TestErrorStack stack="AssertionError: expected /sign-in to equal /dashboard" />
+          </TestError>
+        </Test>
+      </TestSuiteContent>
+    </TestSuite>
+  </TestResultsContent>
+</TestResults>
+```
+
+## Status Colors
+
+| Status    | Color  | Use Case         |
+| --------- | ------ | ---------------- |
+| `passed`  | Green  | Test succeeded   |
+| `failed`  | Red    | Test failed      |
+| `skipped` | Yellow | Test skipped     |
+| `running` | Blue   | Test in progress |
+
+## API Reference
+
+### TestResults
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="TestResultsProps"
+/>
+
+### TestResultsHeader
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="TestResultsHeaderProps"
+/>
+
+### TestResultsSummary
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="TestResultsSummaryProps"
+/>
+
+### TestResultsDuration
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="TestResultsDurationProps"
+/>
+
+### TestResultsProgress
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="TestResultsProgressProps"
+/>
+
+### TestResultsContent
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="TestResultsContentProps"
+/>
+
+### TestSuite
+
+<AutoTypeTable path="src/features/doc/content/props.ts" name="TestSuiteProps" />
+
+### TestSuiteName
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="TestSuiteNameProps"
+/>
+
+### TestSuiteStats
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="TestSuiteStatsProps"
+/>
+
+### TestSuiteContent
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="TestSuiteContentProps"
+/>
+
+### Test
+
+<AutoTypeTable path="src/features/doc/content/props.ts" name="TestProps" />
+
+### TestStatus
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="TestStatusProps"
+/>
+
+### TestName
+
+<AutoTypeTable path="src/features/doc/content/props.ts" name="TestNameProps" />
+
+### TestDuration
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="TestDurationProps"
+/>
+
+### TestError
+
+<AutoTypeTable path="src/features/doc/content/props.ts" name="TestErrorProps" />
+
+### TestErrorMessage
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="TestErrorMessageProps"
+/>
+
+### TestErrorStack
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="TestErrorStackProps"
+/>
+
+## Behavior
+
+`TestSuite` and `Test` provide status context to descendant `TestStatus`
+components. If `defaultOpen` is omitted, failed and running suites open by
+default so the most actionable results are visible immediately.
