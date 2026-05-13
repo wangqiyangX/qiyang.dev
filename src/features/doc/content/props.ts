@@ -3,6 +3,12 @@ import type { ComponentProps } from "react"
 
 import type { Button } from "@/components/ui/button"
 import type { AppleHelloEffectEnglish } from "@/registry/components/apple-hello-effect/apple-hello-effect-english"
+import type {
+  ChainOfThoughtImageOwnProps,
+  ChainOfThoughtOwnProps,
+  ChainOfThoughtSearchResultsOwnProps,
+  ChainOfThoughtStepOwnProps,
+} from "@/registry/components/chain-of-thought"
 import type { CopyButton } from "@/registry/components/copy-button"
 import type { GitHubContributions } from "@/registry/components/github-contributions"
 import type { GlowCardGrid } from "@/registry/components/glow-card-grid/glow-card-grid"
@@ -30,6 +36,15 @@ export type ShimmeringTextProps = Omit<
 export type ShimmerProps = ShimmerOwnProps
 
 export type MermaidDiagramProps = MermaidDiagramOwnProps
+
+export type ChainOfThoughtProps = ChainOfThoughtOwnProps
+
+export type ChainOfThoughtStepProps = ChainOfThoughtStepOwnProps
+
+export type ChainOfThoughtSearchResultsProps =
+  ChainOfThoughtSearchResultsOwnProps
+
+export type ChainOfThoughtImageProps = ChainOfThoughtImageOwnProps
 
 export type SlideToUnlockRootProps = Omit<
   ComponentProps<typeof SlideToUnlock>,

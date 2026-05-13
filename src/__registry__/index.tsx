@@ -24,6 +24,23 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "chain-of-thought": {
+    name: "chain-of-thought",
+    description: "Visualize AI reasoning steps with search results, images, and progress states.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/chain-of-thought/chain-of-thought.tsx",
+      type: "registry:component",
+      target: "components/chain-of-thought.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/chain-of-thought/chain-of-thought.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "mermaid-diagram": {
     name: "mermaid-diagram",
     description: "Render Mermaid diagrams inside a themed shadcn surface.",
@@ -52,6 +69,23 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/components/shimmer/shimmer.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "chain-of-thought-demo": {
+    name: "chain-of-thought-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/chain-of-thought-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/chain-of-thought-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
