@@ -19,6 +19,7 @@ import ChainOfThoughtDemo from "@/registry/examples/chain-of-thought-demo"
 import ContextDemo from "@/registry/examples/context-demo"
 import MermaidDiagramDemo from "@/registry/examples/mermaid-diagram-demo"
 import ShimmerDemo from "@/registry/examples/shimmer-demo"
+import SuggestionDemo from "@/registry/examples/suggestion-demo"
 
 const title = "Component Showcase"
 const description = "Pixel-perfect, uniquely crafted."
@@ -113,6 +114,10 @@ export default function ComponentsShowcasePage() {
             <ShimmerDemo />
           </GridItem>
         </div>
+
+        <GridItem className="lg:col-span-2">
+          <SuggestionDemo />
+        </GridItem>
 
         <GridItem className="lg:col-span-2">
           <MermaidDiagramDemo />

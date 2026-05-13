@@ -8,6 +8,7 @@ import ChainOfThoughtDemo from "@/registry/examples/chain-of-thought-demo"
 import ContextDemo from "@/registry/examples/context-demo"
 import MermaidDiagramDemo from "@/registry/examples/mermaid-diagram-demo"
 import ShimmerDemo from "@/registry/examples/shimmer-demo"
+import SuggestionDemo from "@/registry/examples/suggestion-demo"
 
 import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "./panel"
 
@@ -37,6 +38,10 @@ export function ComponentsShowcase() {
             <ShimmerDemo />
           </GridItem>
         </div>
+
+        <GridItem className="lg:col-span-2">
+          <SuggestionDemo />
+        </GridItem>
 
         <GridItem className="lg:col-span-2">
           <MermaidDiagramDemo />

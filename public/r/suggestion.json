@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "suggestion",
+  "title": "Suggestion",
+  "author": "qiyangdev <wangqiyangx@gmail.com>",
+  "description": "Display clickable prompt suggestions in a responsive horizontal row.",
+  "registryDependencies": [
+    "button",
+    "scroll-area",
+    "https://qiyang.dev/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/components/suggestion/suggestion.tsx",
+      "content": "\"use client\"\n\nimport type { ComponentProps } from \"react\"\nimport { useCallback } from \"react\"\n\nimport { Button } from \"@/components/ui/button\"\nimport { ScrollArea, ScrollBar } from \"@/components/ui/scroll-area\"\nimport { cn } from \"@/lib/utils\"\n\nexport type SuggestionsProps = ComponentProps<typeof ScrollArea>\n\nexport function Suggestions({\n  className,\n  children,\n  ...props\n}: SuggestionsProps) {\n  return (\n    <ScrollArea className=\"w-full overflow-x-auto whitespace-nowrap\" {...props}>\n      <div\n        className={cn(\n          \"flex w-max max-w-full flex-wrap items-center gap-2 sm:max-w-none sm:flex-nowrap\",\n          className\n        )}\n      >\n        {children}\n      </div>\n      <ScrollBar className=\"hidden\" orientation=\"horizontal\" />\n    </ScrollArea>\n  )\n}\n\nexport type SuggestionProps = Omit<ComponentProps<typeof Button>, \"onClick\"> & {\n  /** The suggestion string to display and emit on click. */\n  suggestion: string\n  /** Callback fired when the suggestion is clicked. */\n  onClick?: (suggestion: string) => void\n}\n\nexport function Suggestion({\n  suggestion,\n  onClick,\n  className,\n  variant = \"outline\",\n  size = \"sm\",\n  children,\n  ...props\n}: SuggestionProps) {\n  const handleClick = useCallback(() => {\n    onClick?.(suggestion)\n  }, [onClick, suggestion])\n\n  return (\n    <Button\n      className={cn(\"cursor-pointer rounded-full px-4\", className)}\n      onClick={handleClick}\n      size={size}\n      type=\"button\"\n      variant={variant}\n      {...props}\n    >\n      {children ?? suggestion}\n    </Button>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/suggestion.tsx"
+    }
+  ],
+  "docs": "https://qiyang.dev/components/suggestion",
+  "type": "registry:component"
+}

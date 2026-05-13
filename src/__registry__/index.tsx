@@ -75,6 +75,23 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "suggestion": {
+    name: "suggestion",
+    description: "Display clickable prompt suggestions in a responsive horizontal row.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/suggestion/suggestion.tsx",
+      type: "registry:component",
+      target: "components/suggestion.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/suggestion/suggestion.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "shimmer": {
     name: "shimmer",
     description: "Animate text with a sweeping shimmer that respects reduced motion.",
@@ -137,6 +154,23 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/context-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "suggestion-demo": {
+    name: "suggestion-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/suggestion-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/suggestion-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
