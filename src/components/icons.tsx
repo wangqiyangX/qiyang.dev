@@ -698,6 +698,10 @@ export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
       return <ZapIcon {...props} />
     }
 
+    case "shimmer": {
+      return <ZapIcon {...props} />
+    }
+
     case "slide-to-unlock": {
       return (
         // Icon designed by @ncdai

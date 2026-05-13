@@ -3,6 +3,8 @@ import Link from "next/link"
 
 import { Button } from "@/components/base/ui/button"
 import { getDocsByCategory } from "@/features/doc/data/documents"
+import { cn } from "@/lib/utils"
+import ShimmerDemo from "@/registry/examples/shimmer-demo"
 
 import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "./panel"
 
@@ -18,7 +20,11 @@ export function ComponentsShowcase() {
         </PanelTitle>
       </PanelHeader>
 
-      <div className="grid grid-cols-1 gap-1 p-1 md:grid-cols-3"></div>
+      <div className="grid grid-cols-1 gap-1 p-1 md:grid-cols-3">
+        <GridItem>
+          <ShimmerDemo />
+        </GridItem>
+      </div>
 
       <div className="screen-line-bottom h-px" />
 
@@ -34,5 +40,23 @@ export function ComponentsShowcase() {
         </Button>
       </div>
     </Panel>
+  )
+}
+
+function GridItem({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<"div">) {
+  return (
+    <div
+      className={cn(
+        "flex items-center justify-center rounded-lg border border-line bg-background p-4 transition-[border-color] hover:border-border",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </div>
   )
 }

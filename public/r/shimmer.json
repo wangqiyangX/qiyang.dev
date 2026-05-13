@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shimmer",
+  "title": "Shimmer",
+  "author": "qiyangdev <wangqiyangx@gmail.com>",
+  "description": "Animate text with a sweeping shimmer that respects reduced motion.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://qiyang.dev/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/components/shimmer/shimmer.tsx",
+      "content": "\"use client\"\n\nimport { motion, useReducedMotion } from \"motion/react\"\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport type ShimmerOwnProps<T extends React.ElementType = \"p\"> = {\n  /**\n   * Element or component rendered by Shimmer.\n   * @defaultValue \"p\"\n   */\n  as?: T\n  /**\n   * Text content to render with the shimmer effect.\n   */\n  children: string\n  /**\n   * Additional classes for the rendered element.\n   */\n  className?: string\n  /**\n   * Duration of one shimmer cycle in seconds.\n   * @defaultValue 2\n   */\n  duration?: number\n  /**\n   * Width multiplier for the shimmer gradient based on text length.\n   * @defaultValue 2\n   */\n  spread?: number\n  /**\n   * Inline styles for the rendered element.\n   */\n  style?: React.CSSProperties\n}\n\nexport type ShimmerProps<T extends React.ElementType = \"p\"> =\n  ShimmerOwnProps<T> &\n    Omit<\n      React.ComponentPropsWithoutRef<T>,\n      keyof ShimmerOwnProps<T> | \"children\"\n    >\n\ntype ShimmerComponent = <T extends React.ElementType = \"p\">(\n  props: ShimmerProps<T> & {\n    ref?: React.ComponentPropsWithRef<T>[\"ref\"]\n  }\n) => React.ReactElement | null\n\ntype ShimmerElementProps = {\n  as?: React.ElementType\n  children?: React.ReactNode\n  className?: string\n  style?: React.CSSProperties\n}\n\nconst ShimmerElement = React.forwardRef<HTMLElement, ShimmerElementProps>(\n  ({ as: Component = \"p\", ...props }, ref) =>\n    React.createElement(Component, { ref, ...props })\n)\n\nShimmerElement.displayName = \"ShimmerElement\"\n\nconst MotionShimmerElement = motion.create(ShimmerElement, {\n  forwardMotionProps: true,\n})\n\nconst graphemeSegmenter =\n  typeof Intl !== \"undefined\" && \"Segmenter\" in Intl\n    ? new Intl.Segmenter(undefined, { granularity: \"grapheme\" })\n    : null\n\nfunction getTextSegmentCount(text: string) {\n  if (!graphemeSegmenter) {\n    return Array.from(text).length\n  }\n\n  return Array.from(graphemeSegmenter.segment(text)).length\n}\n\nconst ForwardedShimmer = React.forwardRef<\n  HTMLElement,\n  ShimmerProps<React.ElementType>\n>(function ShimmerComponent(\n  {\n    as,\n    children,\n    className,\n    duration = 2,\n    spread = 2,\n    style,\n    ...props\n  },\n  ref\n) {\n  const shouldReduceMotion = useReducedMotion()\n  const spreadWidth = React.useMemo(\n    () => `${Math.max(getTextSegmentCount(children) * spread, 1)}ch`,\n    [children, spread]\n  )\n\n  return (\n    <MotionShimmerElement\n      {...props}\n      ref={ref}\n      as={as}\n      className={cn(\n        \"inline-block\",\n        shouldReduceMotion\n          ? \"text-foreground\"\n          : \"bg-clip-text text-transparent\",\n        \"[--shimmer-text:var(--foreground)]\",\n        \"[--shimmer-text-muted:color-mix(in_oklab,var(--foreground)_35%,transparent)]\",\n        className\n      )}\n      animate={\n        shouldReduceMotion\n          ? undefined\n          : { backgroundPositionX: [spreadWidth, `-${spreadWidth}`] }\n      }\n      transition={\n        shouldReduceMotion\n          ? undefined\n          : {\n              duration,\n              ease: \"linear\",\n              repeat: Infinity,\n            }\n      }\n      style={\n        shouldReduceMotion\n          ? style\n          : {\n              backgroundImage:\n                \"linear-gradient(90deg,var(--shimmer-text-muted) 0%,var(--shimmer-text) 45%,var(--shimmer-text-muted) 90%)\",\n              backgroundSize: `${spreadWidth} 100%`,\n              ...style,\n            }\n      }\n    >\n      {children}\n    </MotionShimmerElement>\n  )\n})\n\nForwardedShimmer.displayName = \"Shimmer\"\n\nconst Shimmer = React.memo(ForwardedShimmer) as ShimmerComponent\n\nexport { Shimmer }\n",
+      "type": "registry:component",
+      "target": "components/shimmer.tsx"
+    }
+  ],
+  "docs": "https://qiyang.dev/components/shimmer",
+  "type": "registry:component"
+}

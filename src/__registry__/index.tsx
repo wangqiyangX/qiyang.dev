@@ -7,4 +7,55 @@
 import * as React from "react"
 
 export const Index: Record<string, any> = {
+  "utils": {
+    name: "utils",
+    description: "",
+    type: "registry:lib",
+    files: [{
+      path: "src/lib/utils.ts",
+      type: "registry:lib",
+      target: "@lib/utils.ts",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/lib/utils.ts")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "shimmer": {
+    name: "shimmer",
+    description: "Animate text with a sweeping shimmer that respects reduced motion.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/shimmer/shimmer.tsx",
+      type: "registry:component",
+      target: "components/shimmer.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/shimmer/shimmer.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "shimmer-demo": {
+    name: "shimmer-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/shimmer-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/shimmer-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
 }

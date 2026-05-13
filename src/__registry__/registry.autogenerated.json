@@ -2,5 +2,44 @@
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "qiyangdev",
   "homepage": "https://qiyang.dev/components",
-  "items": []
+  "items": [
+    {
+      "name": "utils",
+      "title": "Utility Functions",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "src/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:lib",
+      "author": "qiyangdev <wangqiyangx@gmail.com>"
+    },
+    {
+      "name": "shimmer",
+      "title": "Shimmer",
+      "description": "Animate text with a sweeping shimmer that respects reduced motion.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://qiyang.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/shimmer/shimmer.tsx",
+          "type": "registry:component",
+          "target": "components/shimmer.tsx"
+        }
+      ],
+      "docs": "https://qiyang.dev/components/shimmer",
+      "type": "registry:component",
+      "author": "qiyangdev <wangqiyangx@gmail.com>"
+    }
+  ]
 }

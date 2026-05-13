@@ -14,6 +14,8 @@ import {
   PageHeadingTitle,
 } from "@/components/page-heading"
 import { X_HANDLE } from "@/config/site"
+import { cn } from "@/lib/utils"
+import ShimmerDemo from "@/registry/examples/shimmer-demo"
 
 const title = "Component Showcase"
 const description = "Pixel-perfect, uniquely crafted."
@@ -94,7 +96,29 @@ export default function ComponentsShowcasePage() {
 
       <div className="screen-line-bottom h-px" />
 
-      <div className="grid grid-cols-1 gap-1 p-1 md:grid-cols-3"></div>
+      <div className="grid grid-cols-1 gap-1 p-1 md:grid-cols-3">
+        <GridItem>
+          <ShimmerDemo />
+        </GridItem>
+      </div>
     </>
+  )
+}
+
+function GridItem({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<"div">) {
+  return (
+    <div
+      className={cn(
+        "flex items-center justify-center rounded-lg border border-line bg-background p-4 transition-[border-color] hover:border-border",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </div>
   )
 }

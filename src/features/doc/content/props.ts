@@ -8,6 +8,7 @@ import type { GitHubContributions } from "@/registry/components/github-contribut
 import type { GlowCardGrid } from "@/registry/components/glow-card-grid/glow-card-grid"
 import type { MiddleTruncation } from "@/registry/components/middle-truncation/middle-truncation"
 import type { ScrollFadeEffect } from "@/registry/components/scroll-fade-effect"
+import type { ShimmerOwnProps } from "@/registry/components/shimmer"
 import type { ShimmeringText } from "@/registry/components/shimmering-text"
 import type {
   SlideToUnlock,
@@ -24,6 +25,8 @@ export type ShimmeringTextProps = Omit<
   ComponentProps<typeof ShimmeringText>,
   keyof ComponentProps<typeof motion.span>
 >
+
+export type ShimmerProps = ShimmerOwnProps
 
 export type SlideToUnlockRootProps = Omit<
   ComponentProps<typeof SlideToUnlock>,
