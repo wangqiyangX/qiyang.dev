@@ -4,6 +4,12 @@ import type { ComponentProps, ReactNode } from "react"
 
 import type { Button } from "@/components/ui/button"
 import type { AppleHelloEffectEnglish } from "@/registry/components/apple-hello-effect/apple-hello-effect-english"
+import type {
+  ChainOfThoughtImageOwnProps,
+  ChainOfThoughtOwnProps,
+  ChainOfThoughtSearchResultsOwnProps,
+  ChainOfThoughtStepOwnProps,
+} from "@/registry/components/chain-of-thought"
 import type { ModelId } from "@/registry/components/context"
 import type { CopyButton } from "@/registry/components/copy-button"
 import type { GitHubContributions } from "@/registry/components/github-contributions"
@@ -103,6 +109,15 @@ export type ContextUsageProps = {
    */
   className?: string
 }
+
+export type ChainOfThoughtProps = ChainOfThoughtOwnProps
+
+export type ChainOfThoughtStepProps = ChainOfThoughtStepOwnProps
+
+export type ChainOfThoughtSearchResultsProps =
+  ChainOfThoughtSearchResultsOwnProps
+
+export type ChainOfThoughtImageProps = ChainOfThoughtImageOwnProps
 
 export type SlideToUnlockRootProps = Omit<
   ComponentProps<typeof SlideToUnlock>,

@@ -4,6 +4,23 @@ import { getRegistryItemUrl } from "@/utils/registry"
 
 export const components: Registry["items"] = [
   {
+    name: "chain-of-thought",
+    type: "registry:component",
+    title: "Chain of Thought",
+    description:
+      "Visualize AI reasoning steps with search results, images, and progress states.",
+    files: [
+      {
+        path: "components/chain-of-thought/chain-of-thought.tsx",
+        type: "registry:component",
+        target: "components/chain-of-thought.tsx",
+      },
+    ],
+    docs: "https://qiyang.dev/components/chain-of-thought",
+    registryDependencies: ["badge", "collapsible", getRegistryItemUrl("utils")],
+    dependencies: ["lucide-react"],
+  },
+  {
     name: "mermaid-diagram",
     type: "registry:component",
     title: "Mermaid Diagram",

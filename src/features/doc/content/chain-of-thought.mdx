@@ -1,0 +1,150 @@
+---
+title: Chain of Thought
+description: Visualize AI reasoning steps with search results, images, and progress states.
+category: components
+new: true
+createdAt: 2026-05-13
+updatedAt: 2026-05-13
+---
+
+<ComponentPreview
+  className="**:data-[slot=component-preview]:min-h-[36rem]"
+  name="chain-of-thought-demo"
+  openInV0Url="https://qiyang.dev/r/chain-of-thought.json"
+/>
+
+## Features
+
+- Collapsible reasoning panel built on shadcn/ui Collapsible.
+- Step statuses for complete, active, and pending reasoning work.
+- Search result cards with source badges and external links.
+- Image attachments with captions for visual evidence.
+- Step-type icons with support for custom icon components.
+- Context-aware compound components powered by React Context.
+- Fade and slide content transitions with reduced-motion support.
+- Responsive layout for narrow and wide surfaces.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @qiyangdev/chain-of-thought
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Add shadcn/ui dependencies</Step>
+
+```bash
+npx shadcn@latest add badge collapsible
+```
+
+<Step>Install dependencies</Step>
+
+```bash
+pnpm add lucide-react
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="chain-of-thought"
+  title="components/chain-of-thought.tsx"
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  ChainOfThought,
+  ChainOfThoughtContent,
+  ChainOfThoughtSearchResults,
+  ChainOfThoughtStep,
+  ChainOfThoughtSteps,
+  ChainOfThoughtTitle,
+  ChainOfThoughtTrigger,
+} from "@/components/chain-of-thought"
+```
+
+```tsx
+<ChainOfThought defaultOpen>
+  <ChainOfThoughtTrigger>
+    <ChainOfThoughtTitle>Reasoning</ChainOfThoughtTitle>
+  </ChainOfThoughtTrigger>
+  <ChainOfThoughtContent>
+    <ChainOfThoughtSteps>
+      <ChainOfThoughtStep status="complete" title="Search sources">
+        <ChainOfThoughtSearchResults results={results} />
+      </ChainOfThoughtStep>
+    </ChainOfThoughtSteps>
+  </ChainOfThoughtContent>
+</ChainOfThought>
+```
+
+## API Reference
+
+### ChainOfThought
+
+Extends shadcn/ui Collapsible Root and accepts these additional props.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="ChainOfThoughtProps"
+/>
+
+### ChainOfThoughtStep
+
+Extends the native `li` element and accepts these additional props.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="ChainOfThoughtStepProps"
+/>
+
+### ChainOfThoughtSearchResults
+
+Extends the native `div` element and accepts these additional props.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="ChainOfThoughtSearchResultsProps"
+/>
+
+### ChainOfThoughtImage
+
+Extends the native `figure` element and accepts these additional props.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="ChainOfThoughtImageProps"
+/>
+
+## References
+
+- [shadcn/ui Collapsible](https://ui.shadcn.com/docs/components/radix/collapsible)
+- [shadcn/ui Badge](https://ui.shadcn.com/docs/components/radix/badge)
