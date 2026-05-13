@@ -75,6 +75,23 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "test-results": {
+    name: "test-results",
+    description: "Display test suite summaries, progress, collapsible suites, and error details.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/test-results/test-results.tsx",
+      type: "registry:component",
+      target: "components/test-results.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/test-results/test-results.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "suggestion": {
     name: "suggestion",
     description: "Display clickable prompt suggestions in a responsive horizontal row.",
@@ -154,6 +171,23 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/context-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "test-results-demo": {
+    name: "test-results-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/test-results-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/test-results-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

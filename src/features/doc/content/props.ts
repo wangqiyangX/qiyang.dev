@@ -3,6 +3,7 @@ import type { motion } from "motion/react"
 import type { ComponentProps, ReactNode } from "react"
 
 import type { Button } from "@/components/ui/button"
+import type { Card } from "@/components/ui/card"
 import type { ScrollArea } from "@/components/ui/scroll-area"
 import type { AppleHelloEffectEnglish } from "@/registry/components/apple-hello-effect/apple-hello-effect-english"
 import type {
@@ -24,6 +25,7 @@ import type {
   SlideToUnlock,
   SlideToUnlockText,
 } from "@/registry/components/slide-to-unlock"
+import type { TestStatusValue } from "@/registry/components/test-results"
 import type { TestimonialSpotlight } from "@/registry/components/testimonial-spotlight"
 
 export type AppleHelloEffectProps = Omit<
@@ -131,6 +133,239 @@ export type ContextUsageProps = {
    * Additional classes for the usage row.
    */
   className?: string
+}
+
+export type TestResultsProps = {
+  /**
+   * Test results content.
+   */
+  children?: ReactNode
+  /**
+   * Additional classes for the root card.
+   */
+  className?: string
+  /**
+   * Any other props are spread to the underlying shadcn/ui `Card` component.
+   */
+  "...props": ComponentProps<typeof Card>
+}
+
+export type TestResultsHeaderProps = {
+  /**
+   * Heading rendered above the summary.
+   *
+   * @defaultValue "Test Results"
+   */
+  title?: ReactNode
+  /**
+   * Supporting text rendered below the heading.
+   */
+  description?: ReactNode
+  /**
+   * Header-side content, usually `TestResultsDuration`.
+   */
+  children?: ReactNode
+}
+
+export type TestResultsSummaryProps = {
+  /**
+   * Passed test count.
+   */
+  passed?: number
+  /**
+   * Failed test count.
+   */
+  failed?: number
+  /**
+   * Skipped test count.
+   */
+  skipped?: number
+  /**
+   * Running test count.
+   */
+  running?: number
+  /**
+   * Total count used for percentage calculations. When omitted, the total is
+   * derived from the status counts.
+   */
+  total?: number
+  /**
+   * Custom summary content. If omitted, status summary cards are rendered.
+   */
+  children?: ReactNode
+}
+
+export type TestResultsDurationProps = {
+  /**
+   * Duration to display. Numbers are treated as milliseconds.
+   */
+  duration?: number | string
+  /**
+   * Label rendered before the duration.
+   *
+   * @defaultValue "Duration"
+   */
+  label?: ReactNode
+  /**
+   * Custom duration content.
+   */
+  children?: ReactNode
+}
+
+export type TestResultsProgressProps = {
+  /**
+   * Explicit progress value from 0 to 100.
+   */
+  value?: number
+  /**
+   * Completed test count used when value is omitted.
+   */
+  completed?: number
+  /**
+   * Total test count used when value is omitted.
+   */
+  total?: number
+  /**
+   * Label rendered above the progress bar.
+   *
+   * @defaultValue "Overall progress"
+   */
+  label?: ReactNode
+}
+
+export type TestResultsContentProps = {
+  /**
+   * Results content, usually summary, progress, and suites.
+   */
+  children?: ReactNode
+  /**
+   * Additional classes for the content area.
+   */
+  className?: string
+}
+
+export type TestSuiteProps = {
+  /**
+   * Suite status used by descendant status components.
+   *
+   * @defaultValue "passed"
+   */
+  status?: TestStatusValue
+  /**
+   * Initial open state for the collapsible suite.
+   */
+  defaultOpen?: boolean
+  /**
+   * Suite header and content children.
+   */
+  children?: ReactNode
+}
+
+export type TestSuiteNameProps = {
+  /**
+   * Optional file path or source label.
+   */
+  file?: ReactNode
+  /**
+   * Suite name.
+   */
+  children?: ReactNode
+}
+
+export type TestSuiteStatsProps = {
+  /**
+   * Suite duration. Numbers are treated as milliseconds.
+   */
+  duration?: number | string
+  /**
+   * Custom stats content.
+   */
+  children?: ReactNode
+}
+
+export type TestSuiteContentProps = {
+  /**
+   * Tests rendered inside the suite.
+   */
+  children?: ReactNode
+}
+
+export type TestProps = {
+  /**
+   * Test status used by descendant status components.
+   *
+   * @defaultValue "passed"
+   */
+  status?: TestStatusValue
+  /**
+   * Test row content.
+   */
+  children?: ReactNode
+}
+
+export type TestStatusProps = {
+  /**
+   * Status to display. When omitted, the nearest `Test` or `TestSuite` status
+   * is used.
+   */
+  status?: TestStatusValue
+  /**
+   * Show the text label beside the status icon.
+   *
+   * @defaultValue true
+   */
+  showLabel?: boolean
+  /**
+   * Custom label content.
+   */
+  children?: ReactNode
+}
+
+export type TestNameProps = {
+  /**
+   * Optional supporting copy for the test row.
+   */
+  description?: ReactNode
+  /**
+   * Test name.
+   */
+  children?: ReactNode
+}
+
+export type TestDurationProps = {
+  /**
+   * Duration to display. Numbers are treated as milliseconds.
+   */
+  duration?: number | string
+  /**
+   * Custom duration content.
+   */
+  children?: ReactNode
+}
+
+export type TestErrorProps = {
+  /**
+   * Error details, usually `TestErrorMessage` and `TestErrorStack`.
+   */
+  children?: ReactNode
+}
+
+export type TestErrorMessageProps = {
+  /**
+   * Error message shown above the stack trace.
+   */
+  children?: ReactNode
+}
+
+export type TestErrorStackProps = {
+  /**
+   * Stack trace to render. Children override this value.
+   */
+  stack?: string
+  /**
+   * Custom stack trace content.
+   */
+  children?: ReactNode
 }
 
 export type ChainOfThoughtProps = ChainOfThoughtOwnProps
