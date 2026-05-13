@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Button } from "@/components/base/ui/button"
 import { getDocsByCategory } from "@/features/doc/data/documents"
 import { cn } from "@/lib/utils"
+import ContextDemo from "@/registry/examples/context-demo"
 import MermaidDiagramDemo from "@/registry/examples/mermaid-diagram-demo"
 import ShimmerDemo from "@/registry/examples/shimmer-demo"
 
@@ -27,6 +28,10 @@ export function ComponentsShowcase() {
         </GridItem>
 
         <GridItem>
+          <ContextDemo />
+        </GridItem>
+
+        <GridItem className="md:col-span-3">
           <ShimmerDemo />
         </GridItem>
       </div>

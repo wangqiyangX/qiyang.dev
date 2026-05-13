@@ -44,6 +44,31 @@
       "author": "qiyangdev <wangqiyangx@gmail.com>"
     },
     {
+      "name": "context",
+      "title": "Context",
+      "description": "Display AI context window usage, token breakdowns, and cost estimates.",
+      "dependencies": [
+        "ai",
+        "tokenlens"
+      ],
+      "registryDependencies": [
+        "button",
+        "hover-card",
+        "progress",
+        "https://qiyang.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/context/context.tsx",
+          "type": "registry:component",
+          "target": "components/context.tsx"
+        }
+      ],
+      "docs": "https://qiyang.dev/components/context",
+      "type": "registry:component",
+      "author": "qiyangdev <wangqiyangx@gmail.com>"
+    },
+    {
       "name": "shimmer",
       "title": "Shimmer",
       "description": "Animate text with a sweeping shimmer that respects reduced motion.",

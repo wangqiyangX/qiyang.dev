@@ -15,6 +15,7 @@ import {
 } from "@/components/page-heading"
 import { X_HANDLE } from "@/config/site"
 import { cn } from "@/lib/utils"
+import ContextDemo from "@/registry/examples/context-demo"
 import MermaidDiagramDemo from "@/registry/examples/mermaid-diagram-demo"
 import ShimmerDemo from "@/registry/examples/shimmer-demo"
 
@@ -103,6 +104,10 @@ export default function ComponentsShowcasePage() {
         </GridItem>
 
         <GridItem>
+          <ContextDemo />
+        </GridItem>
+
+        <GridItem className="md:col-span-3">
           <ShimmerDemo />
         </GridItem>
       </div>

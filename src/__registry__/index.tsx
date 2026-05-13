@@ -41,6 +41,23 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "context": {
+    name: "context",
+    description: "Display AI context window usage, token breakdowns, and cost estimates.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/context/context.tsx",
+      type: "registry:component",
+      target: "components/context.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/context/context.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "shimmer": {
     name: "shimmer",
     description: "Animate text with a sweeping shimmer that respects reduced motion.",
@@ -69,6 +86,23 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/mermaid-diagram-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "context-demo": {
+    name: "context-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/context-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/context-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

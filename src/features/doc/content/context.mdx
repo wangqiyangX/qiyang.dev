@@ -1,0 +1,188 @@
+---
+title: Context
+description: Display AI context window usage, token breakdowns, and cost estimates.
+category: components
+new: true
+createdAt: 2026-05-13
+updatedAt: 2026-05-13
+---
+
+<ComponentPreview
+  className="**:data-[slot=component-preview]:min-h-56"
+  name="context-demo"
+  openInV0Url="https://qiyang.dev/r/context.json"
+/>
+
+## Features
+
+- Composes context usage through a compound component API.
+- Shows context window utilization with a circular trigger indicator and progress bar.
+- Breaks usage into input, output, reasoning, and cached tokens.
+- Estimates per-row and total cost with `tokenlens`.
+- Reads AI SDK `LanguageModelUsage` details, including the v6 token detail fields.
+- Uses shadcn/ui `Button`, `HoverCard`, and `Progress` primitives.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @qiyangdev/context
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Add shadcn/ui dependencies</Step>
+
+```bash
+npx shadcn@latest add button hover-card progress
+```
+
+<Step>Install dependencies</Step>
+
+```bash
+pnpm add ai tokenlens
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="context" title="components/context.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  Context,
+  ContextCacheUsage,
+  ContextContent,
+  ContextContentBody,
+  ContextContentFooter,
+  ContextContentHeader,
+  ContextInputUsage,
+  ContextOutputUsage,
+  ContextReasoningUsage,
+  ContextTrigger,
+} from "@/components/context"
+```
+
+```tsx
+<Context
+  maxTokens={128_000}
+  modelId="openai:gpt-4o-mini"
+  usedTokens={40_000}
+  usage={usage}
+>
+  <ContextTrigger />
+  <ContextContent>
+    <ContextContentHeader />
+    <ContextContentBody>
+      <ContextInputUsage />
+      <ContextOutputUsage />
+      <ContextReasoningUsage />
+      <ContextCacheUsage />
+    </ContextContentBody>
+    <ContextContentFooter />
+  </ContextContent>
+</Context>
+```
+
+## API Reference
+
+### Context
+
+<AutoTypeTable path="src/features/doc/content/props.ts" name="ContextProps" />
+
+### ContextTrigger
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="ContextTriggerProps"
+/>
+
+### ContextContent
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="ContextContentProps"
+/>
+
+### ContextContentHeader
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="ContextContentHeaderProps"
+/>
+
+### ContextContentBody
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="ContextContentBodyProps"
+/>
+
+### ContextContentFooter
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="ContextContentFooterProps"
+/>
+
+### Usage Components
+
+`ContextInputUsage`, `ContextOutputUsage`, `ContextReasoningUsage`, and
+`ContextCacheUsage` share the same props.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="ContextUsageProps"
+/>
+
+## Component Architecture
+
+1. `<Context>` provides token usage data to every child.
+2. `<ContextTrigger>` renders the interactive trigger.
+3. `<ContextContent>` renders the hover card container.
+4. `<ContextContentHeader>` renders progress and token totals.
+5. `<ContextContentBody>` groups usage rows.
+6. `<ContextContentFooter>` renders total cost.
+7. Usage components render the individual token categories.
+
+## Token Formatting
+
+Token counts use `Intl.NumberFormat` with compact notation, so values scale from
+exact counts to `K`, `M`, and `B` suffixes automatically.
+
+## Cost Calculation
+
+When `modelId` is provided, the component passes non-cached input, output,
+reasoning, cache reads, and cache writes to `tokenlens`. Costs are formatted as
+USD and omitted when pricing is unavailable.
+
+## References
+
+- [AI Elements Context](https://elements.ai-sdk.dev/components/context)
+- [Tokenlens](https://tokenlens.dev/docs)

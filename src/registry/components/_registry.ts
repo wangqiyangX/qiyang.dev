@@ -20,6 +20,28 @@ export const components: Registry["items"] = [
     dependencies: ["mermaid"],
   },
   {
+    name: "context",
+    type: "registry:component",
+    title: "Context",
+    description:
+      "Display AI context window usage, token breakdowns, and cost estimates.",
+    files: [
+      {
+        path: "components/context/context.tsx",
+        type: "registry:component",
+        target: "components/context.tsx",
+      },
+    ],
+    docs: "https://qiyang.dev/components/context",
+    registryDependencies: [
+      "button",
+      "hover-card",
+      "progress",
+      getRegistryItemUrl("utils"),
+    ],
+    dependencies: ["ai", "tokenlens"],
+  },
+  {
     name: "shimmer",
     type: "registry:component",
     title: "Shimmer",

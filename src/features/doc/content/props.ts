@@ -1,8 +1,10 @@
+import type { LanguageModelUsage } from "ai"
 import type { motion } from "motion/react"
-import type { ComponentProps } from "react"
+import type { ComponentProps, ReactNode } from "react"
 
 import type { Button } from "@/components/ui/button"
 import type { AppleHelloEffectEnglish } from "@/registry/components/apple-hello-effect/apple-hello-effect-english"
+import type { ModelId } from "@/registry/components/context"
 import type { CopyButton } from "@/registry/components/copy-button"
 import type { GitHubContributions } from "@/registry/components/github-contributions"
 import type { GlowCardGrid } from "@/registry/components/glow-card-grid/glow-card-grid"
@@ -30,6 +32,77 @@ export type ShimmeringTextProps = Omit<
 export type ShimmerProps = ShimmerOwnProps
 
 export type MermaidDiagramProps = MermaidDiagramOwnProps
+
+export type ContextProps = {
+  /**
+   * The total context window size in tokens.
+   */
+  maxTokens: number
+  /**
+   * The number of tokens currently used.
+   */
+  usedTokens: number
+  /**
+   * Detailed token usage breakdown from the AI SDK.
+   */
+  usage?: LanguageModelUsage
+  /**
+   * Model identifier for cost calculation.
+   *
+   * @example "openai:gpt-4o-mini"
+   */
+  modelId?: ModelId
+}
+
+export type ContextTriggerProps = {
+  /**
+   * Custom trigger element. If omitted, a button with usage percentage and
+   * progress icon is rendered.
+   */
+  children?: ReactNode
+}
+
+export type ContextContentProps = {
+  /**
+   * Additional classes for the hover card content.
+   */
+  className?: string
+}
+
+export type ContextContentHeaderProps = {
+  /**
+   * Custom header content. If omitted, renders percentage, token counts, and
+   * progress bar.
+   */
+  children?: ReactNode
+}
+
+export type ContextContentBodyProps = {
+  /**
+   * Body content, typically containing usage breakdown components.
+   */
+  children?: ReactNode
+}
+
+export type ContextContentFooterProps = {
+  /**
+   * Custom footer content. If omitted, renders total cost when a model ID is
+   * available.
+   */
+  children?: ReactNode
+}
+
+export type ContextUsageProps = {
+  /**
+   * Custom row content. If omitted, renders token count and cost for the usage
+   * type.
+   */
+  children?: ReactNode
+  /**
+   * Additional classes for the usage row.
+   */
+  className?: string
+}
 
 export type SlideToUnlockRootProps = Omit<
   ComponentProps<typeof SlideToUnlock>,
