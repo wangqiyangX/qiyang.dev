@@ -21,6 +21,29 @@
       "author": "qiyangdev <wangqiyangx@gmail.com>"
     },
     {
+      "name": "mermaid-diagram",
+      "title": "Mermaid Diagram",
+      "description": "Render Mermaid diagrams inside a themed shadcn surface.",
+      "dependencies": [
+        "mermaid"
+      ],
+      "registryDependencies": [
+        "alert",
+        "skeleton",
+        "https://qiyang.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/mermaid-diagram/mermaid-diagram.tsx",
+          "type": "registry:component",
+          "target": "components/mermaid-diagram.tsx"
+        }
+      ],
+      "docs": "https://qiyang.dev/components/mermaid-diagram",
+      "type": "registry:component",
+      "author": "qiyangdev <wangqiyangx@gmail.com>"
+    },
+    {
       "name": "shimmer",
       "title": "Shimmer",
       "description": "Animate text with a sweeping shimmer that respects reduced motion.",

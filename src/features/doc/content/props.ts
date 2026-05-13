@@ -6,6 +6,7 @@ import type { AppleHelloEffectEnglish } from "@/registry/components/apple-hello-
 import type { CopyButton } from "@/registry/components/copy-button"
 import type { GitHubContributions } from "@/registry/components/github-contributions"
 import type { GlowCardGrid } from "@/registry/components/glow-card-grid/glow-card-grid"
+import type { MermaidDiagramOwnProps } from "@/registry/components/mermaid-diagram"
 import type { MiddleTruncation } from "@/registry/components/middle-truncation/middle-truncation"
 import type { ScrollFadeEffect } from "@/registry/components/scroll-fade-effect"
 import type { ShimmerOwnProps } from "@/registry/components/shimmer"
@@ -27,6 +28,8 @@ export type ShimmeringTextProps = Omit<
 >
 
 export type ShimmerProps = ShimmerOwnProps
+
+export type MermaidDiagramProps = MermaidDiagramOwnProps
 
 export type SlideToUnlockRootProps = Omit<
   ComponentProps<typeof SlideToUnlock>,

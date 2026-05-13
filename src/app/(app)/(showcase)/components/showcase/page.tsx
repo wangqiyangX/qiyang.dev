@@ -15,6 +15,7 @@ import {
 } from "@/components/page-heading"
 import { X_HANDLE } from "@/config/site"
 import { cn } from "@/lib/utils"
+import MermaidDiagramDemo from "@/registry/examples/mermaid-diagram-demo"
 import ShimmerDemo from "@/registry/examples/shimmer-demo"
 
 const title = "Component Showcase"
@@ -97,6 +98,10 @@ export default function ComponentsShowcasePage() {
       <div className="screen-line-bottom h-px" />
 
       <div className="grid grid-cols-1 gap-1 p-1 md:grid-cols-3">
+        <GridItem className="md:col-span-2">
+          <MermaidDiagramDemo />
+        </GridItem>
+
         <GridItem>
           <ShimmerDemo />
         </GridItem>

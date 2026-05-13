@@ -1,0 +1,106 @@
+---
+title: Mermaid Diagram
+description: Render Mermaid diagrams inside a themed shadcn surface.
+category: components
+new: true
+createdAt: 2026-05-13
+updatedAt: 2026-05-13
+---
+
+<ComponentPreview
+  className="**:data-[slot=component-preview]:min-h-80"
+  name="mermaid-diagram-demo"
+  openInV0Url="https://qiyang.dev/r/mermaid-diagram.json"
+  remountOnThemeChange
+/>
+
+## Features
+
+- Renders Mermaid chart source as SVG on the client.
+- Matches light and dark shadcn themes with Mermaid theme variables.
+- Shows loading and parse-error states with shadcn/ui primitives.
+- Accepts Mermaid config overrides for diagram-specific needs.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @qiyangdev/mermaid-diagram
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Add shadcn/ui dependencies</Step>
+
+```bash
+npx shadcn@latest add alert skeleton
+```
+
+<Step>Install dependencies</Step>
+
+```bash
+pnpm add mermaid
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="mermaid-diagram"
+  title="components/mermaid-diagram.tsx"
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { MermaidDiagram } from "@/components/mermaid-diagram"
+
+const chart = `
+flowchart LR
+  A["Write diagram source"] --> B["Render with Mermaid"]
+  B --> C["Display in your UI"]
+`
+```
+
+```tsx
+<MermaidDiagram chart={chart} />
+```
+
+## API Reference
+
+### MermaidDiagram
+
+Extends the native `div` element and accepts these additional props.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="MermaidDiagramProps"
+/>
+
+## References
+
+- [Mermaid](https://mermaid.js.org/)

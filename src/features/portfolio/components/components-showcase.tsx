@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Button } from "@/components/base/ui/button"
 import { getDocsByCategory } from "@/features/doc/data/documents"
 import { cn } from "@/lib/utils"
+import MermaidDiagramDemo from "@/registry/examples/mermaid-diagram-demo"
 import ShimmerDemo from "@/registry/examples/shimmer-demo"
 
 import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "./panel"
@@ -21,6 +22,10 @@ export function ComponentsShowcase() {
       </PanelHeader>
 
       <div className="grid grid-cols-1 gap-1 p-1 md:grid-cols-3">
+        <GridItem className="md:col-span-2">
+          <MermaidDiagramDemo />
+        </GridItem>
+
         <GridItem>
           <ShimmerDemo />
         </GridItem>

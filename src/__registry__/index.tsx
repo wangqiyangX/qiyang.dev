@@ -24,6 +24,23 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "mermaid-diagram": {
+    name: "mermaid-diagram",
+    description: "Render Mermaid diagrams inside a themed shadcn surface.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/mermaid-diagram/mermaid-diagram.tsx",
+      type: "registry:component",
+      target: "components/mermaid-diagram.tsx",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/mermaid-diagram/mermaid-diagram.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "shimmer": {
     name: "shimmer",
     description: "Animate text with a sweeping shimmer that respects reduced motion.",
@@ -35,6 +52,23 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/components/shimmer/shimmer.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "mermaid-diagram-demo": {
+    name: "mermaid-diagram-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/mermaid-diagram-demo.tsx",
+      type: "registry:example",
+      target: "",
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/mermaid-diagram-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

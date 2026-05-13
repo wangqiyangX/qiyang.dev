@@ -4,6 +4,22 @@ import { getRegistryItemUrl } from "@/utils/registry"
 
 export const components: Registry["items"] = [
   {
+    name: "mermaid-diagram",
+    type: "registry:component",
+    title: "Mermaid Diagram",
+    description: "Render Mermaid diagrams inside a themed shadcn surface.",
+    files: [
+      {
+        path: "components/mermaid-diagram/mermaid-diagram.tsx",
+        type: "registry:component",
+        target: "components/mermaid-diagram.tsx",
+      },
+    ],
+    docs: "https://qiyang.dev/components/mermaid-diagram",
+    registryDependencies: ["alert", "skeleton", getRegistryItemUrl("utils")],
+    dependencies: ["mermaid"],
+  },
+  {
     name: "shimmer",
     type: "registry:component",
     title: "Shimmer",
