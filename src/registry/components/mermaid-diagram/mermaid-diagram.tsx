@@ -24,6 +24,50 @@ type MermaidRenderState =
       svg: string
     }
 
+function getCssIdSelector(id: string) {
+  if (typeof CSS !== "undefined" && typeof CSS.escape === "function") {
+    return `#${CSS.escape(id)}`
+  }
+
+  return `#${id.replace(/[^a-zA-Z0-9_-]/g, "\\$&")}`
+}
+
+function getMermaidSelectionStyle(svgId: string) {
+  const selector = getCssIdSelector(svgId)
+
+  return `
+${selector} text::selection,
+${selector} tspan::selection,
+${selector} foreignObject *::selection {
+  background-color: color-mix(in oklab, var(--primary) 22%, var(--background));
+  color: var(--foreground);
+  fill: var(--foreground);
+}
+`
+}
+
+function applyMermaidSelectionStyle(svg: string) {
+  const svgDocument = new DOMParser().parseFromString(svg, "image/svg+xml")
+  const svgElement = svgDocument.querySelector("svg")
+
+  if (svgDocument.querySelector("parsererror") || !svgElement?.id) {
+    return svg
+  }
+
+  const selectionStyle = getMermaidSelectionStyle(svgElement.id)
+  const styleElement =
+    svgDocument.querySelector("style") ??
+    svgDocument.createElementNS("http://www.w3.org/2000/svg", "style")
+
+  styleElement.textContent = `${styleElement.textContent ?? ""}\n${selectionStyle}`
+
+  if (!styleElement.parentNode) {
+    svgElement.insertBefore(styleElement, svgElement.firstChild)
+  }
+
+  return new XMLSerializer().serializeToString(svgElement)
+}
+
 export type MermaidDiagramOwnProps = {
   /**
    * Mermaid diagram source. If omitted, the component uses string children.
@@ -251,7 +295,10 @@ const MermaidDiagram = React.forwardRef<HTMLDivElement, MermaidDiagramProps>(
             return
           }
 
-          setRenderState({ status: "rendered", svg })
+          setRenderState({
+            status: "rendered",
+            svg: applyMermaidSelectionStyle(svg),
+          })
 
           requestAnimationFrame(() => {
             if (!cancelled && diagramRef.current) {
@@ -313,7 +360,7 @@ const MermaidDiagram = React.forwardRef<HTMLDivElement, MermaidDiagramProps>(
           <div
             data-slot="mermaid-diagram-caption"
             className={cn(
-              "border-t px-4 py-2 text-sm text-muted-foreground",
+              "border-t px-4 py-2 text-xs text-muted-foreground",
               captionClassName
             )}
           >
